@@ -3,6 +3,31 @@ use super::{Ctx, Progress, Step, StepId};
 use crate::registry::{read_value, RegFile, RegValue};
 use crate::wine::run_logged;
 
+/// Wine links each user's Desktop to the host's `~/Desktop`; installers would then put
+/// their shortcuts on the real desktop and the grid would show them from there. Replace
+/// the link by a private folder (Wine only creates the link when the folder is missing).
+/// Documents, Music and Downloads stay linked on purpose: projects and downloads belong
+/// in the user's home.
+pub fn make_desktops_private(prefix: &std::path::Path) -> anyhow::Result<()> {
+    for desk in user_desktops(prefix) {
+        if desk.symlink_metadata().is_ok_and(|m| m.file_type().is_symlink()) {
+            std::fs::remove_file(&desk)?; // removes the link only
+            std::fs::create_dir(&desk)?;
+        }
+    }
+    Ok(())
+}
+
+fn desktops_private(prefix: &std::path::Path) -> bool {
+    user_desktops(prefix).iter().all(|d| !d.symlink_metadata().is_ok_and(|m| m.file_type().is_symlink()))
+}
+
+fn user_desktops(prefix: &std::path::Path) -> Vec<std::path::PathBuf> {
+    std::fs::read_dir(prefix.join("drive_c/users"))
+        .map(|rd| rd.filter_map(Result::ok).map(|e| e.path().join("Desktop")).collect())
+        .unwrap_or_default()
+}
+
 pub struct PrefixStep;
 
 impl Step for PrefixStep {
@@ -17,6 +42,7 @@ impl Step for PrefixStep {
         pre.join("system.reg").is_file()
             && pre.join("drive_c/windows/mono").is_dir()
             && read_value(&pre.join("user.reg"), r"Software\Wine", "Version").as_deref() == Some("\"win10\"")
+            && desktops_private(pre)
     }
     fn run(&self, ctx: &Ctx, p: &Progress) -> anyhow::Result<()> {
         for d in [&ctx.paths.data, &ctx.paths.cache, &ctx.paths.logs] {
@@ -27,6 +53,7 @@ impl Step for PrefixStep {
         cmd.env("WINEDLLOVERRIDES", "mshtml=d"); // no Gecko download prompt; nothing here needs it
         let st = run_logged(cmd, &ctx.log)?;
         anyhow::ensure!(st.success(), "wineboot failed ({st})");
+        make_desktops_private(&ctx.paths.prefix)?;
         p.fraction(self.id(), 0.8);
         p.status(self.id(), "Setting Windows 10 mode…");
         let mut reg = RegFile::new();
@@ -52,6 +79,27 @@ case "$1" in
   regedit) f=$(echo "$3" | sed -e 's/^Z://' -e 's#\\#/#g'); if iconv -f UTF-16 -t UTF-8 "$f" | grep -q '"Version"="win10"'; then printf '[Software\\\\Wine] 1\n"Version"="win10"\n' >> "$WINEPREFIX/user.reg"; fi ;;
 esac
 "#;
+
+    #[test]
+    fn desktop_symlinks_become_private_folders() {
+        let d = tempfile::tempdir().unwrap();
+        let home_desktop = d.path().join("home/Desktop");
+        std::fs::create_dir_all(&home_desktop).unwrap();
+        std::fs::write(home_desktop.join("mine.txt"), b"keep").unwrap();
+        let users = d.path().join("prefix/drive_c/users");
+        std::fs::create_dir_all(users.join("xg")).unwrap();
+        std::fs::create_dir_all(users.join("Public/Desktop")).unwrap();
+        std::os::unix::fs::symlink(&home_desktop, users.join("xg/Desktop")).unwrap();
+        std::os::unix::fs::symlink(d.path().join("home/Documents"), users.join("xg/Documents")).unwrap();
+        let prefix = d.path().join("prefix");
+        assert!(!desktops_private(&prefix));
+        make_desktops_private(&prefix).unwrap();
+        let desk = users.join("xg/Desktop");
+        assert!(desk.is_dir() && !desk.symlink_metadata().unwrap().file_type().is_symlink());
+        assert!(users.join("xg/Documents").symlink_metadata().unwrap().file_type().is_symlink(), "Documents stays linked");
+        assert_eq!(std::fs::read(home_desktop.join("mine.txt")).unwrap(), b"keep", "the host desktop is untouched");
+        assert!(desktops_private(&prefix));
+    }
 
     #[test]
     fn prefix_step_runs_wineboot_with_mshtml_disabled_and_sets_win10() {

@@ -183,8 +183,15 @@ impl StudioWineApp {
                 ui.add_space(6.0);
             }
             ui.add_space(8.0);
+            if let Some((m, true)) = &self.message {
+                ui.colored_label(ui.visuals().error_fg_color, m);
+            }
             ui.horizontal(|ui| {
-                if self.wizard.running() {
+                if let Some(job) = &self.job {
+                    // e.g. a reset still deleting the old environment
+                    ui.spinner();
+                    ui.label(if job.status.is_empty() { job.label.clone() } else { format!("{}: {}", job.label, job.status) });
+                } else if self.wizard.running() {
                     ui.spinner();
                     ui.label("Working…");
                 } else if failed {

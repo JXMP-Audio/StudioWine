@@ -61,6 +61,13 @@ impl StudioWineApp {
         let (mut open, mut go, mut browse) = (true, false, false);
         egui::Window::new(title).open(&mut open).collapsible(false).resizable(false).show(ctx, |ui| {
             ui.label(hint);
+            if pr.purpose == Purpose::ImportFonts {
+                // Registering fonts restarts the wineserver, which ends every Windows program.
+                ui.colored_label(
+                    ui.visuals().warn_fg_color,
+                    "Importing closes all running Windows programs (Cubase, plug-in hosts…). Save your work first.",
+                );
+            }
             let r = ui.add(egui::TextEdit::singleline(&mut pr.text).desired_width(460.0));
             if !pr.focused {
                 r.request_focus();
