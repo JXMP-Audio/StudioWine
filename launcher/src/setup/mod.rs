@@ -1,6 +1,9 @@
 //! Setup wizard steps and the runner that executes them.
 pub mod fonts_step;
 pub mod prefix;
+pub mod sda;
+pub mod shim;
+pub mod webview2;
 
 use crate::download::Http;
 use crate::log::LogSink;
@@ -73,7 +76,13 @@ pub trait Step: Send + Sync {
 }
 
 pub fn all_steps() -> Vec<Box<dyn Step>> {
-    vec![Box::new(prefix::PrefixStep), Box::new(fonts_step::FontsStep)]
+    vec![
+        Box::new(prefix::PrefixStep),
+        Box::new(fonts_step::FontsStep),
+        Box::new(webview2::WebView2Step),
+        Box::new(shim::ShimStep),
+        Box::new(sda::SdaStep),
+    ]
 }
 
 /// Runs `steps` in order on a worker thread. Stops at the first failure; a step whose
