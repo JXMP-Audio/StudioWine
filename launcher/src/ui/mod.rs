@@ -85,6 +85,7 @@ impl StudioWineApp {
         };
         app.rewrite_handlers();
         app.refresh_checks();
+        app.wizard = wizard::Wizard::with_done(&app.steps_done);
         app.mode = mode_for(&State::load(&app.paths.state_file), &app.steps_done);
         app
     }

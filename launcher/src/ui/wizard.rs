@@ -34,6 +34,19 @@ impl Wizard {
         Wizard { rows, rx: None }
     }
 
+    /// Rows of steps whose check already passes start as done (resuming a setup).
+    pub fn with_done(steps: &[(StepId, bool)]) -> Wizard {
+        let mut w = Wizard::new();
+        for r in &mut w.rows {
+            if steps.iter().any(|(id, ok)| *id == r.id && *ok) {
+                r.state = RowState::Done;
+                r.fraction = 1.0;
+                r.status = "Done".into();
+            }
+        }
+        w
+    }
+
     pub fn running(&self) -> bool {
         self.rx.is_some()
     }
@@ -133,7 +146,8 @@ impl StudioWineApp {
     }
 
     pub(super) fn restart_wizard(&mut self) {
-        self.wizard = super::wizard::Wizard::new();
+        self.refresh_checks();
+        self.wizard = Wizard::with_done(&self.steps_done);
         self.mode = Mode::Wizard;
     }
 
@@ -186,5 +200,17 @@ impl StudioWineApp {
                 }
             });
         });
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn verified_steps_start_as_done() {
+        let w = Wizard::with_done(&[(StepId::Prefix, true), (StepId::Fonts, false)]);
+        assert!(w.rows.iter().find(|r| r.id == StepId::Prefix).unwrap().state == RowState::Done);
+        assert!(w.rows.iter().find(|r| r.id == StepId::Fonts).unwrap().state == RowState::Pending);
     }
 }

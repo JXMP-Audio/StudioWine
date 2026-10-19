@@ -59,7 +59,9 @@ impl StudioWineApp {
                 let _ = std::fs::remove_file(&state_file);
                 Ok("The Wine environment was deleted.".into())
             });
-            self.restart_wizard();
+            // Fresh rows: the deletion is still running, so the checks would see the old prefix.
+            self.wizard = super::wizard::Wizard::new();
+            self.mode = super::Mode::Wizard;
         }
         if reset || close {
             self.settings.confirm_reset = false;
