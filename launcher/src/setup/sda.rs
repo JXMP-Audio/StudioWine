@@ -78,6 +78,8 @@ impl Step for SdaStep {
         ctx.log.line(&format!("Download Assistant installer finished: {st}"));
         p.status(id, "Registering sign-in links…");
         ctx.wine.run_wait(["winemenubuilder", "-a", "-r"], &ctx.log)?;
+        let n = crate::handlers::rewrite_all(&ctx.paths.prefix, &ctx.paths.appimage)?;
+        ctx.log.line(&format!("{n} menu entries / URL handlers now point at {}", ctx.paths.appimage.display()));
         Ok(())
     }
 }

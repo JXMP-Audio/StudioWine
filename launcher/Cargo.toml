@@ -13,6 +13,9 @@ dirs = "7"
 ureq = "3"
 ttf-parser = "0.25"
 sha2 = "0.11"
+lnk = "0.6"
+pelite = "0.10"
+image = { version = "0.25", default-features = false, features = ["ico", "png", "bmp"] }
 
 [dev-dependencies]
 tempfile = "3"

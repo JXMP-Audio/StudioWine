@@ -1,9 +1,12 @@
 mod download;
 mod fonts;
+mod handlers;
+mod icons;
 mod log;
 mod paths;
 mod registry;
 mod setup;
+mod shortcuts;
 mod state;
 mod wine;
 
