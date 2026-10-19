@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=StudioWine
+Comment=Run Windows music software with Wine
+Exec=studiowine
+Icon=studiowine
+Categories=AudioVideo;Audio;
+Terminal=false
+StartupWMClass=studiowine

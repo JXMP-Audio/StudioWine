@@ -29,7 +29,7 @@ stage() {
         shim)     in_container build/stages/30-shim.sh --test ;;
         launcher) in_container build/stages/40-launcher.sh ;;
         appdir)   in_container build/stages/50-appdir.sh ;;
-        appimage) bash "$REPO/build/stages/60-appimage.sh" ;;
+        appimage) in_container build/stages/60-appimage.sh ;;
         all)      for s in image wine fonts shim launcher appdir appimage; do stage "$s"; done ;;
         *) echo "unknown stage: $1" >&2; exit 2 ;;
     esac
