@@ -26,7 +26,7 @@ stage() {
         image)    image ;;
         wine)     in_container build/stages/10-wine.sh ;;
         fonts)    in_container build/stages/20-fonts.sh ;;
-        shim)     in_container build/stages/30-shim.sh ;;
+        shim)     in_container build/stages/30-shim.sh --test ;;
         launcher) in_container build/stages/40-launcher.sh ;;
         appdir)   in_container build/stages/50-appdir.sh ;;
         appimage) bash "$REPO/build/stages/60-appimage.sh" ;;
