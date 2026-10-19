@@ -2,7 +2,6 @@
 use anyhow::Context;
 use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
-use ureq::ResponseExt;
 
 /// Only HTTPS, except plain HTTP to the loopback stub in tests.
 fn check_scheme(url: &str) -> anyhow::Result<()> {
@@ -10,6 +9,21 @@ fn check_scheme(url: &str) -> anyhow::Result<()> {
         Ok(())
     } else {
         anyhow::bail!("refusing to download over a non-HTTPS connection: {url}")
+    }
+}
+
+/// Resolves a Location header against the URL it came from.
+fn join_url(base: &str, loc: &str) -> String {
+    if loc.contains("://") {
+        return loc.to_string();
+    }
+    let (scheme, rest) = base.split_once("://").unwrap_or(("https", base));
+    let authority = rest.split('/').next().unwrap_or(rest);
+    if loc.starts_with('/') {
+        format!("{scheme}://{authority}{loc}")
+    } else {
+        let dir = base.split(['?', '#']).next().unwrap_or(base).rsplit_once('/').map(|(d, _)| d).unwrap_or(base);
+        format!("{dir}/{loc}")
     }
 }
 
@@ -31,27 +45,47 @@ pub struct Http {
 impl Http {
     pub fn new() -> Http {
         let config = ureq::Agent::config_builder()
-            .max_redirects(10)
+            .max_redirects(0) // redirects are followed by `call`, which checks every hop
+            .max_redirects_will_error(false)
             .user_agent("StudioWine/0.1.0")
             .timeout_connect(Some(std::time::Duration::from_secs(30)))
             .build();
         Http { agent: config.into() }
     }
 
+    /// GET or HEAD `url`, following up to 10 redirects; every hop must pass `check_scheme`,
+    /// so an HTTPS link can never be downgraded. Returns the response and the final URL.
+    fn call(&self, head: bool, url: &str) -> anyhow::Result<(ureq::http::Response<ureq::Body>, String)> {
+        let mut current = url.to_string();
+        for _ in 0..=10 {
+            check_scheme(&current)?;
+            let r = if head { self.agent.head(&current).call() } else { self.agent.get(&current).call() }
+                .with_context(|| format!("cannot reach {current}"))?;
+            if !r.status().is_redirection() {
+                return Ok((r, current));
+            }
+            let loc = r
+                .headers()
+                .get("location")
+                .and_then(|v| v.to_str().ok())
+                .ok_or_else(|| anyhow::anyhow!("redirect without a Location from {current}"))?;
+            current = join_url(&current, loc);
+        }
+        anyhow::bail!("too many redirects from {url}")
+    }
+
     pub fn get_text(&self, url: &str) -> anyhow::Result<String> {
-        check_scheme(url)?;
-        let mut r = self.agent.get(url).call().with_context(|| format!("cannot fetch {url}"))?;
+        let (mut r, _) = self.call(false, url)?;
         Ok(r.body_mut().read_to_string().with_context(|| format!("cannot read {url}"))?)
     }
 
     /// The URL a link finally lands on after redirects.
     pub fn resolve_final_url(&self, url: &str) -> anyhow::Result<String> {
-        check_scheme(url)?;
-        let r = match self.agent.head(url).call() {
-            Ok(r) => r,
-            Err(_) => self.agent.get(url).call().with_context(|| format!("cannot reach {url}"))?,
-        };
-        Ok(r.get_uri().to_string())
+        match self.call(true, url) {
+            Ok((_, u)) => Ok(u),
+            Err(e) if format!("{e:#}").contains("HTTPS") => Err(e),
+            Err(_) => Ok(self.call(false, url)?.1),
+        }
     }
 
     /// Downloads a Windows executable into `dest_dir`, named after the last path segment
@@ -61,21 +95,17 @@ impl Http {
     }
 
     fn try_download(&self, url: &str, dest_dir: &Path, progress: &dyn Fn(u64, Option<u64>)) -> anyhow::Result<PathBuf> {
-        check_scheme(url)?;
         std::fs::create_dir_all(dest_dir)?;
-        let head = self.agent.head(url).call().ok();
-        if let Some(h) = &head {
-            let dest = dest_dir.join(file_name(&h.get_uri().to_string())?);
-            if let (Some(len), Ok(meta)) = (content_length(h), std::fs::metadata(&dest)) {
+        if let Ok((h, final_url)) = self.call(true, url) {
+            let dest = dest_dir.join(file_name(&final_url)?);
+            if let (Some(len), Ok(meta)) = (content_length(&h), std::fs::metadata(&dest)) {
                 if meta.len() == len {
                     progress(len, Some(len));
                     return Ok(dest);
                 }
             }
         }
-        let mut resp = self.agent.get(url).call()?;
-        let final_url = resp.get_uri().to_string();
-        check_scheme(&final_url)?;
+        let (mut resp, final_url) = self.call(false, url)?;
         let dest = dest_dir.join(file_name(&final_url)?);
         let total = content_length(&resp);
         let part = dest.with_file_name(format!("{}.part", dest.file_name().unwrap().to_string_lossy()));
@@ -133,7 +163,10 @@ mod tests {
                 let n = s.read(&mut buf).unwrap_or(0);
                 let req = String::from_utf8_lossy(&buf[..n]).to_string();
                 let line = req.lines().next().unwrap_or("").to_string();
-                if line.contains(" /go ") {
+                if line.contains(" /downgrade ") {
+                    let port = s.local_addr().unwrap().port();
+                    let _ = write!(s, "HTTP/1.1 302 Found\r\nLocation: http://localhost:{port}/file.exe\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
+                } else if line.contains(" /go ") {
                     let _ = s.write_all(b"HTTP/1.1 302 Found\r\nLocation: /file.exe\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
                 } else if line.starts_with("HEAD") {
                     let _ = write!(s, "HTTP/1.1 200 OK\r\nContent-Length: {declared_len}\r\nConnection: close\r\n\r\n");
@@ -197,6 +230,18 @@ mod tests {
         let last = std::sync::Mutex::new((0u64, None));
         Http::new().download_exe(&format!("{base}/go"), d.path(), &|a, b| *last.lock().unwrap() = (a, b)).unwrap();
         assert_eq!(*last.lock().unwrap(), (5000, Some(5000)));
+    }
+
+    #[test]
+    fn redirect_to_plain_http_is_refused() {
+        let (base, gets) = stub(pe(100), 100);
+        let d = tempfile::tempdir().unwrap();
+        let h = Http::new();
+        let e = h.download_exe(&format!("{base}/downgrade"), d.path(), &|_, _| {}).unwrap_err();
+        assert!(format!("{e:#}").contains("HTTPS"), "{e:#}");
+        assert!(h.resolve_final_url(&format!("{base}/downgrade")).is_err());
+        assert!(h.get_text(&format!("{base}/downgrade")).is_err());
+        assert_eq!(gets.load(Ordering::SeqCst), 0, "must not follow the downgraded hop");
     }
 
     #[test]
