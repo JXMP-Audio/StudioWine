@@ -24,6 +24,11 @@ pub fn run_logged(mut cmd: Command, log: &LogSink) -> anyhow::Result<ExitStatus>
     Ok(status)
 }
 
+/// A Unix path as Wine sees it through its `Z:` drive (`/a b/c` → `Z:\\a b\\c`).
+pub fn dos_path(p: &std::path::Path) -> String {
+    format!("Z:{}", p.to_string_lossy().replace('/', "\\"))
+}
+
 #[derive(Clone)]
 pub struct Wine {
     paths: Paths,
@@ -134,6 +139,11 @@ mod tests {
         for (k, _) in &env {
             assert_ne!(k, "WINEDLLOVERRIDES", "no DLL overrides for the graphics stack");
         }
+    }
+
+    #[test]
+    fn dos_path_maps_through_z_drive() {
+        assert_eq!(dos_path(Path::new("/tmp/a b/x.reg")), r"Z:\tmp\a b\x.reg");
     }
 
     #[test]

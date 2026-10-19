@@ -1,5 +1,6 @@
 mod log;
 mod paths;
+mod registry;
 mod setup;
 mod state;
 mod wine;

@@ -1,0 +1,13 @@
+WINE REGISTRY Version 2
+;; All keys relative to \\Machine
+
+#arch=win64
+
+[Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts] 1792430000
+#time=1db3f0a1c2d3e4f
+"Arial (TrueType)"="arial.ttf"
+"Segoe UI (TrueType)"="segoeui.ttf"
+
+[Software\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes] 1792430000
+#time=1db3f0a1c2d3e4f
+"MS Shell Dlg"="Tahoma"

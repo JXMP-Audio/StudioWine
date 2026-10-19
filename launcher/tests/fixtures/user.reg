@@ -1,0 +1,13 @@
+WINE REGISTRY Version 2
+;; All keys relative to \\User\\S-1-5-21-0-0-0-1000
+
+#arch=win64
+
+[Control Panel\\Desktop] 1792430000
+#time=1db3f0a1c2d3e4f
+"FontSmoothing"="2"
+"LogPixels"=dword:00000078
+
+[Software\\Wine] 1792430000
+#time=1db3f0a1c2d3e4f
+"Version"="win10"
