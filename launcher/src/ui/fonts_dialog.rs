@@ -46,16 +46,13 @@ impl StudioWineApp {
         });
         self.fonts.open = open;
         if import {
-            self.import_fonts();
+            self.prompt = Some(super::path_prompt::Prompt::new(super::path_prompt::Purpose::ImportFonts, String::new()));
         }
     }
 
-    fn import_fonts(&mut self) {
+    pub(super) fn import_fonts(&mut self, dir: std::path::PathBuf) {
         let ctx = self.ctx.clone();
         self.spawn_job("Importing fonts", move |report| {
-            let Some(dir) = rfd::FileDialog::new().set_title("Folder with Windows fonts").pick_folder() else {
-                return Ok(String::new());
-            };
             let r = fonts::import_user_fonts(&dir, &ctx.paths)?;
             if r.copied.is_empty() {
                 anyhow::bail!("no Windows font files (segoeui.ttf, micross.ttf, arial.ttf, …) found in {}", dir.display());

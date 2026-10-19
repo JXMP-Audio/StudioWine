@@ -112,7 +112,7 @@ impl StudioWineApp {
             ui.add_space(4.0);
             ui.horizontal(|ui| {
                 if ui.add_enabled(!busy, egui::Button::new("Run .exe…")).on_hover_text("Run a Windows installer or program (.exe, .msi) in StudioWine").clicked() {
-                    self.run_exe();
+                    self.prompt = Some(super::path_prompt::Prompt::new(super::path_prompt::Purpose::RunProgram, String::new()));
                 }
                 if ui.button("Fonts…").clicked() {
                     self.fonts.open = true;
@@ -199,16 +199,9 @@ impl StudioWineApp {
         }
     }
 
-    fn run_exe(&mut self) {
+    pub(super) fn run_program(&mut self, file: PathBuf) {
         let ctx = self.ctx.clone();
         self.spawn_job("Running program", move |report| {
-            let Some(file) = rfd::FileDialog::new()
-                .set_title("Run a Windows installer or program")
-                .add_filter("Windows programs", &["exe", "msi", "EXE", "MSI"])
-                .pick_file()
-            else {
-                return Ok(String::new());
-            };
             let name = file.file_name().unwrap_or_default().to_string_lossy().into_owned();
             report(name.clone());
             let is_msi = file.extension().is_some_and(|e| e.eq_ignore_ascii_case("msi"));

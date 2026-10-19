@@ -1,6 +1,7 @@
 //! The StudioWine window (layout C): a one-time setup wizard, then the shortcut grid.
 pub mod fonts_dialog;
 pub mod grid;
+pub mod path_prompt;
 pub mod settings;
 pub mod wizard;
 
@@ -64,6 +65,7 @@ pub struct StudioWineApp {
     pub(super) fonts: fonts_dialog::FontsDialog,
     pub(super) settings: settings::Settings,
     pub(super) job: Option<Job>,
+    pub(super) prompt: Option<path_prompt::Prompt>,
     /// Last result line shown in the bottom bar: (text, is_error).
     pub(super) message: Option<(String, bool)>,
 }
@@ -81,6 +83,7 @@ impl StudioWineApp {
             fonts: fonts_dialog::FontsDialog::default(),
             settings: settings::Settings::default(),
             job: None,
+            prompt: None,
             message: None,
         };
         app.rewrite_handlers();
@@ -167,6 +170,10 @@ impl eframe::App for StudioWineApp {
             Mode::Main => self.main_ui(ui),
         }
         self.fonts_window(ui.ctx());
+        if self.mode == Mode::Main && self.job.is_none() {
+            self.handle_dropped_files(ui.ctx());
+            self.prompt_window(ui.ctx());
+        }
         self.reset_modal(ui.ctx());
     }
 }
