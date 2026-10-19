@@ -1,4 +1,5 @@
 mod download;
+mod fonts;
 mod log;
 mod paths;
 mod registry;

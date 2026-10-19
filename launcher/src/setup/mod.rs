@@ -1,4 +1,5 @@
 //! Setup wizard steps and the runner that executes them.
+pub mod fonts_step;
 pub mod prefix;
 
 use crate::download::Http;
@@ -72,7 +73,7 @@ pub trait Step: Send + Sync {
 }
 
 pub fn all_steps() -> Vec<Box<dyn Step>> {
-    vec![Box::new(prefix::PrefixStep)]
+    vec![Box::new(prefix::PrefixStep), Box::new(fonts_step::FontsStep)]
 }
 
 /// Runs `steps` in order on a worker thread. Stops at the first failure; a step whose
