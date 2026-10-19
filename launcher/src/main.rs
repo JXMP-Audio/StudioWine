@@ -1,3 +1,4 @@
+mod download;
 mod log;
 mod paths;
 mod registry;
