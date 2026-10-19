@@ -1,0 +1,1088 @@
+dll	importer
+CRYPT32.dll	Cubase15.exe
+SHELL32.dll	Cubase15.exe
+WINTRUST.dll	Cubase15.exe
+SHLWAPI.dll	Cubase15.exe
+USER32.dll	Cubase15.exe
+ole32.dll	Cubase15.exe
+imagegenerator.dll	Cubase15.exe
+MSVCP140.dll	Cubase15.exe
+WINMM.dll	Cubase15.exe
+CONCRT140.dll	Cubase15.exe
+dbghelp.dll	Cubase15.exe
+dxgi.dll	Cubase15.exe
+dwmapi.dll	Cubase15.exe
+api-ms-win-core-handle-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-synch-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-synch-l1-2-1.dll	Cubase15.exe
+api-ms-win-core-processthreads-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-synch-l1-2-0.dll	Cubase15.exe
+api-ms-win-core-string-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-libraryloader-l1-2-0.dll	Cubase15.exe
+api-ms-win-core-libraryloader-l1-2-1.dll	Cubase15.exe
+api-ms-win-core-errorhandling-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-heap-l2-1-0.dll	Cubase15.exe
+api-ms-win-core-string-l2-1-0.dll	Cubase15.exe
+api-ms-win-core-processthreads-l1-1-1.dll	Cubase15.exe
+api-ms-win-core-processtopology-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-com-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-sysinfo-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-localization-l1-2-0.dll	Cubase15.exe
+api-ms-win-core-localization-l1-2-2.dll	Cubase15.exe
+api-ms-win-core-registry-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-file-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-namedpipe-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-processenvironment-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-sysinfo-l1-2-0.dll	Cubase15.exe
+api-ms-win-core-profile-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-io-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-io-l1-1-1.dll	Cubase15.exe
+api-ms-win-core-debug-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-file-l1-2-0.dll	Cubase15.exe
+api-ms-win-core-file-l2-1-0.dll	Cubase15.exe
+api-ms-win-core-datetime-l1-1-0.dll	Cubase15.exe
+OLEAUT32.dll	Cubase15.exe
+api-ms-win-core-memory-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-console-l1-2-0.dll	Cubase15.exe
+api-ms-win-core-console-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-timezone-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-console-l2-1-0.dll	Cubase15.exe
+api-ms-win-core-processthreads-l1-1-3.dll	Cubase15.exe
+WS2_32.dll	Cubase15.exe
+api-ms-win-core-file-l1-2-2.dll	Cubase15.exe
+api-ms-win-core-file-l2-1-2.dll	Cubase15.exe
+api-ms-win-core-rtlsupport-l1-1-0.dll	Cubase15.exe
+api-ms-win-core-interlocked-l1-1-0.dll	Cubase15.exe
+pdh.dll	Cubase15.exe
+COMCTL32.dll	Cubase15.exe
+UxTheme.dll	Cubase15.exe
+prntvpt.dll	Cubase15.exe
+api-ms-win-shcore-scaling-l1-1-1.dll	Cubase15.exe
+AVRT.dll	Cubase15.exe
+KERNEL32.dll	Cubase15.exe
+VCRUNTIME140.dll	Cubase15.exe
+VCRUNTIME140_1.dll	Cubase15.exe
+api-ms-win-crt-runtime-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-string-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-heap-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-stdio-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-math-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-utility-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-convert-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-time-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-environment-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-filesystem-l1-1-0.dll	Cubase15.exe
+api-ms-win-crt-locale-l1-1-0.dll	Cubase15.exe
+ADVAPI32.dll	Cubase15.exe
+COMDLG32.dll	Cubase15.exe
+GDI32.dll	Cubase15.exe
+graphics2d.dll	Cubase15.exe
+api-ms-win-core-heap-l1-1-0.dll	Cubase15.exe
+graphics2d.dll	imagegenerator.dll
+MSVCP140.dll	imagegenerator.dll
+KERNEL32.dll	imagegenerator.dll
+VCRUNTIME140.dll	imagegenerator.dll
+VCRUNTIME140_1.dll	imagegenerator.dll
+api-ms-win-crt-runtime-l1-1-0.dll	imagegenerator.dll
+api-ms-win-crt-heap-l1-1-0.dll	imagegenerator.dll
+api-ms-win-crt-stdio-l1-1-0.dll	imagegenerator.dll
+api-ms-win-crt-math-l1-1-0.dll	imagegenerator.dll
+api-ms-win-crt-convert-l1-1-0.dll	imagegenerator.dll
+api-ms-win-crt-string-l1-1-0.dll	imagegenerator.dll
+api-ms-win-crt-time-l1-1-0.dll	imagegenerator.dll
+api-ms-win-crt-utility-l1-1-0.dll	imagegenerator.dll
+ole32.dll	imagegenerator.dll
+KERNEL32.dll	onnxruntims.dll
+MSVCP140.dll	onnxruntims.dll
+VCRUNTIME140_1.dll	onnxruntims.dll
+VCRUNTIME140.dll	onnxruntims.dll
+api-ms-win-crt-runtime-l1-1-0.dll	onnxruntims.dll
+api-ms-win-crt-stdio-l1-1-0.dll	onnxruntims.dll
+api-ms-win-crt-string-l1-1-0.dll	onnxruntims.dll
+api-ms-win-crt-convert-l1-1-0.dll	onnxruntims.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	onnxruntims.dll
+api-ms-win-crt-heap-l1-1-0.dll	onnxruntims.dll
+ADVAPI32.dll	onnxruntims.dll
+SETUPAPI.dll	onnxruntims.dll
+dxgi.dll	onnxruntims.dll
+api-ms-win-core-path-l1-1-0.dll	onnxruntims.dll
+MSVCP140_1.dll	onnxruntims.dll
+api-ms-win-crt-time-l1-1-0.dll	onnxruntims.dll
+api-ms-win-crt-locale-l1-1-0.dll	onnxruntims.dll
+api-ms-win-crt-math-l1-1-0.dll	onnxruntims.dll
+dbghelp.dll	onnxruntims.dll
+MSVCP140.dll	graphics2d.dll
+d3d11.dll	graphics2d.dll
+dcomp.dll	graphics2d.dll
+gdiplus.dll	graphics2d.dll
+d2d1.dll	graphics2d.dll
+DWrite.dll	graphics2d.dll
+dxgi.dll	graphics2d.dll
+MSIMG32.dll	graphics2d.dll
+KERNEL32.dll	graphics2d.dll
+VCRUNTIME140.dll	graphics2d.dll
+VCRUNTIME140_1.dll	graphics2d.dll
+api-ms-win-crt-runtime-l1-1-0.dll	graphics2d.dll
+api-ms-win-crt-math-l1-1-0.dll	graphics2d.dll
+api-ms-win-crt-string-l1-1-0.dll	graphics2d.dll
+api-ms-win-crt-heap-l1-1-0.dll	graphics2d.dll
+api-ms-win-crt-stdio-l1-1-0.dll	graphics2d.dll
+api-ms-win-crt-convert-l1-1-0.dll	graphics2d.dll
+api-ms-win-crt-time-l1-1-0.dll	graphics2d.dll
+api-ms-win-crt-utility-l1-1-0.dll	graphics2d.dll
+GDI32.dll	graphics2d.dll
+ole32.dll	graphics2d.dll
+SHLWAPI.dll	graphics2d.dll
+USER32.dll	graphics2d.dll
+dbghelp.dll	NNPredictionDispatcher_on.dll
+ADVAPI32.dll	NNPredictionDispatcher_on.dll
+KERNEL32.dll	NNPredictionDispatcher_on.dll
+MSVCP140.dll	NNPredictionDispatcher_on.dll
+MSVCP140_1.dll	NNPredictionDispatcher_on.dll
+SETUPAPI.dll	NNPredictionDispatcher_on.dll
+dxgi.dll	NNPredictionDispatcher_on.dll
+api-ms-win-core-path-l1-1-0.dll	NNPredictionDispatcher_on.dll
+VCRUNTIME140.dll	NNPredictionDispatcher_on.dll
+VCRUNTIME140_1.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-runtime-l1-1-0.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-heap-l1-1-0.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-string-l1-1-0.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-math-l1-1-0.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-stdio-l1-1-0.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-convert-l1-1-0.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-time-l1-1-0.dll	NNPredictionDispatcher_on.dll
+api-ms-win-crt-locale-l1-1-0.dll	NNPredictionDispatcher_on.dll
+atmos_storage.dll	atmos_storage_adm_bwf.dll
+KERNEL32.dll	atmos_storage_adm_bwf.dll
+MSVCP140.dll	atmos_storage_adm_bwf.dll
+VCRUNTIME140.dll	atmos_storage_adm_bwf.dll
+api-ms-win-crt-runtime-l1-1-0.dll	atmos_storage_adm_bwf.dll
+api-ms-win-crt-string-l1-1-0.dll	atmos_storage_adm_bwf.dll
+api-ms-win-crt-stdio-l1-1-0.dll	atmos_storage_adm_bwf.dll
+api-ms-win-crt-convert-l1-1-0.dll	atmos_storage_adm_bwf.dll
+api-ms-win-crt-heap-l1-1-0.dll	atmos_storage_adm_bwf.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	atmos_storage_adm_bwf.dll
+api-ms-win-crt-math-l1-1-0.dll	atmos_storage_adm_bwf.dll
+KERNEL32.dll	atmos_storage.dll
+ADVAPI32.dll	atmos_storage.dll
+MSVCP140.dll	atmos_storage.dll
+VCRUNTIME140.dll	atmos_storage.dll
+api-ms-win-crt-runtime-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-string-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-stdio-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-math-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-heap-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-locale-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-time-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-convert-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-environment-l1-1-0.dll	atmos_storage.dll
+api-ms-win-crt-utility-l1-1-0.dll	atmos_storage.dll
+WS2_32.dll	eacdll.dll
+KERNEL32.dll	eacdll.dll
+WINTRUST.dll	VST3/VST Connect.vst3
+dxgi.dll	VST3/VST Connect.vst3
+d3d9.dll	VST3/VST Connect.vst3
+bcrypt.dll	VST3/VST Connect.vst3
+MFPlat.DLL	VST3/VST Connect.vst3
+WTSAPI32.dll	VST3/VST Connect.vst3
+UxTheme.dll	VST3/VST Connect.vst3
+dwmapi.dll	VST3/VST Connect.vst3
+d3d11.dll	VST3/VST Connect.vst3
+OLEAUT32.dll	VST3/VST Connect.vst3
+IMM32.dll	VST3/VST Connect.vst3
+OPENGL32.dll	VST3/VST Connect.vst3
+GDI32.dll	VST3/VST Connect.vst3
+IPHLPAPI.DLL	VST3/VST Connect.vst3
+CRYPT32.dll	VST3/VST Connect.vst3
+WS2_32.dll	VST3/VST Connect.vst3
+ADVAPI32.dll	VST3/VST Connect.vst3
+USER32.dll	VST3/VST Connect.vst3
+USERENV.dll	VST3/VST Connect.vst3
+VERSION.dll	VST3/VST Connect.vst3
+NETAPI32.dll	VST3/VST Connect.vst3
+KERNEL32.dll	VST3/VST Connect.vst3
+ole32.dll	VST3/VST Connect.vst3
+SHELL32.dll	VST3/VST Connect.vst3
+WINMM.dll	VST3/VST Connect.vst3
+Secur32.dll	VST3/VST Connect.vst3
+COMDLG32.dll	VST3/CurveEQ.vst3
+GDI32.dll	VST3/CurveEQ.vst3
+KERNEL32.dll	VST3/CurveEQ.vst3
+ole32.dll	VST3/CurveEQ.vst3
+SHELL32.dll	VST3/CurveEQ.vst3
+USER32.dll	VST3/CurveEQ.vst3
+WSOCK32.dll	VST3/CurveEQ.vst3
+ole32.dll	VST3/LoopMash FX.vst3
+GDI32.dll	VST3/LoopMash FX.vst3
+USER32.dll	VST3/LoopMash FX.vst3
+SHELL32.dll	VST3/LoopMash FX.vst3
+WS2_32.dll	VST3/LoopMash FX.vst3
+MSVCP140.dll	VST3/LoopMash FX.vst3
+MSVCP140_CODECVT_IDS.dll	VST3/LoopMash FX.vst3
+d3d11.dll	VST3/LoopMash FX.vst3
+dwmapi.dll	VST3/LoopMash FX.vst3
+d2d1.dll	VST3/LoopMash FX.vst3
+DWrite.dll	VST3/LoopMash FX.vst3
+SHLWAPI.dll	VST3/LoopMash FX.vst3
+OPENGL32.dll	VST3/LoopMash FX.vst3
+KERNEL32.dll	VST3/LoopMash FX.vst3
+VCRUNTIME140.dll	VST3/LoopMash FX.vst3
+VCRUNTIME140_1.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-string-l1-1-0.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-runtime-l1-1-0.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-math-l1-1-0.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-heap-l1-1-0.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-stdio-l1-1-0.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-convert-l1-1-0.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-utility-l1-1-0.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-filesystem-l1-1-0.dll	VST3/LoopMash FX.vst3
+api-ms-win-crt-time-l1-1-0.dll	VST3/LoopMash FX.vst3
+MSVCP140.dll	Components/audioalignment.dll
+KERNEL32.dll	Components/audioalignment.dll
+VCRUNTIME140.dll	Components/audioalignment.dll
+VCRUNTIME140_1.dll	Components/audioalignment.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/audioalignment.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/audioalignment.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/audioalignment.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/audioalignment.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/audioalignment.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/audioalignment.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/audioalignment.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/audioalignment.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/audioalignment.dll
+OLEAUT32.dll	Components/audioalignment.dll
+ADVAPI32.dll	Components/audioalignment.dll
+SHELL32.dll	Components/audioalignment.dll
+SHLWAPI.dll	Components/audioalignment.dll
+USER32.dll	Components/audioalignment.dll
+ole32.dll	Components/audioalignment.dll
+api-ms-win-core-libraryloader-l1-2-0.dll	Components/headtracking.dll
+api-ms-win-core-string-l1-1-0.dll	Components/headtracking.dll
+MSVCP140.dll	Components/headtracking.dll
+WS2_32.dll	Components/headtracking.dll
+KERNEL32.dll	Components/headtracking.dll
+VCRUNTIME140_1.dll	Components/headtracking.dll
+VCRUNTIME140.dll	Components/headtracking.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-crt-environment-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/headtracking.dll
+USER32.dll	Components/headtracking.dll
+ole32.dll	Components/headtracking.dll
+SHELL32.dll	Components/headtracking.dll
+api-ms-win-core-processthreads-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-security-base-l1-1-0.dll	Components/headtracking.dll
+api-ms-win-core-registry-l1-1-0.dll	Components/headtracking.dll
+OLEAUT32.dll	Components/headtracking.dll
+api-ms-win-core-localization-l1-2-0.dll	Components/headtracking.dll
+api-ms-win-core-interlocked-l1-1-0.dll	Components/headtracking.dll
+OPENGL32.dll	Components/Sampler Track.dll
+GLU32.dll	Components/Sampler Track.dll
+WINMM.dll	Components/Sampler Track.dll
+COMCTL32.dll	Components/Sampler Track.dll
+UxTheme.dll	Components/Sampler Track.dll
+prntvpt.dll	Components/Sampler Track.dll
+dwmapi.dll	Components/Sampler Track.dll
+api-ms-win-shcore-scaling-l1-1-1.dll	Components/Sampler Track.dll
+WSOCK32.dll	Components/Sampler Track.dll
+d3d11.dll	Components/Sampler Track.dll
+dcomp.dll	Components/Sampler Track.dll
+gdiplus.dll	Components/Sampler Track.dll
+d2d1.dll	Components/Sampler Track.dll
+DWrite.dll	Components/Sampler Track.dll
+dxgi.dll	Components/Sampler Track.dll
+MSIMG32.dll	Components/Sampler Track.dll
+KERNEL32.dll	Components/Sampler Track.dll
+SHELL32.dll	Components/Sampler Track.dll
+OLEAUT32.dll	Components/Sampler Track.dll
+ADVAPI32.dll	Components/Sampler Track.dll
+COMDLG32.dll	Components/Sampler Track.dll
+WS2_32.dll	Components/Sampler Track.dll
+GDI32.dll	Components/Sampler Track.dll
+SHLWAPI.dll	Components/Sampler Track.dll
+USER32.dll	Components/Sampler Track.dll
+ole32.dll	Components/Sampler Track.dll
+dbghelp.dll	Components/Sampler Track.dll
+CRYPT32.dll	Components/Sampler Track.dll
+WINTRUST.dll	Components/Sampler Track.dll
+atmos_storage_adm_bwf.dll	Components/admeditor.dll
+atmos_storage.dll	Components/admeditor.dll
+MSVCP140.dll	Components/admeditor.dll
+KERNEL32.dll	Components/admeditor.dll
+VCRUNTIME140_1.dll	Components/admeditor.dll
+VCRUNTIME140.dll	Components/admeditor.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-environment-l1-1-0.dll	Components/admeditor.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/admeditor.dll
+OLEAUT32.dll	Components/admeditor.dll
+ADVAPI32.dll	Components/admeditor.dll
+SHELL32.dll	Components/admeditor.dll
+SHLWAPI.dll	Components/admeditor.dll
+USER32.dll	Components/admeditor.dll
+ole32.dll	Components/admeditor.dll
+MSVCP140.dll	Components/webview.dll
+ADVAPI32.dll	Components/webview.dll
+SHELL32.dll	Components/webview.dll
+OLEAUT32.dll	Components/webview.dll
+KERNEL32.dll	Components/webview.dll
+VCRUNTIME140.dll	Components/webview.dll
+VCRUNTIME140_1.dll	Components/webview.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/webview.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/webview.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/webview.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/webview.dll
+ole32.dll	Components/webview.dll
+USER32.dll	Components/araservice.dll
+SHLWAPI.dll	Components/araservice.dll
+SHELL32.dll	Components/araservice.dll
+ole32.dll	Components/araservice.dll
+MSVCP140.dll	Components/araservice.dll
+MSVCP140_CODECVT_IDS.dll	Components/araservice.dll
+KERNEL32.dll	Components/araservice.dll
+VCRUNTIME140_1.dll	Components/araservice.dll
+VCRUNTIME140.dll	Components/araservice.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/araservice.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/araservice.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/araservice.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/araservice.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/araservice.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/araservice.dll
+api-ms-win-crt-environment-l1-1-0.dll	Components/araservice.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/araservice.dll
+MSVCP140.dll	Components/goproremoteski.dll
+WS2_32.dll	Components/goproremoteski.dll
+KERNEL32.dll	Components/goproremoteski.dll
+VCRUNTIME140_1.dll	Components/goproremoteski.dll
+VCRUNTIME140.dll	Components/goproremoteski.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/goproremoteski.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/goproremoteski.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/goproremoteski.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/goproremoteski.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/goproremoteski.dll
+USER32.dll	Components/goproremoteski.dll
+ole32.dll	Components/goproremoteski.dll
+MSVCP140.dll	Components/videoengine.dll
+MFReadWrite.dll	Components/videoengine.dll
+MFPlat.DLL	Components/videoengine.dll
+d3d11.dll	Components/videoengine.dll
+dxgi.dll	Components/videoengine.dll
+dwmapi.dll	Components/videoengine.dll
+api-ms-win-core-libraryloader-l1-2-0.dll	Components/videoengine.dll
+api-ms-win-core-string-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-com-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-handle-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-synch-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-errorhandling-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-synch-l1-2-0.dll	Components/videoengine.dll
+api-ms-win-core-synch-l1-2-1.dll	Components/videoengine.dll
+api-ms-win-core-processthreads-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-processthreads-l1-1-1.dll	Components/videoengine.dll
+api-ms-win-core-processtopology-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-string-l2-1-0.dll	Components/videoengine.dll
+api-ms-win-core-libraryloader-l1-2-1.dll	Components/videoengine.dll
+api-ms-win-core-sysinfo-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-datetime-l1-1-0.dll	Components/videoengine.dll
+OLEAUT32.dll	Components/videoengine.dll
+api-ms-win-core-processenvironment-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-file-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-io-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-heap-l2-1-0.dll	Components/videoengine.dll
+api-ms-win-core-localization-l1-2-0.dll	Components/videoengine.dll
+api-ms-win-core-timezone-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-registry-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-file-l1-2-0.dll	Components/videoengine.dll
+api-ms-win-core-profile-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-debug-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-file-l2-1-0.dll	Components/videoengine.dll
+api-ms-win-core-localization-l1-2-2.dll	Components/videoengine.dll
+api-ms-win-core-sysinfo-l1-2-0.dll	Components/videoengine.dll
+api-ms-win-core-file-l1-2-2.dll	Components/videoengine.dll
+api-ms-win-core-file-l2-1-2.dll	Components/videoengine.dll
+api-ms-win-core-rtlsupport-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-interlocked-l1-1-0.dll	Components/videoengine.dll
+WINMM.dll	Components/videoengine.dll
+KERNEL32.dll	Components/videoengine.dll
+VCRUNTIME140.dll	Components/videoengine.dll
+VCRUNTIME140_1.dll	Components/videoengine.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/videoengine.dll
+SHELL32.dll	Components/videoengine.dll
+SHLWAPI.dll	Components/videoengine.dll
+ADVAPI32.dll	Components/videoengine.dll
+USER32.dll	Components/videoengine.dll
+ole32.dll	Components/videoengine.dll
+api-ms-win-core-console-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-core-console-l2-1-0.dll	Components/videoengine.dll
+bcrypt.dll	Components/videoengine.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/videoengine.dll
+api-ms-win-crt-environment-l1-1-0.dll	Components/videoengine.dll
+KERNEL32.dll	Components/WebView2Loader.dll
+MSVCP140.dll	Components/hubservice.dll
+KERNEL32.dll	Components/hubservice.dll
+VCRUNTIME140.dll	Components/hubservice.dll
+VCRUNTIME140_1.dll	Components/hubservice.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/hubservice.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/hubservice.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/hubservice.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/hubservice.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/hubservice.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/hubservice.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/hubservice.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/hubservice.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/hubservice.dll
+SHELL32.dll	Components/hubservice.dll
+OLEAUT32.dll	Components/hubservice.dll
+ADVAPI32.dll	Components/hubservice.dll
+SHLWAPI.dll	Components/hubservice.dll
+USER32.dll	Components/hubservice.dll
+ole32.dll	Components/hubservice.dll
+CRYPT32.dll	Components/hubservice.dll
+WINTRUST.dll	Components/hubservice.dll
+USER32.dll	Components/stemseparation.dll
+ole32.dll	Components/stemseparation.dll
+MSVCP140.dll	Components/stemseparation.dll
+NNPredictionDispatcher_on.dll	Components/stemseparation.dll
+KERNEL32.dll	Components/stemseparation.dll
+VCRUNTIME140_1.dll	Components/stemseparation.dll
+VCRUNTIME140.dll	Components/stemseparation.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/stemseparation.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/stemseparation.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/stemseparation.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/stemseparation.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/stemseparation.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/stemseparation.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/stemseparation.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/stemseparation.dll
+OLEAUT32.dll	Components/stemseparation.dll
+SHELL32.dll	Components/stemseparation.dll
+SHLWAPI.dll	Components/stemseparation.dll
+ADVAPI32.dll	Components/stemseparation.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/stemseparation.dll
+MSVCP140.dll	Components/audio2chords.dll
+KERNEL32.dll	Components/audio2chords.dll
+VCRUNTIME140_1.dll	Components/audio2chords.dll
+VCRUNTIME140.dll	Components/audio2chords.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/audio2chords.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/audio2chords.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/audio2chords.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/audio2chords.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/audio2chords.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/audio2chords.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/audio2chords.dll
+WS2_32.dll	Components/audio2chords.dll
+USER32.dll	Components/audio2chords.dll
+ole32.dll	Components/audio2chords.dll
+ADVAPI32.dll	Components/baios.dll
+SHELL32.dll	Components/baios.dll
+USER32.dll	Components/baios.dll
+ole32.dll	Components/baios.dll
+MSVCP140.dll	Components/baios.dll
+WINMM.dll	Components/baios.dll
+AVRT.dll	Components/baios.dll
+KERNEL32.dll	Components/baios.dll
+VCRUNTIME140.dll	Components/baios.dll
+VCRUNTIME140_1.dll	Components/baios.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/baios.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/baios.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/baios.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/baios.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/baios.dll
+MSVCP140.dll	Components/mediaservice.dll
+WINMM.dll	Components/mediaservice.dll
+KERNEL32.dll	Components/mediaservice.dll
+VCRUNTIME140.dll	Components/mediaservice.dll
+VCRUNTIME140_1.dll	Components/mediaservice.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/mediaservice.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/mediaservice.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/mediaservice.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/mediaservice.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/mediaservice.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/mediaservice.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/mediaservice.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/mediaservice.dll
+SHELL32.dll	Components/mediaservice.dll
+OLEAUT32.dll	Components/mediaservice.dll
+SHLWAPI.dll	Components/mediaservice.dll
+ADVAPI32.dll	Components/mediaservice.dll
+WS2_32.dll	Components/mediaservice.dll
+USER32.dll	Components/mediaservice.dll
+ole32.dll	Components/mediaservice.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/mediaservice.dll
+USER32.dll	Components/euconadapter.dll
+MSVCP140.dll	Components/euconadapter.dll
+KERNEL32.dll	Components/euconadapter.dll
+SHELL32.dll	Components/euconadapter.dll
+VCRUNTIME140.dll	Components/euconadapter.dll
+VCRUNTIME140_1.dll	Components/euconadapter.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/euconadapter.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/euconadapter.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/euconadapter.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/euconadapter.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/euconadapter.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/euconadapter.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/euconadapter.dll
+ole32.dll	Components/euconadapter.dll
+USER32.dll	Components/vst2xscanner.exe
+ole32.dll	Components/vst2xscanner.exe
+MSVCP140.dll	Components/vst2xscanner.exe
+KERNEL32.dll	Components/vst2xscanner.exe
+VCRUNTIME140.dll	Components/vst2xscanner.exe
+api-ms-win-crt-runtime-l1-1-0.dll	Components/vst2xscanner.exe
+api-ms-win-crt-stdio-l1-1-0.dll	Components/vst2xscanner.exe
+api-ms-win-crt-string-l1-1-0.dll	Components/vst2xscanner.exe
+api-ms-win-crt-heap-l1-1-0.dll	Components/vst2xscanner.exe
+api-ms-win-crt-time-l1-1-0.dll	Components/vst2xscanner.exe
+api-ms-win-crt-math-l1-1-0.dll	Components/vst2xscanner.exe
+api-ms-win-crt-convert-l1-1-0.dll	Components/vst2xscanner.exe
+api-ms-win-crt-utility-l1-1-0.dll	Components/vst2xscanner.exe
+api-ms-win-crt-locale-l1-1-0.dll	Components/vst2xscanner.exe
+OLEAUT32.dll	Components/vst2xscanner.exe
+ADVAPI32.dll	Components/vst2xscanner.exe
+SHELL32.dll	Components/vst2xscanner.exe
+SHLWAPI.dll	Components/vst2xscanner.exe
+SHELL32.dll	Components/DAWproject.dll
+USER32.dll	Components/DAWproject.dll
+ole32.dll	Components/DAWproject.dll
+MSVCP140.dll	Components/DAWproject.dll
+MSVCP140_CODECVT_IDS.dll	Components/DAWproject.dll
+KERNEL32.dll	Components/DAWproject.dll
+VCRUNTIME140.dll	Components/DAWproject.dll
+VCRUNTIME140_1.dll	Components/DAWproject.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/DAWproject.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/DAWproject.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/DAWproject.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/DAWproject.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/DAWproject.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/DAWproject.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/DAWproject.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/DAWproject.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/DAWproject.dll
+OLEAUT32.dll	Components/DAWproject.dll
+ADVAPI32.dll	Components/DAWproject.dll
+SHLWAPI.dll	Components/DAWproject.dll
+ADVAPI32.dll	Components/VSTPlugManager.dll
+SHELL32.dll	Components/VSTPlugManager.dll
+MSVCP140.dll	Components/VSTPlugManager.dll
+KERNEL32.dll	Components/VSTPlugManager.dll
+VCRUNTIME140.dll	Components/VSTPlugManager.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/VSTPlugManager.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/VSTPlugManager.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/VSTPlugManager.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/VSTPlugManager.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/VSTPlugManager.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/VSTPlugManager.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/VSTPlugManager.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/VSTPlugManager.dll
+USER32.dll	Components/VSTPlugManager.dll
+ole32.dll	Components/VSTPlugManager.dll
+WINMM.dll	Components/REX Shared Library.dll
+KERNEL32.dll	Components/REX Shared Library.dll
+SHLWAPI.dll	Components/OMFFilter.dll
+KERNEL32.dll	Components/OMFFilter.dll
+VCRUNTIME140.dll	Components/OMFFilter.dll
+VCRUNTIME140_1.dll	Components/OMFFilter.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/OMFFilter.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/OMFFilter.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/OMFFilter.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/OMFFilter.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/OMFFilter.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/OMFFilter.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/OMFFilter.dll
+USER32.dll	Components/OMFFilter.dll
+ole32.dll	Components/OMFFilter.dll
+WTSAPI32.dll	Components/vstconnect.dll
+UxTheme.dll	Components/vstconnect.dll
+dwmapi.dll	Components/vstconnect.dll
+OLEAUT32.dll	Components/vstconnect.dll
+IMM32.dll	Components/vstconnect.dll
+GDI32.dll	Components/vstconnect.dll
+IPHLPAPI.DLL	Components/vstconnect.dll
+WS2_32.dll	Components/vstconnect.dll
+USER32.dll	Components/vstconnect.dll
+USERENV.dll	Components/vstconnect.dll
+VERSION.dll	Components/vstconnect.dll
+NETAPI32.dll	Components/vstconnect.dll
+KERNEL32.dll	Components/vstconnect.dll
+ole32.dll	Components/vstconnect.dll
+SHELL32.dll	Components/vstconnect.dll
+WINMM.dll	Components/vstconnect.dll
+ADVAPI32.dll	Components/vstconnect.dll
+ole32.dll	Components/vstscanner.exe
+SHELL32.dll	Components/vstscanner.exe
+USER32.dll	Components/vstscanner.exe
+KERNEL32.dll	Components/vstscanner.exe
+MSVCP140.dll	Components/stepdesigner.dll
+KERNEL32.dll	Components/stepdesigner.dll
+VCRUNTIME140.dll	Components/stepdesigner.dll
+VCRUNTIME140_1.dll	Components/stepdesigner.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/stepdesigner.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/stepdesigner.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/stepdesigner.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/stepdesigner.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/stepdesigner.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/stepdesigner.dll
+USER32.dll	Components/stepdesigner.dll
+ole32.dll	Components/stepdesigner.dll
+MSVCP140.dll	Components/rex-support.dll
+KERNEL32.dll	Components/rex-support.dll
+VCRUNTIME140_1.dll	Components/rex-support.dll
+VCRUNTIME140.dll	Components/rex-support.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/rex-support.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/rex-support.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/rex-support.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/rex-support.dll
+ole32.dll	Components/rex-support.dll
+pdh.dll	Components/usagelogger.dll
+dxgi.dll	Components/usagelogger.dll
+ADVAPI32.dll	Components/usagelogger.dll
+MSVCP140.dll	Components/usagelogger.dll
+KERNEL32.dll	Components/usagelogger.dll
+VCRUNTIME140_1.dll	Components/usagelogger.dll
+VCRUNTIME140.dll	Components/usagelogger.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-environment-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/usagelogger.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/usagelogger.dll
+OLEAUT32.dll	Components/usagelogger.dll
+SHELL32.dll	Components/usagelogger.dll
+SHLWAPI.dll	Components/usagelogger.dll
+USER32.dll	Components/usagelogger.dll
+ole32.dll	Components/usagelogger.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/usagelogger.dll
+ole32.dll	Components/VideoCodec-Apple-ProRes.dll
+MSVCP140.dll	Components/VideoCodec-Apple-ProRes.dll
+KERNEL32.dll	Components/VideoCodec-Apple-ProRes.dll
+VCRUNTIME140_1.dll	Components/VideoCodec-Apple-ProRes.dll
+VCRUNTIME140.dll	Components/VideoCodec-Apple-ProRes.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/VideoCodec-Apple-ProRes.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/VideoCodec-Apple-ProRes.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/VideoCodec-Apple-ProRes.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/VideoCodec-Apple-ProRes.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/VideoCodec-Apple-ProRes.dll
+USER32.dll	Components/VideoCodec-Apple-ProRes.dll
+MSVCP140.dll	Components/hostchannelaccess.dll
+KERNEL32.dll	Components/hostchannelaccess.dll
+VCRUNTIME140_1.dll	Components/hostchannelaccess.dll
+VCRUNTIME140.dll	Components/hostchannelaccess.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/hostchannelaccess.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/hostchannelaccess.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/hostchannelaccess.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/hostchannelaccess.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/hostchannelaccess.dll
+ole32.dll	Components/hostchannelaccess.dll
+ole32.dll	Components/vstscannermaster.exe
+SHELL32.dll	Components/vstscannermaster.exe
+KERNEL32.dll	Components/vstscannermaster.exe
+SHLWAPI.dll	Components/vstscannermaster.exe
+USER32.dll	Components/vstscannermaster.exe
+WINMM.dll	Components/vstscannermaster.exe
+OLEAUT32.dll	Components/vstscannermaster.exe
+ADVAPI32.dll	Components/vstscannermaster.exe
+bcrypt.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+KERNEL32.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-conio-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-convert-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-environment-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-filesystem-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-heap-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-locale-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-math-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-private-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-runtime-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-stdio-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-string-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-time-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+api-ms-win-crt-utility-l1-1-0.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+ole32.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+SHELL32.dll	Externals/FFmpeg/8.0.1/ffmpeg.exe
+MSVCP140.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+MSVCP140_CODECVT_IDS.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+WINMM.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+KERNEL32.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+VCRUNTIME140.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+VCRUNTIME140_1.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-runtime-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-heap-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-string-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-math-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-stdio-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-utility-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-time-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-convert-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-locale-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+WININET.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+WS2_32.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+VERSION.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+dbghelp.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+SHLWAPI.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+SHELL32.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+ADVAPI32.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+USER32.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+ole32.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+api-ms-win-crt-environment-l1-1-0.dll	VST3/Cubase Plug-in Set.vst3/Contents/x86_64-win/Cubase Plug-in Set.vst3
+KERNEL32.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+USER32.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+GDI32.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+SHELL32.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+ole32.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+MSVCP140.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+MSVCP140_CODECVT_IDS.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+d2d1.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+DWrite.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+d3d11.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+SHLWAPI.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+dwmapi.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+OPENGL32.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+VCRUNTIME140.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+VCRUNTIME140_1.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-runtime-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-math-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-heap-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-convert-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-utility-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-string-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-stdio-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-filesystem-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+api-ms-win-crt-time-l1-1-0.dll	VST3/vintage-plugins.vst3/Contents/x86_64-win/vintage-plugins.vst3
+MSVCP140.dll	Components/AudioCodecs/xiph.dll
+KERNEL32.dll	Components/AudioCodecs/xiph.dll
+VCRUNTIME140_1.dll	Components/AudioCodecs/xiph.dll
+VCRUNTIME140.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+USER32.dll	Components/AudioCodecs/xiph.dll
+ole32.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/AudioCodecs/xiph.dll
+MSVCP140.dll	Components/AudioCodecs/MP3AudioHandler.dll
+KERNEL32.dll	Components/AudioCodecs/MP3AudioHandler.dll
+VCRUNTIME140.dll	Components/AudioCodecs/MP3AudioHandler.dll
+VCRUNTIME140_1.dll	Components/AudioCodecs/MP3AudioHandler.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AudioCodecs/MP3AudioHandler.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/AudioCodecs/MP3AudioHandler.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/AudioCodecs/MP3AudioHandler.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/AudioCodecs/MP3AudioHandler.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/AudioCodecs/MP3AudioHandler.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AudioCodecs/MP3AudioHandler.dll
+USER32.dll	Components/AudioCodecs/MP3AudioHandler.dll
+ole32.dll	Components/AudioCodecs/MP3AudioHandler.dll
+WMVCore.DLL	Components/AudioCodecs/WMAAudioHandler.dll
+ole32.dll	Components/AudioCodecs/WMAAudioHandler.dll
+MSVCP140.dll	Components/AudioCodecs/WMAAudioHandler.dll
+KERNEL32.dll	Components/AudioCodecs/WMAAudioHandler.dll
+VCRUNTIME140.dll	Components/AudioCodecs/WMAAudioHandler.dll
+VCRUNTIME140_1.dll	Components/AudioCodecs/WMAAudioHandler.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/AudioCodecs/WMAAudioHandler.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AudioCodecs/WMAAudioHandler.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AudioCodecs/WMAAudioHandler.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/AudioCodecs/WMAAudioHandler.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/AudioCodecs/WMAAudioHandler.dll
+USER32.dll	Components/AudioCodecs/WMAAudioHandler.dll
+ole32.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+MSVCP140.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+KERNEL32.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+VCRUNTIME140_1.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+VCRUNTIME140.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AudioCodecs/MPEG2DecoderAudioHandler.dll
+kernel32.dll	Components/scu/scu.exe
+KERNEL32.dll	Components/scu/chk.exe
+msvcrt.dll	Components/scu/chk.exe
+ntdll.dll	Components/scu/chk.exe
+dbgeng.dll	Components/scu/chk.exe
+ADVAPI32.dll	Components/ScoringEngine/ScoringEngine.dll
+ole32.dll	Components/ScoringEngine/ScoringEngine.dll
+USER32.dll	Components/ScoringEngine/ScoringEngine.dll
+MSVCP140.dll	Components/ScoringEngine/ScoringEngine.dll
+MSVCP140_CODECVT_IDS.dll	Components/ScoringEngine/ScoringEngine.dll
+WS2_32.dll	Components/ScoringEngine/ScoringEngine.dll
+VERSION.dll	Components/ScoringEngine/ScoringEngine.dll
+WINSPOOL.DRV	Components/ScoringEngine/ScoringEngine.dll
+WTSAPI32.dll	Components/ScoringEngine/ScoringEngine.dll
+DWrite.dll	Components/ScoringEngine/ScoringEngine.dll
+dwmapi.dll	Components/ScoringEngine/ScoringEngine.dll
+d3d11.dll	Components/ScoringEngine/ScoringEngine.dll
+dxgi.dll	Components/ScoringEngine/ScoringEngine.dll
+GDI32.dll	Components/ScoringEngine/ScoringEngine.dll
+COMDLG32.dll	Components/ScoringEngine/ScoringEngine.dll
+OLEAUT32.dll	Components/ScoringEngine/ScoringEngine.dll
+IMM32.dll	Components/ScoringEngine/ScoringEngine.dll
+USERENV.dll	Components/ScoringEngine/ScoringEngine.dll
+NETAPI32.dll	Components/ScoringEngine/ScoringEngine.dll
+KERNEL32.dll	Components/ScoringEngine/ScoringEngine.dll
+WINMM.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-synch-l1-2-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-shcore-scaling-l1-1-1.dll	Components/ScoringEngine/ScoringEngine.dll
+AUTHZ.dll	Components/ScoringEngine/ScoringEngine.dll
+d3d9.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-libraryloader-l1-2-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-security-base-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-registry-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+SspiCli.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-com-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-security-cryptoapi-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-shcore-obsolete-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-registry-l2-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-processthreads-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-security-lsalookup-l2-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-security-provider-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-security-systemfunctions-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-ntuser-sysparams-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+d3d12.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-winrt-string-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-winrt-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+ext-ms-win-uiacore-l1-1-1.dll	Components/ScoringEngine/ScoringEngine.dll
+ext-ms-win-uiacore-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+UIAutomationCore.DLL	Components/ScoringEngine/ScoringEngine.dll
+SETUPAPI.dll	Components/ScoringEngine/ScoringEngine.dll
+VCRUNTIME140_1.dll	Components/ScoringEngine/ScoringEngine.dll
+VCRUNTIME140.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-environment-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+SHELL32.dll	Components/ScoringEngine/ScoringEngine.dll
+SHLWAPI.dll	Components/ScoringEngine/ScoringEngine.dll
+MSVCP140_1.dll	Components/ScoringEngine/ScoringEngine.dll
+MSVCP140_2.dll	Components/ScoringEngine/ScoringEngine.dll
+UxTheme.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-string-l2-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+api-ms-win-core-stringansi-l1-1-0.dll	Components/ScoringEngine/ScoringEngine.dll
+SHLWAPI.dll	Components/AAFFilter/aaffilter.dll
+VERSION.dll	Components/AAFFilter/aaffilter.dll
+KERNEL32.dll	Components/AAFFilter/aaffilter.dll
+USER32.dll	Components/AAFFilter/aaffilter.dll
+ole32.dll	Components/AAFFilter/aaffilter.dll
+MSVCP140.dll	Components/AAFFilter/aaffilter.dll
+VCRUNTIME140.dll	Components/AAFFilter/aaffilter.dll
+VCRUNTIME140_1.dll	Components/AAFFilter/aaffilter.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/AAFFilter/aaffilter.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AAFFilter/aaffilter.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/AAFFilter/aaffilter.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/AAFFilter/aaffilter.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AAFFilter/aaffilter.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/AAFFilter/aaffilter.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/AAFFilter/aaffilter.dll
+KERNEL32.dll	Components/AAFFilter/AAFCOAPI.dll
+ole32.dll	Components/AAFFilter/AAFCOAPI.dll
+MSVCP140.dll	Components/AAFFilter/AAFCOAPI.dll
+VCRUNTIME140_1.dll	Components/AAFFilter/AAFCOAPI.dll
+VCRUNTIME140.dll	Components/AAFFilter/AAFCOAPI.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/AAFFilter/AAFCOAPI.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/AAFFilter/AAFCOAPI.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/AAFFilter/AAFCOAPI.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/AAFFilter/AAFCOAPI.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/AAFFilter/AAFCOAPI.dll
+api-ms-win-crt-filesystem-l1-1-0.dll	Components/AAFFilter/AAFCOAPI.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AAFFilter/AAFCOAPI.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AAFFilter/AAFCOAPI.dll
+VCRUNTIME140.dll	Externals/SoXR/soxr.dll
+api-ms-win-crt-heap-l1-1-0.dll	Externals/SoXR/soxr.dll
+api-ms-win-crt-convert-l1-1-0.dll	Externals/SoXR/soxr.dll
+api-ms-win-crt-time-l1-1-0.dll	Externals/SoXR/soxr.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Externals/SoXR/soxr.dll
+api-ms-win-crt-math-l1-1-0.dll	Externals/SoXR/soxr.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Externals/SoXR/soxr.dll
+KERNEL32.dll	Externals/SoXR/soxr.dll
+KERNEL32.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+USER32.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+GDI32.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+SHELL32.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+ole32.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+MSVCP140.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+MSVCP140_CODECVT_IDS.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+d2d1.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+DWrite.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+d3d11.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+SHLWAPI.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+IMM32.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+dwmapi.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+OPENGL32.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+VCRUNTIME140.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+VCRUNTIME140_1.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-string-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-heap-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-stdio-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-math-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-runtime-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-filesystem-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-convert-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-utility-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-time-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+api-ms-win-crt-locale-l1-1-0.dll	VST3/ModScripter.vst3/Contents/x86_64-win/ModScripter.vst3
+AVRT.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+atmos_storage.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+MSVCP140.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+KERNEL32.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+VCRUNTIME140_1.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+VCRUNTIME140.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-stdio-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-runtime-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-heap-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-string-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-utility-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-math-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-filesystem-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-time-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-convert-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-locale-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+OLEAUT32.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+ADVAPI32.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+SHELL32.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+SHLWAPI.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+USER32.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+ole32.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+api-ms-win-crt-environment-l1-1-0.dll	VST3/VST Renderer.vst3/Contents/x86_64-win/VST Renderer.vst3
+GDI32.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+SHELL32.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+USER32.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+ole32.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+MSVCP140.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+MSVCP140_CODECVT_IDS.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+d3d11.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+dwmapi.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+d2d1.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+DWrite.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+SHLWAPI.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+KERNEL32.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+VCRUNTIME140.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+VCRUNTIME140_1.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-stdio-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-string-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-runtime-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-math-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-heap-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-convert-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-utility-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-filesystem-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+api-ms-win-crt-time-l1-1-0.dll	VST3/vstambiconverter.vst3/Contents/x86_64-win/vstambiconverter.vst3
+KERNEL32.dll	Components/AAFFilter/aafext/AAFINTP.dll
+VCRUNTIME140.dll	Components/AAFFilter/aafext/AAFINTP.dll
+VCRUNTIME140_1.dll	Components/AAFFilter/aafext/AAFINTP.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/AAFFilter/aafext/AAFINTP.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AAFFilter/aafext/AAFINTP.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AAFFilter/aafext/AAFINTP.dll
+KERNEL32.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+VCRUNTIME140.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+VCRUNTIME140_1.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+api-ms-win-crt-time-l1-1-0.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+api-ms-win-crt-utility-l1-1-0.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+api-ms-win-crt-environment-l1-1-0.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AAFFilter/aafext/AAFPGAPI.dll
+OPENGL32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+GLU32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+WINMM.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+COMCTL32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+UxTheme.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+prntvpt.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+dwmapi.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+api-ms-win-shcore-scaling-l1-1-1.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+WSOCK32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+d3d11.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+dcomp.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+gdiplus.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+d2d1.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+DWrite.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+dxgi.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+MSIMG32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+KERNEL32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+SHELL32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+OLEAUT32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+ADVAPI32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+COMDLG32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+WS2_32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+GDI32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+SHLWAPI.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+USER32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+ole32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+dbghelp.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+CRYPT32.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+WINTRUST.dll	Components/Modulation FX.bundle/Contents/x86_64-win/Modulation FX.dll
+OPENGL32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+GLU32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+WINMM.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+COMCTL32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+UxTheme.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+prntvpt.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+dwmapi.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+api-ms-win-shcore-scaling-l1-1-1.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+WSOCK32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+d3d11.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+dcomp.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+gdiplus.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+d2d1.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+DWrite.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+dxgi.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+MSIMG32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+KERNEL32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+CRYPT32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+SHELL32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+WINTRUST.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+OLEAUT32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+ADVAPI32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+COMDLG32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+WS2_32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+GDI32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+SHLWAPI.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+USER32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+ole32.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+dbghelp.dll	Components/Drum Machine.bundle/Contents/x86_64-win/Drum Machine.dll
+KERNEL32.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+SHELL32.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+ole32.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+MSVCP140.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+api-ms-win-core-path-l1-1-0.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+VCRUNTIME140.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+VCRUNTIME140_1.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+api-ms-win-crt-runtime-l1-1-0.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+api-ms-win-crt-string-l1-1-0.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+api-ms-win-crt-heap-l1-1-0.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+api-ms-win-crt-convert-l1-1-0.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+api-ms-win-crt-math-l1-1-0.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+api-ms-win-crt-stdio-l1-1-0.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll
+api-ms-win-crt-locale-l1-1-0.dll	Components/AudioVideoConverter.bundle/Contents/x86_64-win/AudioVideoConverter.dll

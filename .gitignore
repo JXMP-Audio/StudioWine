@@ -1,0 +1,6 @@
+reference/
+out/
+AppDir/
+target/
+.superpowers/
+*.AppImage
