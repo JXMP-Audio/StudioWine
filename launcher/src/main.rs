@@ -7,6 +7,7 @@ mod paths;
 mod registry;
 mod setup;
 mod shortcuts;
+mod ui;
 mod state;
 mod wine;
 
@@ -27,5 +28,6 @@ fn run() -> anyhow::Result<i32> {
         let status = wine::Wine::new(paths).command(&args[1..]).status()?;
         return Ok(status.code().unwrap_or(1));
     }
-    anyhow::bail!("the GUI is not built yet")
+    ui::run_gui(paths)?;
+    Ok(0)
 }

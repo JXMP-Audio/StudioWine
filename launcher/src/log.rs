@@ -21,6 +21,7 @@ impl LogSink {
         Ok(LogSink { file: Arc::new(Mutex::new(file)), path, callback: None })
     }
 
+    #[cfg(test)]
     pub fn with_callback(self, f: impl Fn(&str) + Send + Sync + 'static) -> LogSink {
         LogSink { callback: Some(Arc::new(f)), ..self }
     }

@@ -85,12 +85,16 @@ pub fn all_steps() -> Vec<Box<dyn Step>> {
     ]
 }
 
+pub fn step_title(id: StepId) -> &'static str {
+    all_steps().into_iter().find(|s| s.id() == id).map(|s| s.title()).unwrap_or("Unknown step")
+}
+
 /// Runs `steps` in order on a worker thread. Stops at the first failure; a step whose
 /// run succeeds but whose verification fails is a failure too.
 pub fn run_steps(steps: Vec<Box<dyn Step>>, ctx: Arc<Ctx>, state_file: PathBuf, p: Progress) -> std::thread::JoinHandle<()> {
     std::thread::spawn(move || {
         let mut state = State::load(&state_file);
-        let mut record = |state: &mut State, id: StepId| {
+        let record = |state: &mut State, id: StepId| {
             if !state.completed.contains(&id) {
                 state.completed.push(id);
             }

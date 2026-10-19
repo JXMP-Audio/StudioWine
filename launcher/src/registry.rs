@@ -40,10 +40,6 @@ impl RegFile {
         self
     }
 
-    pub fn is_empty(&self) -> bool {
-        self.keys.is_empty()
-    }
-
     pub fn to_regedit_bytes(&self) -> Vec<u8> {
         let mut t = String::from("Windows Registry Editor Version 5.00\r\n");
         for (key, values) in &self.keys {

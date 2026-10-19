@@ -8,7 +8,6 @@ use std::path::{Path, PathBuf};
 #[derive(Deserialize, Clone, Debug)]
 pub struct ManifestEntry {
     pub file: String,
-    pub family: String,
     pub substitute_for: Option<String>,
     pub sha256: String,
 }

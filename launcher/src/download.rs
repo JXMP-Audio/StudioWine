@@ -76,7 +76,7 @@ impl Http {
 
     pub fn get_text(&self, url: &str) -> anyhow::Result<String> {
         let (mut r, _) = self.call(false, url)?;
-        Ok(r.body_mut().read_to_string().with_context(|| format!("cannot read {url}"))?)
+        r.body_mut().read_to_string().with_context(|| format!("cannot read {url}"))
     }
 
     /// The URL a link finally lands on after redirects.

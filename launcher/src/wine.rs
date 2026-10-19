@@ -39,10 +39,6 @@ impl Wine {
         Wine { paths }
     }
 
-    pub fn paths(&self) -> &Paths {
-        &self.paths
-    }
-
     pub fn env(&self) -> Vec<(OsString, OsString)> {
         let p = &self.paths;
         let join = |first: &std::path::Path, var: &str| {
