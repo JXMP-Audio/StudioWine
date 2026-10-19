@@ -91,6 +91,33 @@ impl Wizard {
     }
 }
 
+/// Painted rather than taken from a font: egui's bundled fonts lack ○ ✔ ✖.
+fn status_icon(ui: &mut egui::Ui, state: &RowState) {
+    if *state == RowState::Running {
+        ui.add(egui::Spinner::new().size(14.0));
+        return;
+    }
+    let (rect, _) = ui.allocate_exact_size(egui::vec2(14.0, 14.0), egui::Sense::hover());
+    let (c, p) = (rect.center(), ui.painter());
+    let green = egui::Color32::from_rgb(80, 190, 90);
+    let white = egui::Stroke::new(2.0, egui::Color32::WHITE);
+    match state {
+        RowState::Pending | RowState::Running => {
+            p.circle_stroke(c, 6.0, egui::Stroke::new(1.5, ui.visuals().weak_text_color()));
+        }
+        RowState::Done => {
+            p.circle_filled(c, 7.0, green);
+            p.line_segment([c + egui::vec2(-3.5, 0.0), c + egui::vec2(-1.0, 3.0)], white);
+            p.line_segment([c + egui::vec2(-1.0, 3.0), c + egui::vec2(3.5, -3.0)], white);
+        }
+        RowState::Failed(_) => {
+            p.circle_filled(c, 7.0, ui.visuals().error_fg_color);
+            p.line_segment([c + egui::vec2(-3.0, -3.0), c + egui::vec2(3.0, 3.0)], white);
+            p.line_segment([c + egui::vec2(3.0, -3.0), c + egui::vec2(-3.0, 3.0)], white);
+        }
+    }
+}
+
 impl StudioWineApp {
     fn start_setup(&mut self) {
         for r in &mut self.wizard.rows {
@@ -125,13 +152,7 @@ impl StudioWineApp {
             let mut failed = false;
             for r in &self.wizard.rows {
                 ui.horizontal(|ui| {
-                    let mark = match r.state {
-                        RowState::Pending => "○",
-                        RowState::Running => "◌",
-                        RowState::Done => "✔",
-                        RowState::Failed(_) => "✖",
-                    };
-                    ui.label(egui::RichText::new(mark).size(16.0));
+                    status_icon(ui, &r.state);
                     ui.label(egui::RichText::new(r.title).strong());
                 });
                 ui.add(egui::ProgressBar::new(r.fraction).desired_height(6.0));

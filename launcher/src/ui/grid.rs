@@ -111,7 +111,7 @@ impl StudioWineApp {
         egui::Panel::bottom("bottom").show(ui, |ui| {
             ui.add_space(4.0);
             ui.horizontal(|ui| {
-                if ui.add_enabled(!busy, egui::Button::new("▶ Run .exe…")).on_hover_text("Run a Windows installer or program (.exe, .msi) in StudioWine").clicked() {
+                if ui.add_enabled(!busy, egui::Button::new("Run .exe…")).on_hover_text("Run a Windows installer or program (.exe, .msi) in StudioWine").clicked() {
                     self.run_exe();
                 }
                 if ui.button("Fonts…").clicked() {
@@ -164,11 +164,16 @@ impl StudioWineApp {
                         let clicked = ui
                             .allocate_ui(egui::vec2(160.0, 110.0), |ui| {
                                 ui.vertical_centered(|ui| {
-                                    let img = match &tex {
-                                        Some(t) => egui::Button::image(egui::Image::new(t).fit_to_exact_size(egui::vec2(64.0, 64.0))),
-                                        None => egui::Button::new(egui::RichText::new("▣").size(48.0)).min_size(egui::vec2(72.0, 72.0)),
+                                    let r = match &tex {
+                                        Some(t) => ui.add(egui::Button::image(egui::Image::new(t).fit_to_exact_size(egui::vec2(64.0, 64.0)))),
+                                        None => {
+                                            // Placeholder until the icon thread delivers (or for targets without one).
+                                            let r = ui.add(egui::Button::new("").min_size(egui::vec2(72.0, 72.0)));
+                                            let c = ui.visuals().weak_text_color();
+                                            ui.painter().rect_stroke(r.rect.shrink(16.0), 6.0, egui::Stroke::new(2.0, c), egui::StrokeKind::Inside);
+                                            r
+                                        }
                                     };
-                                    let r = ui.add(img);
                                     ui.add(egui::Label::new(&s.name).wrap());
                                     r.clicked()
                                 })

@@ -9,17 +9,27 @@ use std::process::{Command, ExitStatus, Stdio};
 pub fn run_logged(mut cmd: Command, log: &LogSink) -> anyhow::Result<ExitStatus> {
     log.line(&format!("$ {cmd:?}"));
     let mut child = cmd.stdin(Stdio::null()).stdout(Stdio::piped()).stderr(Stdio::piped()).spawn()?;
-    let pump = |r: Box<dyn std::io::Read + Send>, log: LogSink| {
+    let (done_tx, done_rx) = std::sync::mpsc::channel::<()>();
+    let pump = |r: Box<dyn std::io::Read + Send>, log: LogSink, done: std::sync::mpsc::Sender<()>| {
         std::thread::spawn(move || {
             for l in BufReader::new(r).lines().map_while(Result::ok) {
                 log.line(l.trim_end_matches('\r'));
             }
-        })
+            let _ = done.send(());
+        });
     };
-    let a = pump(Box::new(child.stdout.take().unwrap()), log.clone());
-    let b = pump(Box::new(child.stderr.take().unwrap()), log.clone());
+    pump(Box::new(child.stdout.take().unwrap()), log.clone(), done_tx.clone());
+    pump(Box::new(child.stderr.take().unwrap()), log.clone(), done_tx);
     let status = child.wait()?;
-    let _ = (a.join(), b.join());
+    // Installers often leave a service running (e.g. MicrosoftEdgeUpdate.exe) that inherited
+    // our pipes, so EOF may never come: give the readers a moment, then leave them behind.
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(2);
+    for _ in 0..2 {
+        let left = deadline.saturating_duration_since(std::time::Instant::now());
+        if done_rx.recv_timeout(left).is_err() {
+            break;
+        }
+    }
     log.line(&format!("exit: {status}"));
     Ok(status)
 }
@@ -135,6 +145,18 @@ mod tests {
         for (k, _) in &env {
             assert_ne!(k, "WINEDLLOVERRIDES", "no DLL overrides for the graphics stack");
         }
+    }
+
+    #[test]
+    fn run_wait_returns_when_a_background_child_keeps_the_pipe_open() {
+        let d = tempfile::tempdir().unwrap();
+        // Like an installer that leaves an updater service running with our stdout inherited.
+        let p = testutil::fake_appdir(d.path(), "echo installed; sleep 30 & exit 0");
+        let log = LogSink::open(&p.logs, "t.log").unwrap();
+        let t = std::time::Instant::now();
+        assert!(Wine::new(p).run_wait(["setup.exe"], &log).unwrap().success());
+        assert!(t.elapsed() < std::time::Duration::from_secs(10), "took {:?}", t.elapsed());
+        assert!(std::fs::read_to_string(log.path()).unwrap().contains("installed"));
     }
 
     #[test]

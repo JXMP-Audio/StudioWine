@@ -8,7 +8,7 @@ pub struct Settings {
 
 impl StudioWineApp {
     pub(super) fn settings_menu(&mut self, ui: &mut egui::Ui) {
-        ui.menu_button("⚙", |ui| {
+        ui.menu_button("Settings", |ui| {
             if ui.button("Open Wine environment folder").clicked() {
                 let p = self.paths.prefix.clone();
                 self.open_path(&p);
