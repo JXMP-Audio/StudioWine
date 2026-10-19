@@ -195,10 +195,8 @@ impl StudioWineApp {
     }
 
     fn launch(&mut self, s: &Shortcut) {
-        match shortcuts::launch(&self.ctx.wine, s) {
-            Ok(_) => self.message = Some((format!("Starting {}…", s.name), false)),
-            Err(e) => self.message = Some((format!("cannot start {}: {e:#}", s.name), true)),
-        }
+        let _ = shortcuts::launch(&self.ctx.wine, s, &self.ctx.log);
+        self.message = Some((format!("Starting {}…", s.name), false));
     }
 
     pub(super) fn run_program(&mut self, file: PathBuf) {

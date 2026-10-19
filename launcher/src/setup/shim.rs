@@ -32,10 +32,17 @@ fn output_with_timeout(mut cmd: std::process::Command, limit: std::time::Duratio
     use std::io::Read;
     let mut child = cmd.stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn()?;
     let mut stdout = child.stdout.take().unwrap();
-    let reader = std::thread::spawn(move || {
-        let mut s = String::new();
-        let _ = stdout.read_to_string(&mut s);
-        s
+    let collected = std::sync::Arc::new(std::sync::Mutex::new(Vec::<u8>::new()));
+    let (sink, (done_tx, done_rx)) = (collected.clone(), std::sync::mpsc::channel::<()>());
+    std::thread::spawn(move || {
+        let mut buf = [0u8; 4096];
+        while let Ok(n) = stdout.read(&mut buf) {
+            if n == 0 {
+                break;
+            }
+            sink.lock().unwrap().extend_from_slice(&buf[..n]);
+        }
+        let _ = done_tx.send(());
     });
     let start = std::time::Instant::now();
     while child.try_wait()?.is_none() {
@@ -45,7 +52,10 @@ fn output_with_timeout(mut cmd: std::process::Command, limit: std::time::Duratio
         }
         std::thread::sleep(std::time::Duration::from_millis(200));
     }
-    Ok(reader.join().unwrap_or_default())
+    // A service started by the probe may keep stdout open: wait briefly for EOF, then take what we have.
+    let _ = done_rx.recv_timeout(std::time::Duration::from_secs(2));
+    let out = String::from_utf8_lossy(&collected.lock().unwrap()).into_owned();
+    Ok(out)
 }
 
 pub struct ShimStep;
@@ -92,6 +102,16 @@ mod tests {
         let gac = d.path().join("drive_c/windows/mono/mono-2.0/lib/mono/gac");
         std::fs::create_dir_all(&gac).unwrap();
         assert_eq!(gac_target(d.path()), Some(gac.join(GAC_SUBDIR)));
+    }
+
+    #[test]
+    fn probe_returns_when_a_service_keeps_stdout_open() {
+        let mut cmd = std::process::Command::new("sh");
+        cmd.args(["-c", "echo 'INFO:   gac-probe'; echo 'EXIT:   42'; sleep 30 &"]);
+        let t = std::time::Instant::now();
+        let out = output_with_timeout(cmd, std::time::Duration::from_secs(20)).unwrap();
+        assert!(t.elapsed() < std::time::Duration::from_secs(10), "took {:?}", t.elapsed());
+        assert!(probe_ok(&out), "{out}");
     }
 
     #[test]

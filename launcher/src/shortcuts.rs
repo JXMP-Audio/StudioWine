@@ -1,4 +1,5 @@
 //! Shortcuts that Windows installers put on the Wine desktop.
+use crate::log::LogSink;
 use crate::wine::Wine;
 use std::path::{Path, PathBuf};
 
@@ -61,11 +62,12 @@ pub fn lnk_target(lnk: &Path) -> Option<String> {
     link.link_target()
 }
 
-/// Starts the shortcut through Wine's `start`, which applies the link's arguments and directory.
-pub fn launch(wine: &Wine, s: &Shortcut) -> anyhow::Result<std::process::Child> {
-    let mut cmd = wine.command(["start".as_ref(), "/unix".as_ref(), s.lnk.as_os_str()]);
-    cmd.stdin(std::process::Stdio::null()).stdout(std::process::Stdio::null()).stderr(std::process::Stdio::null());
-    Ok(cmd.spawn()?)
+/// Starts the shortcut through Wine's `start`, which applies the link's arguments and
+/// directory, on a thread whose output goes to `log` (debug channels included).
+pub fn launch(wine: &Wine, s: &Shortcut, log: &LogSink) -> std::thread::JoinHandle<anyhow::Result<std::process::ExitStatus>> {
+    let cmd = wine.command(["start".as_ref(), "/unix".as_ref(), s.lnk.as_os_str()]);
+    let log = log.clone();
+    std::thread::spawn(move || crate::wine::run_logged(cmd, &log))
 }
 
 /// Changes whenever a shortcut appears, disappears or is rewritten; the UI polls it.
@@ -118,6 +120,18 @@ mod tests {
             Some(r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe")
         );
         assert_eq!(lnk_target(&fixture("README")), None);
+    }
+
+    #[test]
+    fn launch_output_goes_to_the_log() {
+        let d = tempfile::tempdir().unwrap();
+        let p = crate::wine::testutil::fake_appdir(d.path(), r#"echo "launched: $*""#);
+        let log = crate::log::LogSink::open(&p.logs, "t.log").unwrap();
+        let s = Shortcut { name: "Cubase 15".into(), lnk: d.path().join("Cubase 15.lnk"), target: None };
+        let st = launch(&Wine::new(p), &s, &log).join().unwrap().unwrap();
+        assert!(st.success());
+        let text = std::fs::read_to_string(log.path()).unwrap();
+        assert!(text.contains("launched: start /unix") && text.contains("Cubase 15.lnk"), "{text}");
     }
 
     #[test]

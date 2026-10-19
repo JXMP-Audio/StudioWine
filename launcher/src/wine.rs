@@ -12,8 +12,13 @@ pub fn run_logged(mut cmd: Command, log: &LogSink) -> anyhow::Result<ExitStatus>
     let (done_tx, done_rx) = std::sync::mpsc::channel::<()>();
     let pump = |r: Box<dyn std::io::Read + Send>, log: LogSink, done: std::sync::mpsc::Sender<()>| {
         std::thread::spawn(move || {
-            for l in BufReader::new(r).lines().map_while(Result::ok) {
-                log.line(l.trim_end_matches('\r'));
+            // Byte lines decoded lossily: Windows programs may print in an ANSI codepage,
+            // and stopping at the first invalid line would leave the pipe undrained.
+            let mut r = BufReader::new(r);
+            let mut buf = Vec::new();
+            while matches!(r.read_until(b'\n', &mut buf), Ok(n) if n > 0) {
+                log.line(String::from_utf8_lossy(&buf).trim_end_matches(['\r', '\n']));
+                buf.clear();
             }
             let _ = done.send(());
         });
@@ -157,6 +162,16 @@ mod tests {
         assert!(Wine::new(p).run_wait(["setup.exe"], &log).unwrap().success());
         assert!(t.elapsed() < std::time::Duration::from_secs(10), "took {:?}", t.elapsed());
         assert!(std::fs::read_to_string(log.path()).unwrap().contains("installed"));
+    }
+
+    #[test]
+    fn non_utf8_output_does_not_stop_logging() {
+        let d = tempfile::tempdir().unwrap();
+        let p = testutil::fake_appdir(d.path(), r"printf 'Gr\xfc\xdfe\n'; echo after-the-bad-line");
+        let log = LogSink::open(&p.logs, "t.log").unwrap();
+        Wine::new(p).run_wait(["x.exe"], &log).unwrap();
+        let text = String::from_utf8_lossy(&std::fs::read(log.path()).unwrap()).into_owned();
+        assert!(text.contains("after-the-bad-line"), "{text}");
     }
 
     #[test]
