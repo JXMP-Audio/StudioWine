@@ -88,8 +88,10 @@ pub fn read_value(wine_reg_file: &Path, key: &str, name: &str) -> Option<String>
     None
 }
 
+/// Quotes for a .reg string. Control characters are dropped: names come from font
+/// files the user supplies, and a CR/LF would start a new key or value line.
 fn escape(s: &str) -> String {
-    s.replace('\\', "\\\\").replace('"', "\\\"")
+    s.chars().filter(|c| !c.is_control()).collect::<String>().replace('\\', "\\\\").replace('"', "\\\"")
 }
 
 fn hex(bytes: &[u8]) -> String {
@@ -148,6 +150,16 @@ mod tests {
         assert!(t.contains(r#""x"="C:\\a \"b\"""#), "{t}");
         assert!(t.contains("\"y\"=-"), "{t}");
         assert!(t.find("\"z\"").unwrap() < t.find("[HKEY_LOCAL_MACHINE\\B]").unwrap());
+    }
+
+    #[test]
+    fn control_characters_cannot_inject_lines() {
+        let mut r = RegFile::new();
+        r.set(r"HKEY_LOCAL_MACHINE\K", "Evil\r\n[HKEY_LOCAL_MACHINE\\X]\r\n\"a\"=\"b", RegValue::Sz("v\nw\u{0}".into()));
+        let t = decode(&r.to_regedit_bytes());
+        assert_eq!(t.lines().filter(|l| l.starts_with('[')).count(), 1, "{t}");
+        assert_eq!(t.matches("\r\n").count(), t.lines().count(), "{t}");
+        assert!(!t.contains('\u{0}'));
     }
 
     #[test]
