@@ -71,8 +71,10 @@ impl StudioWineApp {
             self.grid.fingerprint = Some(fp);
             self.grid.shortcuts = shortcuts::scan(&self.paths.prefix);
             self.grid.sda_installed = crate::setup::sda::find_sda_exe(&self.paths.prefix).is_some();
-            self.rewrite_handlers();
         }
+        // Wine writes URL handlers whenever a program registers one (e.g. the Activation
+        // Manager while the Download Assistant runs); point them at the AppImage right away.
+        self.rewrite_handlers();
     }
 
     fn texture_for(&mut self, ctx: &egui::Context, s: &Shortcut) -> Option<egui::TextureHandle> {

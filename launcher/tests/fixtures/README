@@ -1,1 +1,2 @@
 test.lnk: tests/data/Windows PowerShell.lnk from the lnk crate 0.6.4 (MIT licence, (c) 2023 Lily Hopkins and contributors).
+wine-extension-vbs.desktop: written by this repo's Wine build (winemenubuilder -a -r) for WINEPREFIX='/tmp/h/a b/prefix'.

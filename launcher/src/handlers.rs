@@ -8,8 +8,11 @@ pub fn rewrite_exec(line: &str, prefix: &Path, appimage: &Path) -> Option<String
     if !line.starts_with("Exec=") {
         return None;
     }
-    let needle = format!("WINEPREFIX=\"{}\"", prefix.display());
-    let head_end = line.find(&needle)? + needle.len();
+    // winemenubuilder writes `env "WINEPREFIX=<path>"`; also accept `WINEPREFIX="<path>"`.
+    let p = prefix.display();
+    let head_end = [format!("\"WINEPREFIX={p}\""), format!("WINEPREFIX=\"{p}\"")]
+        .iter()
+        .find_map(|needle| line.find(needle.as_str()).map(|i| i + needle.len()))?;
     let rest = line[head_end..].trim_start();
     let tail = if let Some(t) = rest.strip_prefix("wine ") {
         t
@@ -41,7 +44,7 @@ fn desktop_files(apps_dir: &Path) -> Vec<std::path::PathBuf> {
             p.is_file()
                 && p.file_name().is_some_and(|n| {
                     let n = n.to_string_lossy();
-                    n.starts_with("wine-protocol-") && n.ends_with(".desktop")
+                    (n.starts_with("wine-protocol-") || n.starts_with("wine-extension-")) && n.ends_with(".desktop")
                 })
         }));
     }
@@ -70,7 +73,7 @@ pub fn rewrite_all_in(apps_dir: &Path, prefix: &Path, appimage: &Path) -> anyhow
     Ok(changed)
 }
 
-/// `rewrite_all_in` on `~/.local/share/applications` (wine-protocol-*.desktop and wine/**).
+/// `rewrite_all_in` on `~/.local/share/applications` (wine-protocol-*, wine-extension-* and wine/**).
 pub fn rewrite_all(prefix: &Path, appimage: &Path) -> anyhow::Result<usize> {
     let apps = dirs::data_dir().ok_or_else(|| anyhow::anyhow!("no XDG data directory"))?.join("applications");
     rewrite_all_in(&apps, prefix, appimage)
@@ -81,6 +84,47 @@ mod tests {
     use super::*;
 
     const PRE: &str = "/home/u/.local/share/studiowine/prefix";
+
+    // Formats written by this Wine's winemenubuilder.c (lines 1276 and 2041).
+    #[test]
+    fn rewrite_real_winemenubuilder_formats() {
+        let ai = Path::new("/opt/StudioWine.AppImage");
+        let menu = format!(r#"Exec=env "WINEPREFIX={PRE}" wine "C:\\users\\Public\\Desktop\\Cubase 15.lnk""#);
+        assert_eq!(
+            rewrite_exec(&menu, Path::new(PRE), ai).as_deref(),
+            Some(format!(r#"Exec=env "WINEPREFIX={PRE}" "/opt/StudioWine.AppImage" --wine "C:\\users\\Public\\Desktop\\Cubase 15.lnk""#).as_str())
+        );
+        let proto = format!(r#"Exec=env "WINEPREFIX={PRE}" wine start %u"#);
+        assert_eq!(
+            rewrite_exec(&proto, Path::new(PRE), ai).as_deref(),
+            Some(format!(r#"Exec=env "WINEPREFIX={PRE}" "/opt/StudioWine.AppImage" --wine start %u"#).as_str())
+        );
+        let spaced = r#"Exec=env "WINEPREFIX=/home/Jürgen Müller/.local/share/studiowine/prefix" wine start /ProgIDOpen "Cubase.Project" %f"#;
+        let out = rewrite_exec(spaced, Path::new("/home/Jürgen Müller/.local/share/studiowine/prefix"), ai).unwrap();
+        assert!(out.ends_with(r#" "/opt/StudioWine.AppImage" --wine start /ProgIDOpen "Cubase.Project" %f"#), "{out}");
+        let again = rewrite_exec(&out, Path::new("/home/Jürgen Müller/.local/share/studiowine/prefix"), Path::new("/new/S.AppImage")).unwrap();
+        assert!(again.contains(r#" "/new/S.AppImage" --wine start"#), "{again}");
+        assert_eq!(rewrite_exec(r#"Exec=env "WINEPREFIX=/home/u/.wine" wine start %u"#, Path::new(PRE), ai), None);
+    }
+
+    #[test]
+    fn rewrites_file_generated_by_our_wine() {
+        let d = tempfile::tempdir().unwrap();
+        let src = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/wine-extension-vbs.desktop");
+        std::fs::copy(&src, d.path().join("wine-extension-vbs.desktop")).unwrap();
+        let pre = Path::new("/tmp/h/a b/prefix");
+        assert_eq!(rewrite_all_in(d.path(), pre, Path::new("/x y/StudioWine.AppImage")).unwrap(), 1);
+        let t = std::fs::read_to_string(d.path().join("wine-extension-vbs.desktop")).unwrap();
+        assert!(t.contains(r#"Exec=env "WINEPREFIX=/tmp/h/a b/prefix" "/x y/StudioWine.AppImage" --wine start /ProgIDOpen "VBSFile" %f"#), "{t}");
+    }
+
+    #[test]
+    fn rewrite_all_includes_extension_handlers() {
+        let d = tempfile::tempdir().unwrap();
+        let ext = format!("[Desktop Entry]\nExec=env \"WINEPREFIX={PRE}\" wine start /ProgIDOpen \"x\" %f\n");
+        std::fs::write(d.path().join("wine-extension-cpr.desktop"), &ext).unwrap();
+        assert_eq!(rewrite_all_in(d.path(), Path::new(PRE), Path::new("/a.AppImage")).unwrap(), 1);
+    }
 
     #[test]
     fn rewrite_exec_points_at_appimage() {
