@@ -1,0 +1,9 @@
+# Target-distro test image: a desktop-like Ubuntu 24.04 with Xvfb, xdotool and ImageMagick.
+FROM ubuntu:24.04
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates xvfb xauth xdotool x11-utils imagemagick openbox \
+        libgl1 libegl1 libgl1-mesa-dri libglx-mesa0 libxkbcommon-x11-0 libxkbcommon0 \
+        libxcursor1 libxi6 libxrandr2 libxinerama1 libxcomposite1 libxfixes3 libxrender1 libxext6 \
+        libasound2t64 libpulse0 libdbus-1-3 fontconfig xdg-utils procps \
+    && rm -rf /var/lib/apt/lists/*
