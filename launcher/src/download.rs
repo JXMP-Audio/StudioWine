@@ -40,17 +40,24 @@ fn file_name(url: &str) -> anyhow::Result<String> {
 
 pub struct Http {
     agent: ureq::Agent,
+    stall: std::time::Duration,
 }
 
 impl Http {
     pub fn new() -> Http {
+        Http::with_stall_timeout(std::time::Duration::from_secs(60))
+    }
+
+    /// A download fails when no data arrives for `stall` (default 60 s).
+    pub fn with_stall_timeout(stall: std::time::Duration) -> Http {
         let config = ureq::Agent::config_builder()
             .max_redirects(0) // redirects are followed by `call`, which checks every hop
             .max_redirects_will_error(false)
             .user_agent("StudioWine/0.1.0")
             .timeout_connect(Some(std::time::Duration::from_secs(30)))
+            .timeout_recv_response(Some(stall))
             .build();
-        Http { agent: config.into() }
+        Http { agent: config.into(), stall }
     }
 
     /// GET or HEAD `url`, following up to 10 redirects; every hop must pass `check_scheme`,
@@ -105,17 +112,34 @@ impl Http {
                 }
             }
         }
-        let (mut resp, final_url) = self.call(false, url)?;
+        let (resp, final_url) = self.call(false, url)?;
         let dest = dest_dir.join(file_name(&final_url)?);
         let total = content_length(&resp);
         let part = dest.with_file_name(format!("{}.part", dest.file_name().unwrap().to_string_lossy()));
-        let result = (|| -> anyhow::Result<()> {
-            let mut reader = resp.body_mut().as_reader();
-            let mut out = std::fs::File::create(&part)?;
+        // Reads happen on a helper thread so a connection that stops sending can be
+        // detected (`stall`) instead of blocking the wizard forever.
+        let (tx, rx) = std::sync::mpsc::sync_channel::<std::io::Result<Vec<u8>>>(4);
+        let mut reader = resp.into_body().into_reader();
+        std::thread::spawn(move || {
             let mut buf = vec![0u8; 256 * 1024];
+            loop {
+                let r = reader.read(&mut buf).map(|n| buf[..n].to_vec());
+                let end = !matches!(&r, Ok(v) if !v.is_empty());
+                if tx.send(r).is_err() || end {
+                    break;
+                }
+            }
+        });
+        let stall = self.stall;
+        let result = (|| -> anyhow::Result<()> {
+            let mut out = std::fs::File::create(&part)?;
             let mut done: u64 = 0;
             loop {
-                let n = reader.read(&mut buf)?;
+                let buf = match rx.recv_timeout(stall) {
+                    Ok(r) => r?,
+                    Err(_) => anyhow::bail!("no data received for {} s — check the internet connection", stall.as_secs()),
+                };
+                let n = buf.len();
                 if n == 0 {
                     break;
                 }
@@ -159,6 +183,8 @@ mod tests {
         std::thread::spawn(move || {
             for s in l.incoming() {
                 let mut s = s.unwrap();
+                let (g, body) = (g.clone(), body.clone());
+                std::thread::spawn(move || {
                 let mut buf = [0u8; 4096];
                 let n = s.read(&mut buf).unwrap_or(0);
                 let req = String::from_utf8_lossy(&buf[..n]).to_string();
@@ -166,6 +192,10 @@ mod tests {
                 if line.contains(" /downgrade ") {
                     let port = s.local_addr().unwrap().port();
                     let _ = write!(s, "HTTP/1.1 302 Found\r\nLocation: http://localhost:{port}/file.exe\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
+                } else if line.contains(" /stall ") {
+                    let _ = write!(s, "HTTP/1.1 200 OK\r\nContent-Length: 1000\r\nConnection: close\r\n\r\nMZ");
+                    let _ = s.flush();
+                    std::thread::sleep(std::time::Duration::from_secs(20));
                 } else if line.contains(" /go ") {
                     let _ = s.write_all(b"HTTP/1.1 302 Found\r\nLocation: /file.exe\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
                 } else if line.starts_with("HEAD") {
@@ -175,6 +205,7 @@ mod tests {
                     let _ = write!(s, "HTTP/1.1 200 OK\r\nContent-Length: {declared_len}\r\nConnection: close\r\n\r\n");
                     let _ = s.write_all(&body);
                 }
+                });
             }
         });
         (base, gets)
@@ -242,6 +273,19 @@ mod tests {
         assert!(h.resolve_final_url(&format!("{base}/downgrade")).is_err());
         assert!(h.get_text(&format!("{base}/downgrade")).is_err());
         assert_eq!(gets.load(Ordering::SeqCst), 0, "must not follow the downgraded hop");
+    }
+
+    #[test]
+    fn stalled_download_fails_instead_of_hanging() {
+        let (base, _) = stub(pe(10), 10);
+        let d = tempfile::tempdir().unwrap();
+        let t = std::time::Instant::now();
+        let e = Http::with_stall_timeout(std::time::Duration::from_secs(1))
+            .download_exe(&format!("{base}/stall"), d.path(), &|_, _| {})
+            .unwrap_err();
+        assert!(t.elapsed() < std::time::Duration::from_secs(10), "took {:?}", t.elapsed());
+        assert!(format!("{e:#}").contains("no data"), "{e:#}");
+        assert!(!d.path().join("stall").exists() && !d.path().join("stall.part").exists());
     }
 
     #[test]
