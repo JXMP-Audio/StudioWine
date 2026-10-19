@@ -54,7 +54,9 @@ opens the log.
   a new computer for Steinberg and other vendors.
 
 Everything lives in `~/.local/share/studiowine/` (`prefix/`, `cache/`, `logs/`,
-`state.json`). Sign-in links (`net-steinberg-*://`) and menu entries that Wine creates in
+`state.json`). Inside Windows programs, *Documents*, *Music* and *Downloads* are your
+normal home folders, so projects and downloads end up where you expect; the Windows
+*Desktop* is private to StudioWine. Sign-in links (`net-steinberg-*://`) and menu entries that Wine creates in
 `~/.local/share/applications` are pointed at the AppImage automatically. If you move the
 AppImage, start it once from the new place.
 
@@ -97,6 +99,8 @@ Every pinned input (Wine commit, Wine Mono, llvm-mingw, fonts, Rust) is in
 | Failure path (installer cancelled) | step marked failed, Retry / Show log offered |
 | Main view, Fonts… dialog, Run .exe… (Wine notepad started via typed path) | yes |
 | `~/.wine` untouched | yes |
+| Handlers written by this Wine (`Exec=env "WINEPREFIX=…" wine …`) are re-pointed at the AppImage | yes — 5 real `wine-extension-*.desktop` files |
+| Wine's Desktop folder is private (installer shortcuts stay out of `~/Desktop`); Documents stays linked to `~/Documents` | yes |
 
 ## Hand-off checklist (needs a Steinberg account)
 

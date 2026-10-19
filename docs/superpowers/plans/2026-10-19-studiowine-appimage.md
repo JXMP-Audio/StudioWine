@@ -332,8 +332,9 @@ pub fn dir_fingerprint(prefix: &Path) -> u64;        // hash of (name, mtime) of
 pub fn icon_rgba(exe: &Path, size: u32) -> Option<(u32, u32, Vec<u8>)>; // largest RT_GROUP_ICON image via pelite, decoded with `image` (ico/png), resized to size
 // handlers.rs
 pub fn rewrite_exec(line: &str, prefix: &Path, appimage: &Path) -> Option<String>;
-// for an "Exec=" line containing `WINEPREFIX="<prefix>"` and an unquoted `wine` word (or a previous `"<old>" --wine`), return
-// `Exec=env WINEPREFIX="<prefix>" "<appimage>" --wine <rest>`; None if the line belongs to another prefix
+// for an "Exec=" line containing `"WINEPREFIX=<prefix>"` (winemenubuilder's real format; legacy `WINEPREFIX="<prefix>"`
+// also accepted) followed by `wine ` (or a previous `"<old>" --wine `), return the same line with
+// `"<appimage>" --wine <rest>`; None if the line belongs to another prefix. (Corrected after final review.)
 pub fn rewrite_all(prefix: &Path, appimage: &Path) -> anyhow::Result<usize>; // ~/.local/share/applications/wine-protocol-*.desktop and ~/.local/share/applications/wine/**/*.desktop
 ```
 - [ ] **Step 1: Failing tests:** `scan_finds_public_and_user_desktop`; `windows_to_unix_maps_drive_c`; `rewrite_exec_points_at_appimage`; `rewrite_quotes_appimage_path_with_spaces` (appimage `/home/a b/StudioWine.AppImage` appears quoted); `rewrite_replaces_old_appimage_path`; `rewrite_ignores_other_prefix`; `icon_rgba_reads_pe_icon` (skipped when fixture missing).
