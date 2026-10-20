@@ -73,10 +73,94 @@ pub fn rewrite_all_in(apps_dir: &Path, prefix: &Path, appimage: &Path) -> anyhow
     Ok(changed)
 }
 
+/// `~/.local/share/applications`, where winemenubuilder writes (it follows XDG_DATA_HOME too).
+fn apps_dir() -> anyhow::Result<std::path::PathBuf> {
+    Ok(dirs::data_dir().ok_or_else(|| anyhow::anyhow!("no XDG data directory"))?.join("applications"))
+}
+
 /// `rewrite_all_in` on `~/.local/share/applications` (wine-protocol-*, wine-extension-* and wine/**).
 pub fn rewrite_all(prefix: &Path, appimage: &Path) -> anyhow::Result<usize> {
-    let apps = dirs::data_dir().ok_or_else(|| anyhow::anyhow!("no XDG data directory"))?.join("applications");
-    rewrite_all_in(&apps, prefix, appimage)
+    rewrite_all_in(&apps_dir()?, prefix, appimage)
+}
+
+const ASSOCIATIONS_KEY: &str = r"HKEY_CURRENT_USER\Software\Wine\FileOpenAssociations";
+
+/// The associations recorded in a `reg export` of ASSOCIATIONS_KEY (`.cpr`, `net-steinberg-sda`…).
+pub fn recorded_associations(export: &str) -> Vec<String> {
+    let head = format!("[{ASSOCIATIONS_KEY}\\");
+    export
+        .lines()
+        .filter_map(|l| l.trim_end().strip_prefix(head.as_str())?.strip_suffix(']'))
+        .filter(|name| !name.contains('\\'))
+        .map(str::to_string)
+        .collect()
+}
+
+/// Those of `recorded` (associations of `prefix`) whose handler file is gone or was since
+/// written by another environment. Wine writes a handler only when the recorded association
+/// changes, so it never takes these back by itself.
+pub fn stale_associations(prefix: &Path, recorded: &[String], apps_dir: &Path) -> Vec<String> {
+    let p = prefix.display();
+    let ours = [format!("\"WINEPREFIX={p}\""), format!("WINEPREFIX=\"{p}\"")];
+    recorded
+        .iter()
+        .filter(|name| {
+            // The file names winemenubuilder.c gives protocol and extension handlers.
+            let file = match name.strip_prefix('.') {
+                Some(ext) => format!("wine-extension-{ext}.desktop"),
+                None => format!("wine-protocol-{name}.desktop"),
+            };
+            let text = std::fs::read_to_string(apps_dir.join(file)).unwrap_or_default();
+            !text.lines().any(|l| l.starts_with("Exec=") && ours.iter().any(|o| l.contains(o.as_str())))
+        })
+        .cloned()
+        .collect()
+}
+
+/// `reg export` output: UTF-16LE with a BOM from Wine's reg.exe.
+fn decode_reg(b: &[u8]) -> String {
+    match b.strip_prefix(&[0xFF, 0xFE]) {
+        Some(u) => String::from_utf16_lossy(&u.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect::<Vec<_>>()),
+        None => String::from_utf8_lossy(b).into_owned(),
+    }
+}
+
+/// Makes the file and link handlers of `ctx`'s environment the active ones: forgets the
+/// associations another environment took over, then lets winemenubuilder write every handler
+/// that is missing, including those no installer announced (the Activation Manager's link).
+pub fn claim(ctx: &crate::setup::Ctx) -> anyhow::Result<()> {
+    claim_in(ctx, &apps_dir()?)
+}
+
+fn claim_in(ctx: &crate::setup::Ctx, apps_dir: &Path) -> anyhow::Result<()> {
+    let prefix = &ctx.paths.prefix;
+    if !prefix.join("system.reg").is_file() {
+        return Ok(());
+    }
+    // Ask Wine: user.reg on disk lags behind while a program of the environment runs.
+    std::fs::create_dir_all(&ctx.paths.cache)?;
+    let export = ctx.paths.cache.join("associations.reg");
+    let _ = std::fs::remove_file(&export);
+    let file = crate::wine::dos_path(&export);
+    let st = ctx.wine.run_wait(["reg", "export", ASSOCIATIONS_KEY, file.as_str(), "/y"], &ctx.log)?;
+    // Fails when nothing is recorded yet.
+    let recorded = if st.success() { recorded_associations(&decode_reg(&std::fs::read(&export)?)) } else { Vec::new() };
+    let _ = std::fs::remove_file(&export);
+    let stale = stale_associations(prefix, &recorded, apps_dir);
+    if !stale.is_empty() {
+        ctx.log.line(&format!("handlers to take back for this environment: {}", stale.join(" ")));
+    }
+    // One subkey each: the key itself holds the user's Enable and Exclude settings.
+    for name in &stale {
+        let key = format!(r"HKCU\Software\Wine\FileOpenAssociations\{name}");
+        let st = ctx.wine.run_wait(["reg", "delete", key.as_str(), "/f"], &ctx.log)?;
+        anyhow::ensure!(st.success(), "cannot reset the recorded association {name} ({st})");
+    }
+    let st = ctx.wine.run_wait(["winemenubuilder", "-a"], &ctx.log)?;
+    anyhow::ensure!(st.success(), "winemenubuilder failed ({st})");
+    // Files written before winemenubuilder knew STUDIOWINE_MENU_EXEC still call plain `wine`.
+    rewrite_all_in(apps_dir, prefix, &ctx.paths.appimage)?;
+    Ok(())
 }
 
 #[cfg(test)]
@@ -86,6 +170,82 @@ mod tests {
     const PRE: &str = "/home/u/.local/share/studiowine/prefix";
 
     // Formats written by this Wine's winemenubuilder.c (lines 1276 and 2041).
+    /// What Wine's `reg export` of ASSOCIATIONS_KEY writes: UTF-16LE with a BOM, CRLF.
+    fn export(names: &[&str]) -> Vec<u8> {
+        let mut t = format!("Windows Registry Editor Version 5.00\r\n\r\n[{ASSOCIATIONS_KEY}]\r\n\"Exclude\"=hex(7):00,00\r\n\r\n");
+        for n in names {
+            t += &format!("[{ASSOCIATIONS_KEY}\\{n}]\r\n\"AppName\"=\"x\"\r\n\r\n");
+        }
+        [0xFF, 0xFE].into_iter().chain(t.encode_utf16().flat_map(u16::to_le_bytes)).collect()
+    }
+
+    #[test]
+    fn recorded_associations_from_reg_export() {
+        let names = recorded_associations(&decode_reg(&export(&[".cpr", "net-steinberg-sda"])));
+        assert_eq!(names, [".cpr", "net-steinberg-sda"]);
+        assert!(recorded_associations("").is_empty());
+    }
+
+    #[test]
+    fn stale_associations_are_missing_or_foreign_handlers() {
+        let d = tempfile::tempdir().unwrap();
+        let (pre, apps) = (d.path().join("Bottles/Cubase"), d.path().join("apps"));
+        let recorded: Vec<String> =
+            [".cpr", ".chm", "net-steinberg-sda", "net-steinberg-activation-manager"].map(String::from).into();
+        std::fs::create_dir_all(&apps).unwrap();
+        let exec = |p: &Path| format!("[Desktop Entry]\nExec=env \"WINEPREFIX={}\" \"/a.AppImage\" --wine start %u\n", p.display());
+        std::fs::write(apps.join("wine-extension-cpr.desktop"), exec(&pre)).unwrap();
+        std::fs::write(apps.join("wine-extension-chm.desktop"), exec(Path::new(PRE))).unwrap();
+        std::fs::write(apps.join("wine-protocol-net-steinberg-sda.desktop"), exec(&pre)).unwrap();
+        // A prefix that is a prefix of ours ("…/Cubase" vs "…/Cubase 2") must not count as ours.
+        let longer = d.path().join("Bottles/Cubase 2");
+        std::fs::write(apps.join("wine-protocol-net-steinberg-activation-manager.desktop"), exec(&longer)).unwrap();
+        assert_eq!(stale_associations(&pre, &recorded, &apps), [".chm", "net-steinberg-activation-manager"]);
+        std::fs::remove_file(apps.join("wine-extension-cpr.desktop")).unwrap();
+        assert_eq!(stale_associations(&pre, &recorded, &apps), [".cpr", ".chm", "net-steinberg-activation-manager"]);
+    }
+
+    #[test]
+    fn claim_forgets_taken_over_associations_then_runs_winemenubuilder() {
+        let d = tempfile::tempdir().unwrap();
+        // `reg export` copies the prepared export (if any) to the Z:\ path it is given.
+        let fake = r#"echo "$*" >> "$WINEPREFIX/../calls.log"
+if [ "$1 $2" = "reg export" ]; then
+  [ -f "$WINEPREFIX/../export.reg" ] || exit 1
+  cp "$WINEPREFIX/../export.reg" "$(echo "$4" | sed -e 's/^Z://' -e 's#\\#/#g')"
+fi
+"#;
+        let paths = crate::wine::testutil::fake_appdir(d.path(), fake);
+        let ctx = crate::setup::Ctx::new(paths.clone(), crate::log::LogSink::open(&paths.logs, "t.log").unwrap());
+        let apps = d.path().join("apps");
+        std::fs::create_dir_all(&apps).unwrap();
+        let calls = || std::fs::read_to_string(paths.data.join("calls.log")).unwrap_or_default();
+        claim_in(&ctx, &apps).unwrap();
+        assert_eq!(calls(), "", "no environment yet: nothing runs");
+
+        std::fs::create_dir_all(&paths.prefix).unwrap();
+        std::fs::write(paths.prefix.join("system.reg"), "WINE REGISTRY Version 2\n").unwrap();
+        claim_in(&ctx, &apps).unwrap();
+        assert!(calls().ends_with("/y\nwinemenubuilder -a\n"), "nothing recorded yet: {}", calls());
+
+        std::fs::write(paths.data.join("export.reg"), export(&["net-steinberg-sda"])).unwrap();
+        let mine = format!("[Desktop Entry]\nExec=env \"WINEPREFIX={}\" wine start %u\n", paths.prefix.display());
+        std::fs::write(apps.join("wine-protocol-net-steinberg-sda.desktop"), &mine).unwrap();
+        std::fs::remove_file(paths.data.join("calls.log")).unwrap();
+        claim_in(&ctx, &apps).unwrap();
+        assert!(!calls().contains("reg delete"), "handlers are ours: only add missing ones: {}", calls());
+        let t = std::fs::read_to_string(apps.join("wine-protocol-net-steinberg-sda.desktop")).unwrap();
+        assert!(t.contains(&format!("\"{}\" --wine start %u", paths.appimage.display())), "{t}");
+
+        std::fs::write(apps.join("wine-protocol-net-steinberg-sda.desktop"), mine.replace(&paths.prefix.display().to_string(), PRE)).unwrap();
+        std::fs::remove_file(paths.data.join("calls.log")).unwrap();
+        claim_in(&ctx, &apps).unwrap();
+        let c = calls();
+        assert!(c.starts_with(r"reg export HKEY_CURRENT_USER\Software\Wine\FileOpenAssociations Z:"), "{c}");
+        assert!(c.ends_with("reg delete HKCU\\Software\\Wine\\FileOpenAssociations\\net-steinberg-sda /f\nwinemenubuilder -a\n"), "{c}");
+        assert!(!paths.cache.join("associations.reg").exists(), "export removed");
+    }
+
     #[test]
     fn rewrite_real_winemenubuilder_formats() {
         let ai = Path::new("/opt/StudioWine.AppImage");

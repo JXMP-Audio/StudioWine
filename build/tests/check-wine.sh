@@ -16,6 +16,12 @@ for d in d2d1 dcomp dxgi d3d11 dwrite uianimation pwrshsip; do
     check "x86_64-windows/$d.dll" '[ -f "$W/lib/wine/x86_64-windows/$d.dll" ]'
 done
 check "i386-windows/d2d1.dll" '[ -f "$W/lib/wine/i386-windows/d2d1.dll" ]'
+check "WineASIO placeholder dll" '[ -f "$W/lib/wine/x86_64-windows/wineasio64.dll" ]'
+check "WineASIO driver (ELF)" '[ -f "$W/lib/wine/x86_64-unix/wineasio64.dll.so" ]'
+check "WineASIO placeholder is named after the driver" 'grep -qa "wineasio64.dll" "$W/lib/wine/x86_64-windows/wineasio64.dll"'
+check "WineASIO does not link libjack (dlopen from the host)" '! objdump -p "$W/lib/wine/x86_64-unix/wineasio64.dll.so" | grep -q "NEEDED.*libjack"'
+check "WineASIO locks memory only with unlimited memlock (patch applied)" 'objdump -T "$W/lib/wine/x86_64-unix/wineasio64.dll.so" | grep -q getrlimit'
+check "winemenubuilder honours STUDIOWINE_MENU_EXEC" 'strings -el "$W/lib/wine/x86_64-windows/winemenubuilder.exe" | grep -q STUDIOWINE_MENU_EXEC'
 check "wine mono msi" '[ -f "$W/share/wine/mono/wine-mono-$WINE_MONO_VERSION-x86.msi" ]'
 check "glibc <= 2.35" '"$REPO/build/tests/check-glibc.sh" "$W" >/dev/null'
 check "ntdll.so does not need libunwind" '! objdump -p "$W/lib/wine/x86_64-unix/ntdll.so" 2>/dev/null | grep -q libunwind'

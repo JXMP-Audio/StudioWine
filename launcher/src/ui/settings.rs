@@ -1,9 +1,26 @@
-//! ⚙ menu: open prefix folder, show log, re-run setup, reset prefix (with confirmation).
+//! ⚙ menu: open prefix folder, show log, WineASIO status and buffer size, re-run setup,
+//! reset prefix (with confirmation).
 use super::StudioWineApp;
+use crate::audio::{buffer_settings, current_buffer_size, Jack, BUFFER_SIZES};
+use crate::setup::StepId;
 
 #[derive(Default)]
 pub struct Settings {
     confirm_reset: bool,
+    /// JACK status line and whether WineASIO can work with it.
+    pub jack: (&'static str, bool),
+    buffer_size: Option<u32>,
+    /// Last size set from the menu; user.reg shows it only once wineserver saves the
+    /// registry, and stopping wineserver here would close Cubase.
+    buffer_size_set: Option<u32>,
+}
+
+impl Settings {
+    /// Re-read after every job; the menu itself is drawn every frame while open.
+    pub fn refresh(&mut self, prefix: &std::path::Path) {
+        self.jack = Jack::detect().summary();
+        self.buffer_size = current_buffer_size(prefix);
+    }
 }
 
 impl StudioWineApp {
@@ -17,6 +34,27 @@ impl StudioWineApp {
                 let p = self.ctx.log.path().to_path_buf();
                 self.open_path(&p);
             }
+            ui.separator();
+            let (jack, ok) = self.settings.jack;
+            if ok {
+                ui.weak(jack);
+            } else {
+                ui.colored_label(ui.visuals().warn_fg_color, jack);
+            }
+            let asio = self.steps_done.contains(&(StepId::WineAsio, true));
+            ui.add_enabled_ui(asio && self.job.is_none(), |ui| {
+                ui.menu_button("WineASIO buffer size", |ui| {
+                    for n in BUFFER_SIZES {
+                        let label = format!("{n} samples ({:.1} ms at 48 kHz)", n as f32 / 48.0);
+                        let current = self.settings.buffer_size_set.or(self.settings.buffer_size);
+                        if ui.radio(current == Some(n), label).clicked() {
+                            self.set_buffer_size(n);
+                        }
+                    }
+                    ui.weak("Applies when Cubase restarts its audio engine.");
+                });
+            });
+            ui.separator();
             if ui.add_enabled(self.job.is_none(), egui::Button::new("Re-run setup")).clicked() {
                 self.restart_wizard();
             }
@@ -24,6 +62,15 @@ impl StudioWineApp {
             if ui.add_enabled(self.job.is_none(), egui::Button::new("Reset Wine environment…")).clicked() {
                 self.settings.confirm_reset = true;
             }
+        });
+    }
+
+    fn set_buffer_size(&mut self, frames: u32) {
+        self.settings.buffer_size_set = Some(frames);
+        let ctx = self.ctx.clone();
+        self.spawn_job("Setting the WineASIO buffer size", move |_| {
+            buffer_settings(frames).import(&ctx.wine, &ctx.log, &ctx.paths.cache)?;
+            Ok(format!("WineASIO buffer size: {frames} samples"))
         });
     }
 
@@ -56,11 +103,13 @@ impl StudioWineApp {
                 if ctx2.paths.prefix.exists() {
                     std::fs::remove_dir_all(&ctx2.paths.prefix)?;
                 }
-                let _ = std::fs::remove_file(&state_file);
+                // Nothing is completed any more; the chosen location stays.
+                let keep = crate::state::State { prefix: crate::state::State::load(&state_file).prefix, ..Default::default() };
+                keep.save(&state_file)?;
                 Ok("The Wine environment was deleted.".into())
             });
             // Fresh rows: the deletion is still running, so the checks would see the old prefix.
-            self.wizard = super::wizard::Wizard::new();
+            self.wizard = super::wizard::Wizard::new(&self.paths.prefix);
             self.mode = super::Mode::Wizard;
         }
         if reset || close {

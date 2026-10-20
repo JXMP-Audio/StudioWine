@@ -2,6 +2,7 @@
 use super::{Ctx, Progress, Step, StepId};
 use crate::registry::{read_value, RegFile, RegValue};
 use crate::wine::run_logged;
+use std::path::Path;
 
 /// Wine links each user's Desktop to the host's `~/Desktop`; installers would then put
 /// their shortcuts on the real desktop and the grid would show them from there. Replace
@@ -26,6 +27,53 @@ fn user_desktops(prefix: &std::path::Path) -> Vec<std::path::PathBuf> {
     std::fs::read_dir(prefix.join("drive_c/users"))
         .map(|rd| rd.filter_map(Result::ok).map(|e| e.path().join("Desktop")).collect())
         .unwrap_or_default()
+}
+
+/// Written into every environment StudioWine creates; a non-empty folder without it is
+/// never accepted as a location (Reset deletes the whole folder).
+const MARKER: &str = ".studiowine";
+
+pub fn mark(prefix: &Path) {
+    let _ = std::fs::write(prefix.join(MARKER), b"StudioWine Wine environment\n");
+}
+
+/// Whether `p` may hold the Wine environment: an absolute path that is missing, an empty
+/// folder, or a folder with an environment StudioWine created. `default` (the usual
+/// `<data>/prefix`) is accepted as it is, since environments from before the marker lack it.
+pub fn check_location(p: &Path, default: &Path) -> Result<(), String> {
+    if !p.is_absolute() {
+        return Err("Enter a full path, e.g. /mnt/audio/StudioWine.".into());
+    }
+    // Desktop-entry Exec lines carry the path in double quotes; these would need escaping.
+    if let Some(c) = p.to_string_lossy().chars().find(|c| matches!(c, '"' | '`' | '$' | '\\' | '%') || c.is_control()) {
+        return Err(format!("The path must not contain {c:?}."));
+    }
+    if p == default || !p.exists() {
+        return Ok(());
+    }
+    if !p.is_dir() {
+        return Err(format!("{} is a file, not a folder.", p.display()));
+    }
+    let empty = std::fs::read_dir(p).map_err(|e| format!("{}: {e}", p.display()))?.next().is_none();
+    if empty || p.join(MARKER).is_file() {
+        Ok(())
+    } else {
+        Err(format!(
+            "{} is not empty. Choose a new or empty folder, or one that already holds a StudioWine environment.",
+            p.display()
+        ))
+    }
+}
+
+/// Creates the folder and makes sure the file system can hold a Wine environment
+/// (symbolic links: FAT, exFAT and NTFS mounts cannot).
+pub fn prepare_location(p: &Path) -> Result<(), String> {
+    std::fs::create_dir_all(p).map_err(|e| format!("Cannot create {}: {e}", p.display()))?;
+    let probe = p.join(".studiowine-symlink-test");
+    let _ = std::fs::remove_file(&probe);
+    let r = std::os::unix::fs::symlink("drive_c", &probe);
+    let _ = std::fs::remove_file(&probe);
+    r.map_err(|e| format!("{} cannot hold a Wine environment (no symbolic links: {e}). Choose a folder on a Linux file system.", p.display()))
 }
 
 pub struct PrefixStep;
@@ -54,6 +102,7 @@ impl Step for PrefixStep {
         let st = run_logged(cmd, &ctx.log)?;
         anyhow::ensure!(st.success(), "wineboot failed ({st})");
         make_desktops_private(&ctx.paths.prefix)?;
+        mark(&ctx.paths.prefix);
         p.fraction(self.id(), 0.8);
         p.status(self.id(), "Setting Windows 10 mode…");
         let mut reg = RegFile::new();
@@ -102,6 +151,43 @@ esac
     }
 
     #[test]
+    fn location_rules() {
+        let d = tempfile::tempdir().unwrap();
+        let def = d.path().join("data/prefix");
+        assert!(check_location(Path::new("rel/wine"), &def).is_err());
+        assert!(check_location(&d.path().join("new/wine"), &def).is_ok(), "missing folder");
+        assert!(check_location(&d.path().join("a$b"), &def).unwrap_err().contains('$'));
+        let empty = d.path().join("empty");
+        std::fs::create_dir(&empty).unwrap();
+        assert!(check_location(&empty, &def).is_ok());
+        let music = d.path().join("Music");
+        std::fs::create_dir(&music).unwrap();
+        std::fs::write(music.join("song.flac"), b"x").unwrap();
+        assert!(check_location(&music, &def).unwrap_err().contains("not empty"), "never a folder Reset could wipe");
+        let foreign = d.path().join(".wine");
+        std::fs::create_dir(&foreign).unwrap();
+        std::fs::write(foreign.join("system.reg"), b"WINE REGISTRY").unwrap();
+        assert!(check_location(&foreign, &def).is_err(), "another Wine prefix is not taken over");
+        mark(&foreign);
+        assert!(check_location(&foreign, &def).is_ok(), "an environment StudioWine created");
+        std::fs::create_dir_all(&def).unwrap();
+        std::fs::write(def.join("system.reg"), b"x").unwrap();
+        assert!(check_location(&def, &def).is_ok(), "the default location from before the marker");
+        let f = d.path().join("file");
+        std::fs::write(&f, b"x").unwrap();
+        assert!(check_location(&f, &def).unwrap_err().contains("not a folder"));
+    }
+
+    #[test]
+    fn prepare_creates_folder_on_a_linux_file_system() {
+        let d = tempfile::tempdir().unwrap();
+        let p = d.path().join("x/y/prefix");
+        prepare_location(&p).unwrap();
+        assert!(p.is_dir());
+        assert_eq!(std::fs::read_dir(&p).unwrap().count(), 0, "the probe link is removed");
+    }
+
+    #[test]
     fn prefix_step_runs_wineboot_with_mshtml_disabled_and_sets_win10() {
         let d = tempfile::tempdir().unwrap();
         let paths = fake_appdir(d.path(), FAKE);
@@ -114,5 +200,6 @@ esac
         assert!(calls.contains("wineboot DLLOVERRIDES=mshtml=d"), "{calls}");
         assert!(calls.lines().any(|l| l.starts_with("regedit DLLOVERRIDES=") && !l.contains("mshtml")), "{calls}");
         assert!(PrefixStep.is_done(&ctx));
+        assert!(paths.prefix.join(MARKER).is_file());
     }
 }

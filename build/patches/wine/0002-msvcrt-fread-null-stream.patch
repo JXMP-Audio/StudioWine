@@ -1,0 +1,16 @@
+diff --git a/dlls/msvcrt/file.c b/dlls/msvcrt/file.c
+index f60b27a..0a39a08 100644
+--- a/dlls/msvcrt/file.c
++++ b/dlls/msvcrt/file.c
+@@ -4413,6 +4413,11 @@ size_t CDECL fread(void *ptr, size_t size, size_t nmemb, FILE* file)
+ {
+     size_t ret;
+ 
++    /* Like Windows (and fclose here): VCV Rack based plug-ins such as Cardinal read every
++     * entry of a directory they archive, the directory itself included, without checking
++     * that fopen succeeded. */
++    if (!MSVCRT_CHECK_PMT(file != NULL)) return 0;
++
+     _lock_file(file);
+     ret = _fread_nolock(ptr, size, nmemb, file);
+     _unlock_file(file);

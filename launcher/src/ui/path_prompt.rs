@@ -133,17 +133,7 @@ pub enum PathKind {
 /// Turns what the user typed, pasted or dropped into an existing path of the right kind.
 /// Accepts surrounding quotes, `~/…` and `file://` URIs (percent-encoded).
 pub fn parse_user_path(text: &str, kind: PathKind, home: &Path) -> Result<PathBuf, String> {
-    let t = text.trim().trim_matches(|c| c == '"' || c == '\'');
-    if t.is_empty() {
-        return Err("Enter a path first.".into());
-    }
-    let path = if let Some(uri) = t.strip_prefix("file://") {
-        PathBuf::from(percent_decode(uri))
-    } else if let Some(rest) = t.strip_prefix("~/") {
-        home.join(rest)
-    } else {
-        PathBuf::from(t)
-    };
+    let path = expand_user_path(text, home)?;
     if !path.exists() {
         return Err(format!("{} not found", path.display()));
     }
@@ -157,6 +147,22 @@ pub fn parse_user_path(text: &str, kind: PathKind, home: &Path) -> Result<PathBu
         }
         _ => Ok(path),
     }
+}
+
+/// Surrounding quotes removed, `~/…` and `file://` URIs (percent-encoded) resolved; the
+/// path need not exist.
+pub fn expand_user_path(text: &str, home: &Path) -> Result<PathBuf, String> {
+    let t = text.trim().trim_matches(|c| c == '"' || c == '\'');
+    if t.is_empty() {
+        return Err("Enter a path first.".into());
+    }
+    Ok(if let Some(uri) = t.strip_prefix("file://") {
+        PathBuf::from(percent_decode(uri))
+    } else if let Some(rest) = t.strip_prefix("~/") {
+        home.join(rest)
+    } else {
+        PathBuf::from(t)
+    })
 }
 
 fn percent_decode(s: &str) -> String {

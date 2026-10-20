@@ -1,0 +1,47 @@
+diff --git a/programs/winemenubuilder/winemenubuilder.c b/programs/winemenubuilder/winemenubuilder.c
+index 479c40d..8bc914d 100644
+--- a/programs/winemenubuilder/winemenubuilder.c
++++ b/programs/winemenubuilder/winemenubuilder.c
+@@ -304,6 +304,19 @@ static char* wchars_to_utf8_chars(LPCWSTR string)
+     return ret;
+ }
+ 
++/* Command written in front of the arguments of Exec= lines: "wine", or the value of
++ * STUDIOWINE_MENU_EXEC (e.g. "\"/path/StudioWine.AppImage\" --wine"), which StudioWine
++ * sets so that menu entries and URL handlers work without a "wine" on the host PATH. */
++static const char *wine_exec_command(void)
++{
++    static const char *cmd;
++    const WCHAR *env;
++    if (cmd) return cmd;
++    env = _wgetenv(L"STUDIOWINE_MENU_EXEC");
++    cmd = (env && *env) ? wchars_to_utf8_chars(env) : "wine";
++    return cmd;
++}
++
+ static WCHAR* utf8_chars_to_wchars(LPCSTR string)
+ {
+     WCHAR *ret;
+@@ -1276,7 +1289,7 @@ static BOOL write_desktop_entry(const WCHAR *link, const WCHAR *location, const
+         fprintf(file, "env \"WINEPREFIX=%s\" ", path);
+         heap_free( path );
+     }
+-    fprintf(file, "wine \"%s\"", escape(path));
++    fprintf(file, "%s \"%s\"", wine_exec_command(), escape(path));
+     if (args) fprintf(file, " \"%s\"", escape(args) );
+     fputc( '\n', file );
+     fprintf(file, "Type=Application\n");
+@@ -2038,11 +2051,11 @@ static BOOL write_freedesktop_association_entry(const WCHAR *desktopPath, const
+         if (prefix)
+         {
+             char *path = wine_get_unix_file_name( prefix );
+-            fprintf(desktop, "Exec=env \"WINEPREFIX=%s\" wine start ", path);
++            fprintf(desktop, "Exec=env \"WINEPREFIX=%s\" %s start ", path, wine_exec_command());
+             heap_free( path );
+         }
+         else
+-            fprintf(desktop, "Exec=wine start ");
++            fprintf(desktop, "Exec=%s start ", wine_exec_command());
+         if (progId) /* file association */
+             fprintf(desktop, "/ProgIDOpen \"%s\" %%f\n", escape(progId));
+         else /* protocol association */

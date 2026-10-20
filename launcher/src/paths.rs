@@ -35,8 +35,22 @@ impl Paths {
         }
     }
 
+    /// The default `<data>/prefix` replaced by a location chosen in the wizard.
+    pub fn with_prefix(mut self, prefix: Option<&Path>) -> Paths {
+        if let Some(p) = prefix {
+            self.prefix = p.to_path_buf();
+        }
+        self
+    }
+
+    /// The location the wizard offers first.
+    pub fn default_prefix(&self) -> PathBuf {
+        self.data.join("prefix")
+    }
+
     /// APPDIR (set by AppRun) or the directory two levels above the executable
-    /// (`AppDir/usr/bin/studiowine`); `$XDG_DATA_HOME/studiowine`; `$APPIMAGE` or the executable.
+    /// (`AppDir/usr/bin/studiowine`); `$XDG_DATA_HOME/studiowine`; `$APPIMAGE` or the executable;
+    /// the prefix recorded in state.json.
     pub fn resolve() -> anyhow::Result<Paths> {
         let exe = std::env::current_exe()?;
         let appdir = match std::env::var_os("APPDIR") {
@@ -52,7 +66,8 @@ impl Paths {
             .ok_or_else(|| anyhow::anyhow!("no XDG data directory (is HOME set?)"))?
             .join("studiowine");
         let appimage = std::env::var_os("APPIMAGE").map(PathBuf::from).unwrap_or(exe);
-        Ok(Paths::from_roots(&appdir, &data, &appimage))
+        let chosen = crate::state::State::load(&data.join("state.json")).prefix;
+        Ok(Paths::from_roots(&appdir, &data, &appimage).with_prefix(chosen.as_deref()))
     }
 }
 
@@ -73,5 +88,9 @@ mod tests {
         assert_eq!(p.logs, Path::new("/data/studiowine/logs"));
         assert_eq!(p.state_file, Path::new("/data/studiowine/state.json"));
         assert_eq!(p.appimage, Path::new("/x/S.AppImage"));
+        let moved = p.with_prefix(Some(Path::new("/mnt/audio/wine")));
+        assert_eq!(moved.prefix, Path::new("/mnt/audio/wine"));
+        assert_eq!(moved.default_prefix(), Path::new("/data/studiowine/prefix"));
+        assert_eq!(moved.state_file, Path::new("/data/studiowine/state.json"), "state stays in the data directory");
     }
 }

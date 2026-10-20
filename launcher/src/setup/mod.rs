@@ -4,6 +4,7 @@ pub mod prefix;
 pub mod sda;
 pub mod shim;
 pub mod webview2;
+pub mod wineasio;
 
 use crate::download::Http;
 use crate::log::LogSink;
@@ -22,6 +23,7 @@ pub enum StepId {
     WebView2,
     Shim,
     DownloadAssistant,
+    WineAsio,
 }
 
 pub struct Ctx {
@@ -81,6 +83,7 @@ pub fn all_steps() -> Vec<Box<dyn Step>> {
         Box::new(fonts_step::FontsStep),
         Box::new(webview2::WebView2Step),
         Box::new(shim::ShimStep),
+        Box::new(wineasio::WineAsioStep),
         Box::new(sda::SdaStep),
     ]
 }

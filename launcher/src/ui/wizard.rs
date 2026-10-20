@@ -1,7 +1,9 @@
-//! First-start setup wizard: five rows with progress, Retry and Show log on failure.
+//! First-start setup wizard: where the Wine environment goes, then one row per step with
+//! progress, Retry and Show log on failure.
 use super::{Mode, StudioWineApp};
 use crate::setup::{all_steps, run_steps, Progress, ProgressMsg, StepId};
 use crate::state::State;
+use std::path::{Path, PathBuf};
 use std::sync::mpsc::{channel, Receiver};
 
 #[derive(Clone, PartialEq)]
@@ -23,20 +25,24 @@ struct Row {
 pub struct Wizard {
     rows: Vec<Row>,
     rx: Option<Receiver<ProgressMsg>>,
+    /// Where the Wine environment goes, as typed; applied when setup starts.
+    location: String,
+    location_error: Option<String>,
+    browse: Option<Receiver<Option<PathBuf>>>,
 }
 
 impl Wizard {
-    pub fn new() -> Wizard {
+    pub fn new(prefix: &Path) -> Wizard {
         let rows = all_steps()
             .iter()
             .map(|s| Row { id: s.id(), title: s.title(), state: RowState::Pending, fraction: 0.0, status: String::new() })
             .collect();
-        Wizard { rows, rx: None }
+        Wizard { rows, rx: None, location: prefix.to_string_lossy().into_owned(), location_error: None, browse: None }
     }
 
     /// Rows of steps whose check already passes start as done (resuming a setup).
-    pub fn with_done(steps: &[(StepId, bool)]) -> Wizard {
-        let mut w = Wizard::new();
+    pub fn with_done(steps: &[(StepId, bool)], prefix: &Path) -> Wizard {
+        let mut w = Wizard::new(prefix);
         for r in &mut w.rows {
             if steps.iter().any(|(id, ok)| *id == r.id && *ok) {
                 r.state = RowState::Done;
@@ -147,14 +153,80 @@ impl StudioWineApp {
 
     pub(super) fn restart_wizard(&mut self) {
         self.refresh_checks();
-        self.wizard = Wizard::with_done(&self.steps_done);
+        self.wizard = Wizard::with_done(&self.steps_done, &self.paths.prefix);
         self.mode = Mode::Wizard;
+    }
+
+    /// Switches to the location typed in the wizard, checked and created first. False, with
+    /// the reason shown under the field, when it cannot be used.
+    fn apply_location(&mut self) -> bool {
+        let home = dirs::home_dir().unwrap_or_default();
+        let chosen = match super::path_prompt::expand_user_path(&self.wizard.location, &home) {
+            Ok(p) => p,
+            Err(e) => {
+                self.wizard.location_error = Some(e);
+                return false;
+            }
+        };
+        if chosen == self.paths.prefix {
+            return true;
+        }
+        let checked = crate::setup::prefix::check_location(&chosen, &self.paths.default_prefix())
+            .and_then(|()| crate::setup::prefix::prepare_location(&chosen));
+        if let Err(e) = checked {
+            self.wizard.location_error = Some(e);
+            return false;
+        }
+        self.set_prefix(chosen);
+        true
+    }
+
+    fn location_ui(&mut self, ui: &mut egui::Ui) {
+        if let Some(rx) = &self.wizard.browse {
+            if let Ok(r) = rx.try_recv() {
+                if let Some(p) = r {
+                    self.wizard.location = p.to_string_lossy().into_owned();
+                    self.wizard.location_error = None;
+                }
+                self.wizard.browse = None;
+            }
+        }
+        let idle = !self.wizard.running() && self.job.is_none();
+        let default = self.paths.default_prefix().to_string_lossy().into_owned();
+        ui.label(egui::RichText::new("Wine environment location").strong());
+        ui.horizontal(|ui| {
+            let w = (ui.available_width() - 150.0).max(200.0);
+            let r = ui.add_enabled(idle, egui::TextEdit::singleline(&mut self.wizard.location).desired_width(w));
+            if r.changed() {
+                self.wizard.location_error = None;
+            }
+            if ui.add_enabled(idle && self.wizard.browse.is_none(), egui::Button::new("Browse…")).clicked() {
+                let (tx, rx) = channel();
+                std::thread::spawn(move || {
+                    let _ = tx.send(rfd::FileDialog::new().pick_folder());
+                });
+                self.wizard.browse = Some(rx);
+            }
+            if ui.add_enabled(idle && self.wizard.location != default, egui::Button::new("Default")).clicked() {
+                self.wizard.location = default.clone();
+                self.wizard.location_error = None;
+            }
+        });
+        match &self.wizard.location_error {
+            Some(e) => {
+                ui.colored_label(ui.visuals().error_fg_color, e);
+            }
+            None => {
+                ui.weak("A new or empty folder on a Linux file system with about 3 GB free (plus your Steinberg software). A folder with an earlier StudioWine environment is reused.");
+            }
+        }
     }
 
     pub(super) fn wizard_ui(&mut self, ui: &mut egui::Ui) {
         if self.wizard.poll() {
             self.refresh_checks();
             self.rewrite_handlers();
+            self.claim_handlers();
             self.mode = super::mode_for(&State::load(&self.paths.state_file), &self.steps_done);
             return;
         }
@@ -163,25 +235,31 @@ impl StudioWineApp {
             ui.heading("Set up StudioWine");
             ui.label("StudioWine prepares a Windows environment for Steinberg software and plug-ins. This runs once and needs an internet connection.");
             ui.add_space(12.0);
+            self.location_ui(ui);
+            ui.add_space(12.0);
             let mut failed = false;
-            for r in &self.wizard.rows {
-                ui.horizontal(|ui| {
-                    status_icon(ui, &r.state);
-                    ui.label(egui::RichText::new(r.title).strong());
-                });
-                ui.add(egui::ProgressBar::new(r.fraction).desired_height(6.0));
-                match &r.state {
-                    RowState::Failed(e) => {
-                        failed = true;
-                        ui.colored_label(ui.visuals().error_fg_color, e);
+            // The rows scroll; the buttons below stay visible in a small window.
+            let rows_height = (ui.available_height() - 64.0).max(80.0);
+            egui::ScrollArea::vertical().max_height(rows_height).auto_shrink([false, true]).show(ui, |ui| {
+                for r in &self.wizard.rows {
+                    ui.horizontal(|ui| {
+                        status_icon(ui, &r.state);
+                        ui.label(egui::RichText::new(r.title).strong());
+                    });
+                    ui.add(egui::ProgressBar::new(r.fraction).desired_height(6.0));
+                    match &r.state {
+                        RowState::Failed(e) => {
+                            failed = true;
+                            ui.colored_label(ui.visuals().error_fg_color, e);
+                        }
+                        _ if !r.status.is_empty() => {
+                            ui.weak(&r.status);
+                        }
+                        _ => {}
                     }
-                    _ if !r.status.is_empty() => {
-                        ui.weak(&r.status);
-                    }
-                    _ => {}
+                    ui.add_space(6.0);
                 }
-                ui.add_space(6.0);
-            }
+            });
             ui.add_space(8.0);
             if let Some((m, true)) = &self.message {
                 ui.colored_label(ui.visuals().error_fg_color, m);
@@ -195,14 +273,14 @@ impl StudioWineApp {
                     ui.spinner();
                     ui.label("Working…");
                 } else if failed {
-                    if ui.button("Retry").clicked() {
+                    if ui.button("Retry").clicked() && self.apply_location() {
                         self.start_setup();
                     }
                     if ui.button("Show log").clicked() {
                         let log = self.ctx.log.path().to_path_buf();
                         self.open_path(&log);
                     }
-                } else if ui.button("Start setup").clicked() {
+                } else if ui.button("Start setup").clicked() && self.apply_location() {
                     self.start_setup();
                 }
             });
@@ -216,7 +294,8 @@ mod tests {
 
     #[test]
     fn verified_steps_start_as_done() {
-        let w = Wizard::with_done(&[(StepId::Prefix, true), (StepId::Fonts, false)]);
+        let w = Wizard::with_done(&[(StepId::Prefix, true), (StepId::Fonts, false)], Path::new("/d/prefix"));
+        assert_eq!(w.location, "/d/prefix");
         assert!(w.rows.iter().find(|r| r.id == StepId::Prefix).unwrap().state == RowState::Done);
         assert!(w.rows.iter().find(|r| r.id == StepId::Fonts).unwrap().state == RowState::Pending);
     }

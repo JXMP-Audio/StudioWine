@@ -1,0 +1,28 @@
+diff --git a/asio.c b/asio.c
+index 310b840..34e576d 100644
+--- a/asio.c
++++ b/asio.c
+@@ -30,6 +30,7 @@
+ #include <limits.h>
+ #include <unistd.h>
+ #include <sys/mman.h>
++#include <sys/resource.h>
+ #include <pthread.h>
+ 
+ #ifdef DEBUG
+@@ -454,7 +455,14 @@ HIDDEN LONG STDMETHODCALLTYPE Init(LPWINEASIO iface, void *sysRef)
+     int             i;
+ 
+     This->sys_ref = sysRef;
+-    mlockall(MCL_FUTURE);
++    /* With a finite RLIMIT_MEMLOCK (8 MB on most distributions) MCL_FUTURE makes every later
++     * mapping count against it: thread stacks and allocations then fail, and PipeWire's JACK
++     * client hangs in jack_client_open. Only lock when the limit cannot be exhausted. */
++    {
++        struct rlimit memlock;
++        if (!getrlimit(RLIMIT_MEMLOCK, &memlock) && memlock.rlim_cur == RLIM_INFINITY)
++            mlockall(MCL_FUTURE);
++    }
+     configure_driver(This);
+ 
+     if (!(This->jack_client = jackbridge_client_open(This->jack_client_name, jack_options, &jack_status)))

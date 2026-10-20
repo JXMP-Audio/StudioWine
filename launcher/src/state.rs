@@ -1,12 +1,15 @@
 //! Persistent launcher state (state.json in the data directory).
 use crate::setup::StepId;
 use serde::{Deserialize, Serialize};
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 #[derive(Serialize, Deserialize, Default, Clone, PartialEq, Debug)]
 pub struct State {
     pub completed: Vec<StepId>,
     pub user_fonts_imported: bool,
+    /// Wine environment chosen in the wizard; None is the default `<data>/prefix`.
+    #[serde(default)]
+    pub prefix: Option<PathBuf>,
 }
 
 impl State {
@@ -38,9 +41,17 @@ mod tests {
     fn roundtrip() {
         let d = tempfile::tempdir().unwrap();
         let f = d.path().join("sub/state.json");
-        let s = State { completed: vec![StepId::Prefix, StepId::Fonts], user_fonts_imported: true };
+        let s = State { completed: vec![StepId::Prefix, StepId::Fonts], user_fonts_imported: true, prefix: Some("/mnt/audio/wine".into()) };
         s.save(&f).unwrap();
         assert_eq!(State::load(&f), s);
+    }
+
+    #[test]
+    fn file_without_prefix_loads() {
+        let d = tempfile::tempdir().unwrap();
+        let f = d.path().join("state.json");
+        std::fs::write(&f, r#"{"completed":["Prefix"],"user_fonts_imported":false}"#).unwrap();
+        assert_eq!(State::load(&f), State { completed: vec![StepId::Prefix], ..Default::default() });
     }
 
     #[test]
