@@ -1,7 +1,7 @@
 //! First-start setup wizard: where the Wine environment goes, then one row per step with
 //! progress, Retry and Show log on failure.
 use super::{Mode, StudioWineApp};
-use crate::setup::{all_steps, run_steps, Progress, ProgressMsg, StepId};
+use crate::setup::{all_steps, run_steps, setup_steps, Progress, ProgressMsg, StepId};
 use crate::state::State;
 use std::path::{Path, PathBuf};
 use std::sync::mpsc::{channel, Receiver};
@@ -29,20 +29,22 @@ pub struct Wizard {
     location: String,
     location_error: Option<String>,
     browse: Option<Receiver<Option<PathBuf>>>,
+    /// Unticked: setup leaves out the Steinberg Download Assistant; saved when setup starts.
+    install_sda: bool,
 }
 
 impl Wizard {
-    pub fn new(prefix: &Path) -> Wizard {
+    pub fn new(prefix: &Path, skip_sda: bool) -> Wizard {
         let rows = all_steps()
             .iter()
             .map(|s| Row { id: s.id(), title: s.title(), state: RowState::Pending, fraction: 0.0, status: String::new() })
             .collect();
-        Wizard { rows, rx: None, location: prefix.to_string_lossy().into_owned(), location_error: None, browse: None }
+        Wizard { rows, rx: None, location: prefix.to_string_lossy().into_owned(), location_error: None, browse: None, install_sda: !skip_sda }
     }
 
     /// Rows of steps whose check already passes start as done (resuming a setup).
-    pub fn with_done(steps: &[(StepId, bool)], prefix: &Path) -> Wizard {
-        let mut w = Wizard::new(prefix);
+    pub fn with_done(steps: &[(StepId, bool)], prefix: &Path, skip_sda: bool) -> Wizard {
+        let mut w = Wizard::new(prefix, skip_sda);
         for r in &mut w.rows {
             if steps.iter().any(|(id, ok)| *id == r.id && *ok) {
                 r.state = RowState::Done;
@@ -146,14 +148,23 @@ impl StudioWineApp {
                 r.fraction = 0.0;
             }
         }
+        let skip = !self.wizard.install_sda;
+        let mut state = State::load(&self.paths.state_file);
+        if state.skip_download_assistant != skip {
+            state.skip_download_assistant = skip;
+            if let Err(e) = state.save(&self.paths.state_file) {
+                self.ctx.log.line(&format!("cannot save state: {e:#}"));
+            }
+            self.refresh_checks();
+        }
         let (tx, rx) = channel();
-        run_steps(all_steps(), self.ctx.clone(), self.paths.state_file.clone(), Progress::new(tx));
+        run_steps(setup_steps(skip), self.ctx.clone(), self.paths.state_file.clone(), Progress::new(tx));
         self.wizard.rx = Some(rx);
     }
 
     pub(super) fn restart_wizard(&mut self) {
         self.refresh_checks();
-        self.wizard = Wizard::with_done(&self.steps_done, &self.paths.prefix);
+        self.wizard = Wizard::with_done(&self.steps_done, &self.paths.prefix, self.skip_download_assistant());
         self.mode = Mode::Wizard;
     }
 
@@ -238,15 +249,25 @@ impl StudioWineApp {
             self.location_ui(ui);
             ui.add_space(12.0);
             let mut failed = false;
+            let idle = !self.wizard.running() && self.job.is_none();
             // The rows scroll; the buttons below stay visible in a small window.
             let rows_height = (ui.available_height() - 64.0).max(80.0);
             egui::ScrollArea::vertical().max_height(rows_height).auto_shrink([false, true]).show(ui, |ui| {
+                let install_sda = &mut self.wizard.install_sda;
                 for r in &self.wizard.rows {
+                    let optional = r.id == StepId::DownloadAssistant && r.state != RowState::Done;
+                    let skipped = optional && !*install_sda;
                     ui.horizontal(|ui| {
                         status_icon(ui, &r.state);
-                        ui.label(egui::RichText::new(r.title).strong());
+                        let title = egui::RichText::new(r.title).strong();
+                        ui.label(if skipped { title.weak().strikethrough() } else { title });
                     });
-                    ui.add(egui::ProgressBar::new(r.fraction).desired_height(6.0));
+                    if optional {
+                        ui.add_enabled(idle, egui::Checkbox::new(install_sda, "Install it (needed to download Cubase and other Steinberg software; you can add it later from Settings)"));
+                    }
+                    if !skipped {
+                        ui.add(egui::ProgressBar::new(r.fraction).desired_height(6.0));
+                    }
                     match &r.state {
                         RowState::Failed(e) => {
                             failed = true;
@@ -294,8 +315,10 @@ mod tests {
 
     #[test]
     fn verified_steps_start_as_done() {
-        let w = Wizard::with_done(&[(StepId::Prefix, true), (StepId::Fonts, false)], Path::new("/d/prefix"));
+        let w = Wizard::with_done(&[(StepId::Prefix, true), (StepId::Fonts, false)], Path::new("/d/prefix"), false);
         assert_eq!(w.location, "/d/prefix");
+        assert!(w.install_sda);
+        assert!(!Wizard::new(Path::new("/d/prefix"), true).install_sda);
         assert!(w.rows.iter().find(|r| r.id == StepId::Prefix).unwrap().state == RowState::Done);
         assert!(w.rows.iter().find(|r| r.id == StepId::Fonts).unwrap().state == RowState::Pending);
     }

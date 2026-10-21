@@ -11,7 +11,7 @@ case $IMG in
 esac
 "$REPO/build/podman.sh" run --rm -v "$REPO:/src:ro,z" -e XDG_DATA_HOME=/tmp/data -e HOME=/tmp "$IMG" sh -c "
   $PREP || exit 3
-  A=/src/out/StudioWine-0.1.0-x86_64.AppImage
+  A=/src/out/StudioWine-$(. "$REPO/build/versions.env"; echo "$STUDIOWINE_VERSION")-x86_64.AppImage
   echo \"glibc: \$(ldd --version | head -1)\"
   echo \"wine: \$(\$A --appimage-extract-and-run --wine --version)\"
   Xvfb :99 -screen 0 1280x800x24 >/dev/null 2>&1 & export DISPLAY=:99; sleep 2

@@ -7,7 +7,7 @@ pub mod wizard;
 
 use crate::log::LogSink;
 use crate::paths::Paths;
-use crate::setup::{all_steps, Ctx, StepId};
+use crate::setup::{setup_steps, Ctx, StepId};
 use crate::state::State;
 use std::sync::mpsc::{channel, Receiver};
 use std::sync::atomic::{AtomicBool, Ordering};
@@ -82,7 +82,7 @@ impl StudioWineApp {
         log.line(&format!("Wine environment: {}", paths.prefix.display()));
         let ctx = Arc::new(Ctx::new(paths.clone(), log));
         let mut app = StudioWineApp {
-            wizard: wizard::Wizard::new(&paths.prefix),
+            wizard: wizard::Wizard::new(&paths.prefix, false),
             paths,
             ctx,
             mode: Mode::Wizard,
@@ -99,14 +99,20 @@ impl StudioWineApp {
         app.claim_handlers();
         app.refresh_checks();
         app.ctx.log.line(app.settings.jack.0);
-        app.wizard = wizard::Wizard::with_done(&app.steps_done, &app.paths.prefix);
+        app.wizard = wizard::Wizard::with_done(&app.steps_done, &app.paths.prefix, app.skip_download_assistant());
         app.mode = mode_for(&State::load(&app.paths.state_file), &app.steps_done);
         app
     }
 
     pub(super) fn refresh_checks(&mut self) {
-        self.steps_done = all_steps().iter().map(|s| (s.id(), s.is_done(&self.ctx))).collect();
+        let skip = self.skip_download_assistant();
+        self.steps_done = setup_steps(skip).iter().map(|s| (s.id(), s.is_done(&self.ctx))).collect();
+        self.grid.sda_skipped = skip;
         self.settings.refresh(&self.paths.prefix);
+    }
+
+    pub(super) fn skip_download_assistant(&self) -> bool {
+        State::load(&self.paths.state_file).skip_download_assistant
     }
 
     /// Uses the Wine environment at `prefix` from now on (also for `--wine` and handlers).
@@ -114,13 +120,14 @@ impl StudioWineApp {
     pub(super) fn set_prefix(&mut self, prefix: std::path::PathBuf) {
         self.ctx.log.line(&format!("Wine environment: {}", prefix.display()));
         let chosen = (prefix != self.paths.default_prefix()).then(|| prefix.clone());
-        if let Err(e) = (State { prefix: chosen, ..Default::default() }).save(&self.paths.state_file) {
+        let skip_download_assistant = self.skip_download_assistant();
+        if let Err(e) = (State { prefix: chosen, skip_download_assistant, ..Default::default() }).save(&self.paths.state_file) {
             self.ctx.log.line(&format!("cannot save state: {e:#}"));
         }
         self.paths.prefix = prefix;
         self.ctx = Arc::new(Ctx::new(self.paths.clone(), self.ctx.log.clone()));
         self.refresh_checks();
-        self.wizard = wizard::Wizard::with_done(&self.steps_done, &self.paths.prefix);
+        self.wizard = wizard::Wizard::with_done(&self.steps_done, &self.paths.prefix, skip_download_assistant);
         self.grid.invalidate();
         self.fonts.invalidate();
         self.claim_handlers();
@@ -243,5 +250,8 @@ mod tests {
         assert_eq!(mode_for(&st, &steps), Mode::Main);
         let broken: Vec<_> = ALL.iter().map(|s| (*s, *s != StepId::WebView2)).collect();
         assert_eq!(mode_for(&st, &broken), Mode::Main, "a later failing check does not bring the wizard back");
+        let without_sda: Vec<_> = steps[..5].to_vec();
+        st.completed = ALL[..5].to_vec();
+        assert_eq!(mode_for(&st, &without_sda), Mode::Main, "a skipped Download Assistant is not waited for");
     }
 }

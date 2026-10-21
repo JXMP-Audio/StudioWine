@@ -15,6 +15,8 @@ pub struct Grid {
     fingerprint: Option<u64>,
     last_poll: Instant,
     sda_installed: bool,
+    /// Left out by the user in setup; refreshed with the checks.
+    pub sda_skipped: bool,
     textures: HashMap<PathBuf, Option<egui::TextureHandle>>,
     icon_tx: Sender<(PathBuf, Icon)>,
     icon_rx: Receiver<(PathBuf, Icon)>,
@@ -28,6 +30,7 @@ impl Grid {
             fingerprint: None,
             last_poll: Instant::now() - Duration::from_secs(60),
             sda_installed: false,
+            sda_skipped: false,
             textures: HashMap::new(),
             icon_tx,
             icon_rx,
@@ -56,8 +59,8 @@ pub fn status_dot(steps: &[(StepId, bool)]) -> (Dot, String) {
     }
 }
 
-pub fn needs_sda_card(_shortcuts: &[Shortcut], sda_installed: bool) -> bool {
-    !sda_installed
+pub fn needs_sda_card(_shortcuts: &[Shortcut], sda_installed: bool, sda_skipped: bool) -> bool {
+    !sda_installed && !sda_skipped
 }
 
 impl StudioWineApp {
@@ -145,7 +148,7 @@ impl StudioWineApp {
         });
         egui::CentralPanel::default().show(ui, |ui| {
             egui::ScrollArea::vertical().show(ui, |ui| {
-                if needs_sda_card(&self.grid.shortcuts, self.grid.sda_installed) {
+                if needs_sda_card(&self.grid.shortcuts, self.grid.sda_installed, self.grid.sda_skipped) {
                     egui::Frame::group(ui.style()).show(ui, |ui| {
                         ui.horizontal(|ui| {
                             ui.label("Steinberg Download Assistant is not installed.");
@@ -214,12 +217,13 @@ impl StudioWineApp {
         });
     }
 
-    fn install_sda(&mut self) {
+    /// Also undoes a "skip" from setup once the Download Assistant is installed.
+    pub(super) fn install_sda(&mut self) {
         let ctx = self.ctx.clone();
         let state_file = self.paths.state_file.clone();
         self.spawn_job("Installing Steinberg Download Assistant", move |report| {
             let (tx, rx) = channel();
-            let h = crate::setup::run_steps(vec![Box::new(crate::setup::sda::SdaStep)], ctx, state_file, crate::setup::Progress::new(tx));
+            let h = crate::setup::run_steps(vec![Box::new(crate::setup::sda::SdaStep)], ctx, state_file.clone(), crate::setup::Progress::new(tx));
             let mut result = Ok("Steinberg Download Assistant installed".to_string());
             for m in rx {
                 match m {
@@ -229,6 +233,13 @@ impl StudioWineApp {
                 }
             }
             let _ = h.join();
+            if result.is_ok() {
+                let mut st = crate::state::State::load(&state_file);
+                if st.skip_download_assistant {
+                    st.skip_download_assistant = false;
+                    st.save(&state_file)?;
+                }
+            }
             result
         });
     }
@@ -252,7 +263,8 @@ mod tests {
 
     #[test]
     fn sda_card_only_without_download_assistant() {
-        assert!(needs_sda_card(&[], false));
-        assert!(!needs_sda_card(&[], true));
+        assert!(needs_sda_card(&[], false, false));
+        assert!(!needs_sda_card(&[], true, false));
+        assert!(!needs_sda_card(&[], false, true), "skipped in setup");
     }
 }

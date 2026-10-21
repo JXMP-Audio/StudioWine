@@ -53,7 +53,7 @@ impl Http {
         let config = ureq::Agent::config_builder()
             .max_redirects(0) // redirects are followed by `call`, which checks every hop
             .max_redirects_will_error(false)
-            .user_agent("StudioWine/0.1.0")
+            .user_agent(concat!("StudioWine/", env!("CARGO_PKG_VERSION")))
             .timeout_connect(Some(std::time::Duration::from_secs(30)))
             .timeout_recv_response(Some(stall))
             .build();

@@ -1,5 +1,5 @@
-//! ⚙ menu: open prefix folder, show log, WineASIO status and buffer size, re-run setup,
-//! reset prefix (with confirmation).
+//! ⚙ menu: open prefix folder, show log, WineASIO status and buffer size, install a skipped
+//! Download Assistant, re-run setup, reset prefix (with confirmation).
 use super::StudioWineApp;
 use crate::audio::{buffer_settings, current_buffer_size, Jack, BUFFER_SIZES};
 use crate::setup::StepId;
@@ -55,6 +55,9 @@ impl StudioWineApp {
                 });
             });
             ui.separator();
+            if self.grid.sda_skipped && ui.add_enabled(self.job.is_none(), egui::Button::new("Install Steinberg Download Assistant")).clicked() {
+                self.install_sda();
+            }
             if ui.add_enabled(self.job.is_none(), egui::Button::new("Re-run setup")).clicked() {
                 self.restart_wizard();
             }
@@ -103,13 +106,14 @@ impl StudioWineApp {
                 if ctx2.paths.prefix.exists() {
                     std::fs::remove_dir_all(&ctx2.paths.prefix)?;
                 }
-                // Nothing is completed any more; the chosen location stays.
-                let keep = crate::state::State { prefix: crate::state::State::load(&state_file).prefix, ..Default::default() };
+                // Nothing is completed any more; the chosen location and the Download Assistant choice stay.
+                let old = crate::state::State::load(&state_file);
+                let keep = crate::state::State { prefix: old.prefix, skip_download_assistant: old.skip_download_assistant, ..Default::default() };
                 keep.save(&state_file)?;
                 Ok("The Wine environment was deleted.".into())
             });
             // Fresh rows: the deletion is still running, so the checks would see the old prefix.
-            self.wizard = super::wizard::Wizard::new(&self.paths.prefix);
+            self.wizard = super::wizard::Wizard::new(&self.paths.prefix, self.skip_download_assistant());
             self.mode = super::Mode::Wizard;
         }
         if reset || close {

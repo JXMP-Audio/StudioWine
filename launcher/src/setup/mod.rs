@@ -88,6 +88,11 @@ pub fn all_steps() -> Vec<Box<dyn Step>> {
     ]
 }
 
+/// The steps setup runs and checks: all of them, or all but the Download Assistant.
+pub fn setup_steps(skip_download_assistant: bool) -> Vec<Box<dyn Step>> {
+    all_steps().into_iter().filter(|s| !(skip_download_assistant && s.id() == StepId::DownloadAssistant)).collect()
+}
+
 pub fn step_title(id: StepId) -> &'static str {
     all_steps().into_iter().find(|s| s.id() == id).map(|s| s.title()).unwrap_or("Unknown step")
 }
@@ -187,6 +192,13 @@ mod tests {
         let sf = c.paths.state_file.clone();
         run_steps(steps, c, sf, Progress::new(tx)).join().unwrap();
         rx.into_iter().collect()
+    }
+
+    #[test]
+    fn setup_steps_can_leave_out_download_assistant() {
+        let ids = |skip| setup_steps(skip).iter().map(|s| s.id()).collect::<Vec<_>>();
+        assert!(ids(false).contains(&StepId::DownloadAssistant));
+        assert_eq!(ids(true), [StepId::Prefix, StepId::Fonts, StepId::WebView2, StepId::Shim, StepId::WineAsio]);
     }
 
     #[test]

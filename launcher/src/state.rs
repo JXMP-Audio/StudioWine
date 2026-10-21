@@ -10,6 +10,10 @@ pub struct State {
     /// Wine environment chosen in the wizard; None is the default `<data>/prefix`.
     #[serde(default)]
     pub prefix: Option<PathBuf>,
+    /// The user chose not to install the Steinberg Download Assistant: setup, the status dot
+    /// and the main view leave it out.
+    #[serde(default)]
+    pub skip_download_assistant: bool,
 }
 
 impl State {
@@ -41,7 +45,7 @@ mod tests {
     fn roundtrip() {
         let d = tempfile::tempdir().unwrap();
         let f = d.path().join("sub/state.json");
-        let s = State { completed: vec![StepId::Prefix, StepId::Fonts], user_fonts_imported: true, prefix: Some("/mnt/audio/wine".into()) };
+        let s = State { completed: vec![StepId::Prefix, StepId::Fonts], user_fonts_imported: true, prefix: Some("/mnt/audio/wine".into()), skip_download_assistant: true };
         s.save(&f).unwrap();
         assert_eq!(State::load(&f), s);
     }

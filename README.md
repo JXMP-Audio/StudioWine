@@ -33,8 +33,8 @@ Assistant are downloaded from Microsoft and Steinberg during setup.
 ## Using it
 
 ```sh
-chmod +x StudioWine-0.1.0-x86_64.AppImage
-./StudioWine-0.1.0-x86_64.AppImage
+chmod +x StudioWine-0.2.0-x86_64.AppImage
+./StudioWine-0.2.0-x86_64.AppImage
 ```
 
 **First start** — choose where the Wine environment goes (default
@@ -42,7 +42,9 @@ chmod +x StudioWine-0.1.0-x86_64.AppImage
 separate audio disk), then click *Start setup*. The wizard runs six steps (create the Wine
 environment, install fonts, install WebView2, install PowerShell support, register WineASIO,
 install the Steinberg Download Assistant). The last step opens Steinberg's installer: follow
-its window. If a step fails it stops with the reason; *Retry* continues from there, *Show log*
+its window. If you do not use Steinberg software, untick *Install it* under the last step
+before starting: setup then ends after WineASIO, and *Settings → Install Steinberg Download
+Assistant* adds it later. If a step fails it stops with the reason; *Retry* continues from there, *Show log*
 opens the log.
 
 **Afterwards** — the window shows the shortcuts Windows installers put on the desktop
@@ -56,7 +58,7 @@ opens the log.
   copies `segoeui*.ttf`, `micross.ttf`, `arial*.ttf`, … from that folder and replaces the
   substitutes.
 - **Settings** → open the Wine environment folder, show the log, see whether WineASIO finds
-  JACK, set the WineASIO buffer size, re-run setup (also to switch to another location), or
+  JACK, set the WineASIO buffer size, install the Download Assistant if setup skipped it, re-run setup (also to switch to another location), or
   reset the environment. **Deactivate your licences before resetting** — a new environment counts as
   a new computer for Steinberg and other vendors.
 
@@ -83,7 +85,7 @@ ASIO Driver*.
 ### Troubleshooting
 
 ```sh
-STUDIOWINE_DEBUG=+d2d1,+dcomp,+dwrite ./StudioWine-0.1.0-x86_64.AppImage
+STUDIOWINE_DEBUG=+d2d1,+dcomp,+dwrite ./StudioWine-0.2.0-x86_64.AppImage
 ```
 
 turns on Wine debug channels; output goes to `~/.local/share/studiowine/logs/studiowine.log`.
