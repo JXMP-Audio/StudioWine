@@ -6,7 +6,6 @@ pub struct Paths {
     pub appdir: PathBuf,
     pub wine_bin: PathBuf,
     pub wineserver_bin: PathBuf,
-    pub lib_dir: PathBuf,
     pub fonts_src: PathBuf,
     pub shim_dir: PathBuf,
     pub data: PathBuf,
@@ -23,7 +22,6 @@ impl Paths {
             appdir: appdir.to_path_buf(),
             wine_bin: appdir.join("wine/bin/wine"),
             wineserver_bin: appdir.join("wine/bin/wineserver"),
-            lib_dir: appdir.join("usr/lib"),
             fonts_src: appdir.join("fonts"),
             shim_dir: appdir.join("shim"),
             data: data.to_path_buf(),
@@ -80,7 +78,6 @@ mod tests {
         let p = Paths::from_roots(Path::new("/app"), Path::new("/data/studiowine"), Path::new("/x/S.AppImage"));
         assert_eq!(p.wine_bin, Path::new("/app/wine/bin/wine"));
         assert_eq!(p.wineserver_bin, Path::new("/app/wine/bin/wineserver"));
-        assert_eq!(p.lib_dir, Path::new("/app/usr/lib"));
         assert_eq!(p.fonts_src, Path::new("/app/fonts"));
         assert_eq!(p.shim_dir, Path::new("/app/shim"));
         assert_eq!(p.prefix, Path::new("/data/studiowine/prefix"));

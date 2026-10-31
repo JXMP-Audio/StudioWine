@@ -65,25 +65,24 @@ impl Wine {
             v
         };
         let winedebug = std::env::var_os("STUDIOWINE_DEBUG").unwrap_or_else(|| "-all".into());
-        // Bundled libraries first; then PipeWire's libjack for WineASIO, as `pw-jack` does.
-        let mut lib_path = OsString::from(&p.lib_dir);
-        if let Some(jack) = crate::audio::Jack::detect().extra_lib_dir() {
-            lib_path.push(":");
-            lib_path.push(jack);
-        }
         // Our winemenubuilder writes this in place of `wine` into menu entries and URL
         // handlers, so they work the moment they are created (no `wine` on the host PATH).
         let menu_exec = format!("\"{}\" --wine", p.appimage.display());
-        vec![
+        // Wine finds the bundled libraries through RUNPATH (bundle_libs.sh): on
+        // LD_LIBRARY_PATH they would reach the host browser and break it. Only PipeWire's
+        // libjack for WineASIO goes there, a host directory, as `pw-jack` does.
+        let jack = crate::audio::Jack::detect().extra_lib_dir().map(|d| ("LD_LIBRARY_PATH".into(), join(d, "LD_LIBRARY_PATH")));
+        let mut env: Vec<(OsString, OsString)> = vec![
             ("WINEPREFIX".into(), p.prefix.clone().into()),
             ("WINEARCH".into(), "win64".into()),
             ("WINELOADER".into(), p.wine_bin.clone().into()),
             ("WINESERVER".into(), p.wineserver_bin.clone().into()),
             ("PATH".into(), join(&p.appdir.join("wine/bin"), "PATH")),
-            ("LD_LIBRARY_PATH".into(), join(std::path::Path::new(&lib_path), "LD_LIBRARY_PATH")),
             ("WINEDEBUG".into(), winedebug),
             ("STUDIOWINE_MENU_EXEC".into(), menu_exec.into()),
-        ]
+        ];
+        env.extend(jack);
+        env
     }
 
     pub fn command<I, S>(&self, args: I) -> Command
@@ -153,7 +152,8 @@ mod tests {
         assert_eq!(get(&env, "WINELOADER").as_deref(), Some("/app/wine/bin/wine"));
         assert_eq!(get(&env, "WINESERVER").as_deref(), Some("/app/wine/bin/wineserver"));
         assert!(get(&env, "PATH").unwrap().starts_with("/app/wine/bin:"));
-        assert!(get(&env, "LD_LIBRARY_PATH").unwrap().starts_with("/app/usr/lib"));
+        // Inherited by every host program Wine starts, so never the bundled libraries.
+        assert!(!get(&env, "LD_LIBRARY_PATH").unwrap_or_default().contains("/app/usr/lib"));
         assert_eq!(get(&env, "STUDIOWINE_MENU_EXEC").as_deref(), Some(r#""/a.AppImage" --wine"#));
         if std::env::var_os("STUDIOWINE_DEBUG").is_none() {
             assert_eq!(get(&env, "WINEDEBUG").as_deref(), Some("-all"));

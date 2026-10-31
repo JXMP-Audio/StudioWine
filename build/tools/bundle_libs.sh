@@ -32,4 +32,18 @@ while [ ${#queue[@]} -gt 0 ]; do
     while read -r n; do queue+=("$n"); done < <(needed "$path")
 done
 strip --strip-unneeded "$DEST"/*.so* 2>/dev/null || true
+# Found through RUNPATH, not LD_LIBRARY_PATH, which every host program Wine starts (the
+# browser through winebrowser, xdg tools from winemenubuilder) would inherit and then load
+# these older copies over the host's. dlopen() searches the calling module's RUNPATH, so
+# the Unix modules that load a bundled library get one, and so does each bundled library.
+patchelf --set-rpath '$ORIGIN' "$DEST"/*.so*
+names=$(ls "$DEST" | paste -sd '|')
+for o in "$APPDIR"/wine/lib/wine/x86_64-unix/*.so; do
+    # Not grep -q: exiting early would SIGPIPE strings and fail the pipeline (pipefail).
+    { objdump -p "$o" | awk '/NEEDED/ {print $2}'; strings "$o"; } | grep -xE "$names" >/dev/null || continue
+    patchelf --set-rpath '$ORIGIN/../../../../usr/lib' "$o"
+    echo "RUNPATH for $(basename "$o")"
+done
+objdump -p "$APPDIR/wine/lib/wine/x86_64-unix/win32u.so" | grep -q 'RUNPATH.*usr/lib' \
+    || { echo "win32u.so (fontconfig, freetype) got no RUNPATH" >&2; exit 1; }
 echo "bundled $(ls "$DEST" | wc -l) libraries into $DEST: $(ls "$DEST" | tr '\n' ' ')"

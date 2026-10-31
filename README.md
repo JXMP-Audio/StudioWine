@@ -33,8 +33,8 @@ Assistant are downloaded from Microsoft and Steinberg during setup.
 ## Using it
 
 ```sh
-chmod +x StudioWine-0.2.0-x86_64.AppImage
-./StudioWine-0.2.0-x86_64.AppImage
+chmod +x StudioWine-0.2.1-x86_64.AppImage
+./StudioWine-0.2.1-x86_64.AppImage
 ```
 
 **First start** — choose where the Wine environment goes (default
@@ -85,7 +85,7 @@ ASIO Driver*.
 ### Troubleshooting
 
 ```sh
-STUDIOWINE_DEBUG=+d2d1,+dcomp,+dwrite ./StudioWine-0.2.0-x86_64.AppImage
+STUDIOWINE_DEBUG=+d2d1,+dcomp,+dwrite ./StudioWine-0.2.1-x86_64.AppImage
 ```
 
 turns on Wine debug channels; output goes to `~/.local/share/studiowine/logs/studiowine.log`.

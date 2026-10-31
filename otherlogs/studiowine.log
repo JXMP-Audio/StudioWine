@@ -1,0 +1,922 @@
+Wine environment: /home/jakubmynar/.local/share/studiowine/prefix
+WineASIO: PipeWire JACK found
+Wine environment: /home/jakubmynar/Cubase
+== Create Wine environment
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINEDLLOVERRIDES="mshtml=d" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "wineboot" "-u"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "regedit" "/S" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\studiowine-import.reg"
+exit: exit status: 0
+== Install fonts
+28 font files copied
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "regedit" "/S" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\studiowine-import.reg"
+exit: exit status: 0
+== Install Microsoft WebView2 runtime
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "/home/jakubmynar/.local/share/studiowine/cache/MicrosoftEdgeWebView2RuntimeInstallerX64.exe" "/silent" "/install"
+exit: exit status: 0
+WebView2 installer finished: exit status: 0
+== Install PowerShell support for installers
+INFO:   gac-probe
+EXIT:   42   HadErrors=False  State=Completed
+
+== Install WineASIO driver (low-latency audio)
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "regsvr32" "/s" "wineasio64.dll"
+regsvr32: Successfully registered DLL 'wineasio64.dll'
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "regedit" "/S" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\studiowine-import.reg"
+exit: exit status: 0
+WineASIO: PipeWire JACK found
+== Install Steinberg Download Assistant
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "/home/jakubmynar/.local/share/studiowine/cache/Steinberg_Download_Assistant_1.40.1_Installer_win.exe"
+exit: exit status: 0
+Download Assistant installer finished: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "winemenubuilder" "-a" "-r"
+exit: exit status: 0
+0 menu entries / URL handlers now point at /home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioNdhbEL/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioNdhbEL/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Stažené/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioNdhbEL/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioNdhbEL/wine/bin/wineserver" "/tmp/.mount_StudioNdhbEL/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+Wine environment: /home/jakubmynar/Cubase
+7 handler files rewritten
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+WineASIO: PipeWire JACK found
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "/home/jakubmynar/Cubase/drive_c/Program Files (x86)/Steinberg/Download Assistant/Steinberg Download Assistant.exe"
+01:25:44.495 [main] INFO net.steinberg.elicenser.download.singleinstance.SingleInstanceLock - Lock file is: C:\users\jakubmynar\AppData\Local\Temp\net-steinberg-sda.4EA4CA71-30AB-4E8A-A087-757CA9B5E747.lock
+01:25:44.522 [main] INFO net.steinberg.elicenser.download.singleinstance.SingleInstanceLock - Message file is: C:\users\jakubmynar\AppData\Local\Temp\net-steinberg-sda.4EA4CA71-30AB-4E8A-A087-757CA9B5E747.message
+��j 31, 2026 1:25:45 DOP. tornadofx.Stylesheet$Companion detectAndInstallUrlHandler
+INFO: Installing CSS url handler, since it was not picked up automatically
+=================================================================================================================================================
+
+                                    ????????????????????????????????   ?????????? ???????????????  ???????
+                                    ?????????????????????????????????  ???????????????????????????????????
+                                    ????????   ???   ??????  ????????? ?????????????????  ???????????  ????
+                                    ????????   ???   ??????  ???????????????????????????  ???????????   ???
+                                    ????????   ???   ?????????????? ?????????????????????????  ????????????
+                                    ????????   ???   ??????????????  ???????????? ???????????  ??? ???????
+
+???????  ??????? ???    ???????   ??????      ???????  ?????? ???????      ?????? ???????????????????????????????????? ?????? ????   ????????????
+????????????????????    ????????  ??????     ?????????????????????????    ?????????????????????????????????????????????????????????  ????????????
+???  ??????   ?????? ?? ????????? ??????     ???   ??????????????  ???    ???????????????????????????????????   ???   ?????????????? ???   ???
+???  ??????   ??????????????????????????     ???   ??????????????  ???    ???????????????????????????????????   ???   ??????????????????   ???
+?????????????????????????????? ??????????????????????????  ???????????    ???  ??????????????????????????????   ???   ???  ?????? ??????   ???
+???????  ???????  ???????? ???  ????????????? ??????? ???  ??????????     ???  ??????????????????????????????   ???   ???  ??????  ?????   ???
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Steinberg Download Assistant Version: 1.40.1
+Spring-Boot Framework Version: 2.7.18
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+2026-10-31 01:25:50.085  INFO 332 --- [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 1.8.0_492 on kcrfedora with PID 332 (C:\Program Files (x86)\Steinberg\Download Assistant\app\Steinberg Download Assistant.jar started by jakubmynar in C:\Program Files (x86)\Steinberg\Download Assistant\app)
+2026-10-31 01:25:50.086  INFO 332 --- [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2026-10-31 01:25:55.257  INFO 332 --- [JavaFX-Launcher] n.s.e.d.d.a.i.Aria2SettingsService       : Use free port 6800 for Aria (within the configured range 6800-6850)
+2026-10-31 01:25:55.283  INFO 332 --- [JavaFX-Launcher] n.s.e.d.c.DownloadDirectoryServiceImpl   : Set default download subfolder to Steinberg
+2026-10-31 01:25:55.296  INFO 332 --- [JavaFX-Launcher] n.s.elicenser.aria2j.Aria2JConnector     : Connect to aria service
+2026-10-31 01:25:55.324  INFO 332 --- [JavaFX-Launcher] n.s.e.d.d.a.internal.Aria2Configuration  : Aria2 Installation found. Creating Aria2Process.
+2026-10-31 01:25:55.410  INFO 332 --- [JavaFX-Launcher] n.s.e.d.c.SystemInformationServiceImpl   : getPid() - This JVM's name is '332@kcrfedora'
+2026-10-31 01:25:55.410  INFO 332 --- [JavaFX-Launcher] n.s.e.d.d.a.internal.Aria2Configuration  : Process parameters complete. Starting Aria process.
+2026-10-31 01:25:55.411  INFO 332 --- [JavaFX-Launcher] n.s.e.d.d.aria2.internal.Aria2Process    : Start Aria2: C:\Program Files (x86)\Steinberg\Download Assistant\3rd Party\optional\aria2\aria2c.exe, --no-conf=true, --enable-rpc, --rpc-listen-port=6800, --rpc-secret=e46b20a8-7342-4512-b168-a56459898260, --rpc-listen-all=false, --dir=C:\users\jakubmynar\Downloads\Steinberg, --auto-save-interval=1, --retry-wait=5, --max-concurrent-downloads=5, --max-overall-download-limit=0K, --max-tries=5, --stop-with-process=332, --file-allocation=falloc
+2026-10-31 01:25:55.577  INFO 332 --- [       Thread-8] n.s.e.d.d.aria2.internal.Aria2Process    : stream: 10/31 01:25:55 [[1;32mNOTICE[0m] IPv4 RPC: listening on TCP port 6800
+2026-10-31 01:25:55.580  INFO 332 --- [       Thread-8] n.s.e.d.d.aria2.internal.Aria2Process    : stream: 10/31 01:25:55 [[1;32mNOTICE[0m] IPv6 RPC: listening on TCP port 6800
+2026-10-31 01:25:55.681  INFO 332 --- [JavaFX-Launcher] .e.d.d.r.PersistedDownloadRepositoryImpl : No file with persisted downloads found.
+2026-10-31 01:25:55.779 ERROR 332 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : Could not determine BuildLabEx from registry!
+
+com.sun.jna.platform.win32.Win32Exception: Soubor nebyl nalezen.
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:768) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:743) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:717) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$Companion.getRegistryStringValue(WindowsOsHelper.kt:131) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.buildLabEx(WindowsOsHelper.kt:108) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$getWindowsPlatform$1.invoke(WindowsOsHelper.kt:29) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.safeGet(WindowsOsHelper.kt:48) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.getWindowsPlatform(WindowsOsHelper.kt:29) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl$platform$2.invoke(SystemInformationServiceImpl.kt:45) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl$platform$2.invoke(SystemInformationServiceImpl.kt:42) [classes!/:1.40.1]
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74) [kotlin-stdlib-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getPlatform(SystemInformationServiceImpl.kt:42) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getOsPlatform(SystemInformationServiceImpl.kt:58) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.install.WindowsInstallHelperAccess.<init>(WindowsInstallHelperAccess.kt:43) [classes!/:1.40.1]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [na:1.8.0_492]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [na:1.8.0_492]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [na:1.8.0_492]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [na:1.8.0_492]
+	at kotlin.reflect.jvm.internal.calls.CallerImpl$Constructor.call(CallerImpl.kt:41) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.call(KCallableImpl.kt:108) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callDefaultMethod$kotlin_reflection(KCallableImpl.kt:159) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callBy(KCallableImpl.kt:112) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at org.springframework.beans.BeanUtils$KotlinDelegate.instantiateClass(BeanUtils.java:903) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:198) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:306) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:291) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:710) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:693) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:408) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at net.steinberg.elicenser.download.AbstractJavaFxApplicationSupport.init(AbstractJavaFxApplicationSupport.kt:19) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.Application.init(Application.kt:92) ~[classes!/:1.40.1]
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:841) ~[jfxrt.jar:na]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:na]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_492]
+
+2026-10-31 01:25:55.791  INFO 332 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : 
+Windows OS Information:
+- buildLabEx [registry]   : 'null'
+- WinBuild [registry]     : '19045'
+- ProgramW6432 [env]      : 'C:\Program Files'
+- ProgramFiles [env]      : 'C:\Program Files (x86)'
+- ProgramFiles(x86) [env] : 'C:\Program Files (x86)'
+- Proc Arch [env]         : 'x86'
+- Proc Arch W6432 [env]   : 'AMD64'
+2026-10-31 01:25:55.803  INFO 332 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : isWow64Process = true, processMachine = 332, nativeMachine = 34404 => isArm64OS = false
+2026-10-31 01:25:55.804 ERROR 332 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : Could not determine BuildLabEx from registry!
+
+com.sun.jna.platform.win32.Win32Exception: Soubor nebyl nalezen.
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:768) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:743) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:717) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$Companion.getRegistryStringValue(WindowsOsHelper.kt:131) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.buildLabEx(WindowsOsHelper.kt:108) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.isWin64OS(WindowsOsHelper.kt:89) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.getWindowsPlatform(WindowsOsHelper.kt:41) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl$platform$2.invoke(SystemInformationServiceImpl.kt:45) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl$platform$2.invoke(SystemInformationServiceImpl.kt:42) [classes!/:1.40.1]
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74) [kotlin-stdlib-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getPlatform(SystemInformationServiceImpl.kt:42) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getOsPlatform(SystemInformationServiceImpl.kt:58) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.install.WindowsInstallHelperAccess.<init>(WindowsInstallHelperAccess.kt:43) [classes!/:1.40.1]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [na:1.8.0_492]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [na:1.8.0_492]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [na:1.8.0_492]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [na:1.8.0_492]
+	at kotlin.reflect.jvm.internal.calls.CallerImpl$Constructor.call(CallerImpl.kt:41) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.call(KCallableImpl.kt:108) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callDefaultMethod$kotlin_reflection(KCallableImpl.kt:159) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callBy(KCallableImpl.kt:112) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at org.springframework.beans.BeanUtils$KotlinDelegate.instantiateClass(BeanUtils.java:903) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:198) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:306) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:291) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:710) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:693) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:408) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at net.steinberg.elicenser.download.AbstractJavaFxApplicationSupport.init(AbstractJavaFxApplicationSupport.kt:19) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.Application.init(Application.kt:92) ~[classes!/:1.40.1]
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:841) ~[jfxrt.jar:na]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:na]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_492]
+
+2026-10-31 01:25:55.804  INFO 332 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : ProgramFiles(x86) environment variable exists => isWin64OS=true
+2026-10-31 01:25:55.805  INFO 332 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : Windows platform was determined as WIN64
+2026-10-31 01:25:55.812  INFO 332 --- [onPool-worker-9] n.s.e.d.d.aria2.DownloadObserverPolling  : Starting observer thread
+2026-10-31 01:25:55.813  INFO 332 --- [onPool-worker-9] n.s.e.d.d.aria2.DownloadObserverPolling  : Started observer scheduler
+2026-10-31 01:25:55.993  INFO 332 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : GET for net.steinberg.elicenser.download.common.LinkLookupPathFinder$Link with url https://pathfinder.mb.steinberg.net/rest/oidc-issuer
+2026-10-31 01:25:56.028  INFO 332 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : Sending http request: GET https://pathfinder.mb.steinberg.net/rest/oidc-issuer HTTP/1.1
+Content-Type: application/json
+
+
+2026-10-31 01:25:56.031  INFO 332 --- [JavaFX-Launcher] n.s.e.d.http.PinnedKeyStoreBuilder       : Certificate: /certificates/alphassl_ca_2027.pem found: true
+2026-10-31 01:25:56.052  INFO 332 --- [JavaFX-Launcher] n.s.e.d.http.PinnedKeyStoreBuilder       : Certificate: /certificates/Alpha_SSL_0083_intermediate.pem found: true
+2026-10-31 01:25:56.259 ERROR 332 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : Could not determine BuildLabEx from registry!
+
+com.sun.jna.platform.win32.Win32Exception: Soubor nebyl nalezen.
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:768) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:743) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:717) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$Companion.getRegistryStringValue(WindowsOsHelper.kt:131) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.buildLabEx(WindowsOsHelper.kt:108) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getOsVersion(SystemInformationServiceImpl.kt:83) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.UserAgentServiceFromSystem.determineUserAgent(UserAgentServiceFromSystem.kt:44) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.UserAgentServiceFromSystem.getUserAgent(UserAgentServiceFromSystem.kt:29) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpHandlerFactory.buildHttpHandler(AuthorizedHttpHandlerFactory.kt:50) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpHandlerFactory.getHttpHandler(AuthorizedHttpHandlerFactory.kt:38) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpClientImpl.execute(AuthorizedHttpClientImpl.kt:58) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpClientImpl.get(AuthorizedHttpClientImpl.kt:26) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpClient$DefaultImpls.get$default(AuthorizedHttpClient.kt:9) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.LinkLookupPathFinder.getHref(LinkLookupPathFinder.kt:23) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.LinkLookupPathFinder.getOIDCIssuerRel(LinkLookupPathFinder.kt:98) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.oidc.clientregistration.ClientRegistrationFactoryUsingDiscovery.getIssuerUri(ClientRegistrationFactoryUsingDiscovery.kt:52) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.oidc.clientregistration.ClientRegistrationFactoryUsingDiscovery.fromOidcIssuerLocation(ClientRegistrationFactoryUsingDiscovery.kt:20) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.oidc.NimbusOIDCService.<init>(NimbusOIDCService.kt:40) [classes!/:1.40.1]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [na:1.8.0_492]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [na:1.8.0_492]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [na:1.8.0_492]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [na:1.8.0_492]
+	at kotlin.reflect.jvm.internal.calls.CallerImpl$Constructor.call(CallerImpl.kt:41) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.call(KCallableImpl.kt:108) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callDefaultMethod$kotlin_reflection(KCallableImpl.kt:159) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callBy(KCallableImpl.kt:112) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at org.springframework.beans.BeanUtils$KotlinDelegate.instantiateClass(BeanUtils.java:903) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:198) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:306) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:291) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at net.steinberg.elicenser.download.AbstractJavaFxApplicationSupport.init(AbstractJavaFxApplicationSupport.kt:19) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.Application.init(Application.kt:92) ~[classes!/:1.40.1]
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:841) ~[jfxrt.jar:na]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:na]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_492]
+
+2026-10-31 01:25:56.260  INFO 332 --- [JavaFX-Launcher] n.s.e.d.c.UserAgentServiceFromSystem     : getUserAgent() - User Agent: Steinberg Download Assistant/1.40.1 ({"ClientBits":"32", "OSName":"Windows 10 Pro", "OSVersion":"10.0  x86", "OSBits":"64", "OSLanguage":"cs_CZ", "AriaVersion":"1.37.0"}; +https://www.steinberg.net/en/extras/about.html)
+2026-10-31 01:25:56.260  INFO 332 --- [JavaFX-Launcher] n.s.e.d.h.AuthorizedHttpHandlerFactory   : Using user agent: Steinberg Download Assistant/1.40.1 ({"ClientBits":"32", "OSName":"Windows 10 Pro", "OSVersion":"10.0  x86", "OSBits":"64", "OSLanguage":"cs_CZ", "AriaVersion":"1.37.0"}; +https://www.steinberg.net/en/extras/about.html)
+2026-10-31 01:25:56.332  INFO 332 --- [JavaFX-Launcher] n.s.e.d.h.AuthorizedHttpHandlerFactory   : Created final HttpHandler after UserAgentService is initialized.
+2026-10-31 01:25:56.872  INFO 332 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : Received http response for https://pathfinder.mb.steinberg.net/rest/oidc-issuer: 
+ Status = 200 
+ Body = {
+  "href" : "https://iam.steinberg.net:443/am/oauth2"
+} 
+2026-10-31 01:25:56.992  INFO 332 --- [JavaFX-Launcher] .ClientRegistrationFactoryUsingDiscovery : Resolved OIDC issuer to: https://iam.steinberg.net:443/am/oauth2
+2026-10-31 01:25:56.993  INFO 332 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : GET for net.steinberg.elicenser.download.common.LinkLookupPathFinder$Link with url https://pathfinder.mb.steinberg.net/rest/sda-redirect-uri-steinbergid
+2026-10-31 01:25:56.993  INFO 332 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : Sending http request: GET https://pathfinder.mb.steinberg.net/rest/sda-redirect-uri-steinbergid HTTP/1.1
+Content-Type: application/json
+
+
+2026-10-31 01:25:57.018  INFO 332 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : Received http response for https://pathfinder.mb.steinberg.net/rest/sda-redirect-uri-steinbergid: 
+ Status = 200 
+ Body = {
+  "href" : "https://flow.steinberg.net/login/application/sda/steinbergid"
+} 
+2026-10-31 01:25:57.019  INFO 332 --- [JavaFX-Launcher] .ClientRegistrationFactoryUsingDiscovery : Resolved OIDC redirect uri to: https://flow.steinberg.net/login/application/sda/steinbergid
+2026-10-31 01:25:57.425  INFO 332 --- [JavaFX-Launcher] .ClientRegistrationFactoryUsingDiscovery : Successfully retrieved oidc issuer data
+2026-10-31 01:25:57.531  INFO 332 --- [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 10.093 seconds (JVM running for 13.578)
+2026-10-31 01:25:57.538  INFO 332 --- [JavaFX-Launcher] s.e.d.c.ApplicationPropertiesCreatorImpl : C:\users\jakubmynar\AppData\Roaming\steinberg-download-assistant did not exist, therefore it was created
+2026-10-31 01:25:57.542  INFO 332 --- [JavaFX-Launcher] s.e.d.c.ApplicationPropertiesCreatorImpl : Additional Spring config file did not exist, therefore it was created at C:\users\jakubmynar\AppData\Roaming\steinberg-download-assistant\application.properties
+2026-10-31 01:25:57.543  INFO 332 --- [JavaFX-Launcher] n.s.elicenser.download.Application       : Java Version: 1.8.0_492
+2026-10-31 01:25:57.543  INFO 332 --- [JavaFX-Launcher] n.s.elicenser.download.Application       : Java Home: C:\Program Files (x86)\Steinberg\Download Assistant\runtime
+2026-10-31 01:25:57.546  INFO 332 --- [lication Thread] n.s.elicenser.download.Application       : start() - Start JFX scene
+2026-10-31 01:25:57.610  INFO 332 --- [lication Thread] n.s.e.d.selfupdate.SelfUpdateService     : starting SelfUpdate...
+2026-10-31 01:25:57.610  INFO 332 --- [lication Thread] n.s.e.d.selfupdate.SelfUpdateService     : Beta keys considered for self update: 
+2026-10-31 01:25:57.611  INFO 332 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : GET for net.steinberg.elicenser.download.common.LinkLookupPathFinder$Link with url https://pathfinder.mb.steinberg.net/rest/sda-selfupdate-v2
+2026-10-31 01:25:57.611  INFO 332 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : Sending http request: GET https://pathfinder.mb.steinberg.net/rest/sda-selfupdate-v2 HTTP/1.1
+Content-Type: application/json
+
+
+2026-10-31 01:25:57.637  INFO 332 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : Received http response for https://pathfinder.mb.steinberg.net/rest/sda-selfupdate-v2: 
+ Status = 200 
+ Body = {
+  "href" : "https://client-access-gateway.mb.steinberg.net/desktopClients/update/sda"
+} 
+2026-10-31 01:25:57.645  INFO 332 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : GET for net.steinberg.elicenser.download.selfupdate.ClientUpdateInformation with url https://client-access-gateway.mb.steinberg.net/desktopClients/update/sda
+2026-10-31 01:25:57.645  INFO 332 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : Sending http request: GET https://client-access-gateway.mb.steinberg.net/desktopClients/update/sda HTTP/1.1
+Content-Type: application/json
+
+
+2026-10-31 01:25:57.829  INFO 332 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : Received http response for https://client-access-gateway.mb.steinberg.net/desktopClients/update/sda: 
+ Status = 200 
+ Body = {"updateRequired":false} 
+2026-10-31 01:25:57.865  INFO 332 --- [lication Thread] n.s.e.d.selfupdate.SelfUpdateService     : SelfUpdate completed ... there is no newer version available...
+2026-10-31 01:25:57.897  INFO 332 --- [lication Thread] n.s.e.download.oidc.NimbusOIDCService    : Restoring persisted authorization
+2026-10-31 01:25:57.902  WARN 332 --- [lication Thread] n.s.e.d.w.WindowsCredentialManagerAccess : Read received an error: com.sun.jna.LastErrorException: [1168] Prvek nenalezen.
+2026-10-31 01:25:57.947  INFO 332 --- [lication Thread] n.s.e.download.gui.common.Styles         : Font loaded '/fonts/AkzidGroCFFBol.otf'
+2026-10-31 01:25:57.947  INFO 332 --- [lication Thread] n.s.e.download.gui.common.Styles         : Family: 'Akzidenz Grotesk BE Bold'
+2026-10-31 01:25:57.947  INFO 332 --- [lication Thread] n.s.e.download.gui.common.Styles         : Name: 'AkzidenzGroteskBE-Bold'
+2026-10-31 01:25:57.954  INFO 332 --- [lication Thread] n.s.e.download.gui.common.Styles         : Font loaded '/fonts/AkzidGroCFFBol.otf'
+2026-10-31 01:25:57.954  INFO 332 --- [lication Thread] n.s.e.download.gui.common.Styles         : Family: 'Akzidenz Grotesk BE Bold'
+2026-10-31 01:25:57.954  INFO 332 --- [lication Thread] n.s.e.download.gui.common.Styles         : Name: 'AkzidenzGroteskBE-Bold'
+2026-10-31 01:26:00.645  INFO 332 --- [ionEventHandler] n.s.e.d.c.ExitApplicationEventHandler    : Exit application now.
+2026-10-31 01:26:00.675  INFO 332 --- [onPool-worker-9] .e.d.d.r.PersistedDownloadRepositoryImpl : Saved 0 downloads
+2026-10-31 01:26:00.676  INFO 332 --- [onPool-worker-9] n.s.e.d.d.aria2.DownloadObserverPolling  : Stopping observer scheduler
+2026-10-31 01:26:00.676  INFO 332 --- [onPool-worker-9] n.s.e.d.d.aria2.DownloadObserverPolling  : Stopped observer scheduler
+2026-10-31 01:26:00.676  INFO 332 --- [onPool-worker-9] n.s.e.d.d.aria2.DownloadServiceAria2     : shutdown() - Starting to shut down ARIA...
+2026-10-31 01:26:00.684  INFO 332 --- [onPool-worker-9] n.s.e.d.d.aria2.DownloadServiceAria2     : shutdown() - ... did shut down ARIA.
+2026-10-31 01:26:00.684  INFO 332 --- [ionEventHandler] n.s.e.d.s.SingleInstanceLock             : Terminating ipc server
+2026-10-31 01:26:00.685  INFO 332 --- [ionEventHandler] n.s.e.d.s.SingleInstanceLock             : Terminated ipc server
+2026-10-31 01:26:00.701  WARN 332 --- [lication Thread] o.s.b.f.support.DisposableBeanAdapter    : Custom destroy method 'shutdown' on bean with name 'aria2JService' threw an exception: java.lang.reflect.UndeclaredThrowableException
+2026-10-31 01:26:00.713  INFO 332 --- [       Thread-0] n.s.e.d.s.SingleInstanceLock             : Cleaning up lock
+2026-10-31 01:26:00.714  INFO 332 --- [       Thread-0] n.s.e.d.s.SingleInstanceLock             : Lock file is: C:\users\jakubmynar\AppData\Local\Temp\net-steinberg-sda.4EA4CA71-30AB-4E8A-A087-757CA9B5E747.lock
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "/home/jakubmynar/Cubase/drive_c/windows/explorer.exe"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "/home/jakubmynar/Cubase/drive_c/windows/explorer.exe"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+== Install Steinberg Download Assistant
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "/home/jakubmynar/.local/share/studiowine/cache/Steinberg_Download_Assistant_1.40.1_Installer_win.exe"
+01:30:21.250 [main] INFO net.steinberg.elicenser.download.singleinstance.SingleInstanceLock - Lock file is: C:\users\jakubmynar\AppData\Local\Temp\net-steinberg-sda.4EA4CA71-30AB-4E8A-A087-757CA9B5E747.lock
+01:30:21.265 [main] INFO net.steinberg.elicenser.download.singleinstance.SingleInstanceLock - Message file is: C:\users\jakubmynar\AppData\Local\Temp\net-steinberg-sda.4EA4CA71-30AB-4E8A-A087-757CA9B5E747.message
+��j 31, 2026 1:30:22 DOP. tornadofx.Stylesheet$Companion detectAndInstallUrlHandler
+INFO: Installing CSS url handler, since it was not picked up automatically
+exit: exit status: 0
+Download Assistant installer finished: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "winemenubuilder" "-a" "-r"
+exit: exit status: 0
+0 menu entries / URL handlers now point at /home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+=================================================================================================================================================
+
+                                    ????????????????????????????????   ?????????? ???????????????  ???????
+                                    ?????????????????????????????????  ???????????????????????????????????
+                                    ????????   ???   ??????  ????????? ?????????????????  ???????????  ????
+                                    ????????   ???   ??????  ???????????????????????????  ???????????   ???
+                                    ????????   ???   ?????????????? ?????????????????????????  ????????????
+                                    ????????   ???   ??????????????  ???????????? ???????????  ??? ???????
+
+???????  ??????? ???    ???????   ??????      ???????  ?????? ???????      ?????? ???????????????????????????????????? ?????? ????   ????????????
+????????????????????    ????????  ??????     ?????????????????????????    ?????????????????????????????????????????????????????????  ????????????
+???  ??????   ?????? ?? ????????? ??????     ???   ??????????????  ???    ???????????????????????????????????   ???   ?????????????? ???   ???
+???  ??????   ??????????????????????????     ???   ??????????????  ???    ???????????????????????????????????   ???   ??????????????????   ???
+?????????????????????????????? ??????????????????????????  ???????????    ???  ??????????????????????????????   ???   ???  ?????? ??????   ???
+???????  ???????  ???????? ???  ????????????? ??????? ???  ??????????     ???  ??????????????????????????????   ???   ???  ??????  ?????   ???
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Steinberg Download Assistant Version: 1.40.1
+Spring-Boot Framework Version: 2.7.18
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+2026-10-31 01:30:24.796  INFO 912 --- [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 1.8.0_492 on kcrfedora with PID 912 (C:\Program Files (x86)\Steinberg\Download Assistant\app\Steinberg Download Assistant.jar started by jakubmynar in C:\Program Files (x86)\Steinberg\Download Assistant\app)
+2026-10-31 01:30:24.797  INFO 912 --- [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2026-10-31 01:30:32.153  INFO 912 --- [JavaFX-Launcher] n.s.e.d.d.a.i.Aria2SettingsService       : Use free port 6800 for Aria (within the configured range 6800-6850)
+2026-10-31 01:30:32.235  INFO 912 --- [JavaFX-Launcher] n.s.e.d.c.DownloadDirectoryServiceImpl   : Set default download subfolder to Steinberg
+2026-10-31 01:30:32.251  INFO 912 --- [JavaFX-Launcher] n.s.elicenser.aria2j.Aria2JConnector     : Connect to aria service
+2026-10-31 01:30:32.268  INFO 912 --- [JavaFX-Launcher] n.s.e.d.d.a.internal.Aria2Configuration  : Aria2 Installation found. Creating Aria2Process.
+2026-10-31 01:30:32.358  INFO 912 --- [JavaFX-Launcher] n.s.e.d.c.SystemInformationServiceImpl   : getPid() - This JVM's name is '912@kcrfedora'
+2026-10-31 01:30:32.358  INFO 912 --- [JavaFX-Launcher] n.s.e.d.d.a.internal.Aria2Configuration  : Process parameters complete. Starting Aria process.
+2026-10-31 01:30:32.359  INFO 912 --- [JavaFX-Launcher] n.s.e.d.d.aria2.internal.Aria2Process    : Start Aria2: C:\Program Files (x86)\Steinberg\Download Assistant\3rd Party\optional\aria2\aria2c.exe, --no-conf=true, --enable-rpc, --rpc-listen-port=6800, --rpc-secret=9569f9ba-fe3f-49f7-9c52-bd2a02edb34b, --rpc-listen-all=false, --dir=C:\users\jakubmynar\Downloads\Steinberg, --auto-save-interval=1, --retry-wait=5, --max-concurrent-downloads=5, --max-overall-download-limit=0K, --max-tries=5, --stop-with-process=912, --file-allocation=falloc
+2026-10-31 01:30:32.508  INFO 912 --- [       Thread-8] n.s.e.d.d.aria2.internal.Aria2Process    : stream: 10/31 01:30:32 [[1;32mNOTICE[0m] IPv4 RPC: listening on TCP port 6800
+2026-10-31 01:30:32.508  INFO 912 --- [       Thread-8] n.s.e.d.d.aria2.internal.Aria2Process    : stream: 10/31 01:30:32 [[1;32mNOTICE[0m] IPv6 RPC: listening on TCP port 6800
+2026-10-31 01:30:33.026  INFO 912 --- [JavaFX-Launcher] .e.d.d.r.PersistedDownloadRepositoryImpl : Loaded 0 persisted downloads
+2026-10-31 01:30:33.128 ERROR 912 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : Could not determine BuildLabEx from registry!
+
+com.sun.jna.platform.win32.Win32Exception: Soubor nebyl nalezen.
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:768) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:743) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:717) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$Companion.getRegistryStringValue(WindowsOsHelper.kt:131) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.buildLabEx(WindowsOsHelper.kt:108) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$getWindowsPlatform$1.invoke(WindowsOsHelper.kt:29) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.safeGet(WindowsOsHelper.kt:48) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.getWindowsPlatform(WindowsOsHelper.kt:29) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl$platform$2.invoke(SystemInformationServiceImpl.kt:45) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl$platform$2.invoke(SystemInformationServiceImpl.kt:42) [classes!/:1.40.1]
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74) [kotlin-stdlib-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getPlatform(SystemInformationServiceImpl.kt:42) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getOsPlatform(SystemInformationServiceImpl.kt:58) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.install.WindowsInstallHelperAccess.<init>(WindowsInstallHelperAccess.kt:43) [classes!/:1.40.1]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [na:1.8.0_492]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [na:1.8.0_492]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [na:1.8.0_492]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [na:1.8.0_492]
+	at kotlin.reflect.jvm.internal.calls.CallerImpl$Constructor.call(CallerImpl.kt:41) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.call(KCallableImpl.kt:108) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callDefaultMethod$kotlin_reflection(KCallableImpl.kt:159) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callBy(KCallableImpl.kt:112) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at org.springframework.beans.BeanUtils$KotlinDelegate.instantiateClass(BeanUtils.java:903) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:198) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:306) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:291) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:710) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:693) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:408) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at net.steinberg.elicenser.download.AbstractJavaFxApplicationSupport.init(AbstractJavaFxApplicationSupport.kt:19) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.Application.init(Application.kt:92) ~[classes!/:1.40.1]
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:841) ~[jfxrt.jar:na]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:na]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_492]
+
+2026-10-31 01:30:33.135  INFO 912 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : 
+Windows OS Information:
+- buildLabEx [registry]   : 'null'
+- WinBuild [registry]     : '19045'
+- ProgramW6432 [env]      : 'C:\Program Files'
+- ProgramFiles [env]      : 'C:\Program Files (x86)'
+- ProgramFiles(x86) [env] : 'C:\Program Files (x86)'
+- Proc Arch [env]         : 'x86'
+- Proc Arch W6432 [env]   : 'AMD64'
+2026-10-31 01:30:33.148  INFO 912 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : isWow64Process = true, processMachine = 332, nativeMachine = 34404 => isArm64OS = false
+2026-10-31 01:30:33.149 ERROR 912 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : Could not determine BuildLabEx from registry!
+
+com.sun.jna.platform.win32.Win32Exception: Soubor nebyl nalezen.
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:768) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:743) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:717) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$Companion.getRegistryStringValue(WindowsOsHelper.kt:131) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.buildLabEx(WindowsOsHelper.kt:108) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.isWin64OS(WindowsOsHelper.kt:89) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.getWindowsPlatform(WindowsOsHelper.kt:41) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl$platform$2.invoke(SystemInformationServiceImpl.kt:45) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl$platform$2.invoke(SystemInformationServiceImpl.kt:42) [classes!/:1.40.1]
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74) [kotlin-stdlib-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getPlatform(SystemInformationServiceImpl.kt:42) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getOsPlatform(SystemInformationServiceImpl.kt:58) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.install.WindowsInstallHelperAccess.<init>(WindowsInstallHelperAccess.kt:43) [classes!/:1.40.1]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [na:1.8.0_492]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [na:1.8.0_492]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [na:1.8.0_492]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [na:1.8.0_492]
+	at kotlin.reflect.jvm.internal.calls.CallerImpl$Constructor.call(CallerImpl.kt:41) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.call(KCallableImpl.kt:108) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callDefaultMethod$kotlin_reflection(KCallableImpl.kt:159) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callBy(KCallableImpl.kt:112) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at org.springframework.beans.BeanUtils$KotlinDelegate.instantiateClass(BeanUtils.java:903) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:198) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:306) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:291) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:710) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:693) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:408) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at net.steinberg.elicenser.download.AbstractJavaFxApplicationSupport.init(AbstractJavaFxApplicationSupport.kt:19) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.Application.init(Application.kt:92) ~[classes!/:1.40.1]
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:841) ~[jfxrt.jar:na]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:na]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_492]
+
+2026-10-31 01:30:33.150  INFO 912 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : ProgramFiles(x86) environment variable exists => isWin64OS=true
+2026-10-31 01:30:33.150  INFO 912 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : Windows platform was determined as WIN64
+2026-10-31 01:30:33.156  INFO 912 --- [onPool-worker-9] n.s.e.d.d.aria2.DownloadObserverPolling  : Starting observer thread
+2026-10-31 01:30:33.157  INFO 912 --- [onPool-worker-9] n.s.e.d.d.aria2.DownloadObserverPolling  : Started observer scheduler
+2026-10-31 01:30:33.337  INFO 912 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : GET for net.steinberg.elicenser.download.common.LinkLookupPathFinder$Link with url https://pathfinder.mb.steinberg.net/rest/oidc-issuer
+2026-10-31 01:30:33.362  INFO 912 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : Sending http request: GET https://pathfinder.mb.steinberg.net/rest/oidc-issuer HTTP/1.1
+Content-Type: application/json
+
+
+2026-10-31 01:30:33.366  INFO 912 --- [JavaFX-Launcher] n.s.e.d.http.PinnedKeyStoreBuilder       : Certificate: /certificates/alphassl_ca_2027.pem found: true
+2026-10-31 01:30:33.389  INFO 912 --- [JavaFX-Launcher] n.s.e.d.http.PinnedKeyStoreBuilder       : Certificate: /certificates/Alpha_SSL_0083_intermediate.pem found: true
+2026-10-31 01:30:33.640 ERROR 912 --- [JavaFX-Launcher] n.s.e.d.common.system.WindowsOsHelper    : Could not determine BuildLabEx from registry!
+
+com.sun.jna.platform.win32.Win32Exception: Soubor nebyl nalezen.
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:768) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:743) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at com.sun.jna.platform.win32.Advapi32Util.registryGetStringValue(Advapi32Util.java:717) ~[jna-platform-5.12.1.jar!/:5.12.1 (b0)]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$Companion.getRegistryStringValue(WindowsOsHelper.kt:131) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper$1.invoke(WindowsOsHelper.kt:17) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.system.WindowsOsHelper.buildLabEx(WindowsOsHelper.kt:108) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.SystemInformationServiceImpl.getOsVersion(SystemInformationServiceImpl.kt:83) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.UserAgentServiceFromSystem.determineUserAgent(UserAgentServiceFromSystem.kt:44) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.UserAgentServiceFromSystem.getUserAgent(UserAgentServiceFromSystem.kt:29) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpHandlerFactory.buildHttpHandler(AuthorizedHttpHandlerFactory.kt:50) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpHandlerFactory.getHttpHandler(AuthorizedHttpHandlerFactory.kt:38) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpClientImpl.execute(AuthorizedHttpClientImpl.kt:58) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpClientImpl.get(AuthorizedHttpClientImpl.kt:26) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.http.AuthorizedHttpClient$DefaultImpls.get$default(AuthorizedHttpClient.kt:9) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.LinkLookupPathFinder.getHref(LinkLookupPathFinder.kt:23) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.common.LinkLookupPathFinder.getOIDCIssuerRel(LinkLookupPathFinder.kt:98) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.oidc.clientregistration.ClientRegistrationFactoryUsingDiscovery.getIssuerUri(ClientRegistrationFactoryUsingDiscovery.kt:52) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.oidc.clientregistration.ClientRegistrationFactoryUsingDiscovery.fromOidcIssuerLocation(ClientRegistrationFactoryUsingDiscovery.kt:20) [classes!/:1.40.1]
+	at net.steinberg.elicenser.download.oidc.NimbusOIDCService.<init>(NimbusOIDCService.kt:40) [classes!/:1.40.1]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [na:1.8.0_492]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [na:1.8.0_492]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [na:1.8.0_492]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) [na:1.8.0_492]
+	at kotlin.reflect.jvm.internal.calls.CallerImpl$Constructor.call(CallerImpl.kt:41) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.call(KCallableImpl.kt:108) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callDefaultMethod$kotlin_reflection(KCallableImpl.kt:159) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callBy(KCallableImpl.kt:112) [kotlin-reflect-1.8.0.jar!/:1.8.0-release-345(1.8.0)]
+	at org.springframework.beans.BeanUtils$KotlinDelegate.instantiateClass(BeanUtils.java:903) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:198) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:306) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:291) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) [spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar!/:5.3.31]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar!/:2.7.18]
+	at net.steinberg.elicenser.download.AbstractJavaFxApplicationSupport.init(AbstractJavaFxApplicationSupport.kt:19) ~[classes!/:1.40.1]
+	at net.steinberg.elicenser.download.Application.init(Application.kt:92) ~[classes!/:1.40.1]
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:841) ~[jfxrt.jar:na]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$1(LauncherImpl.java:182) ~[jfxrt.jar:na]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_492]
+
+2026-10-31 01:30:33.640  INFO 912 --- [JavaFX-Launcher] n.s.e.d.c.UserAgentServiceFromSystem     : getUserAgent() - User Agent: Steinberg Download Assistant/1.40.1 ({"ClientBits":"32", "OSName":"Windows 10 Pro", "OSVersion":"10.0  x86", "OSBits":"64", "OSLanguage":"cs_CZ", "AriaVersion":"1.37.0"}; +https://www.steinberg.net/en/extras/about.html)
+2026-10-31 01:30:33.640  INFO 912 --- [JavaFX-Launcher] n.s.e.d.h.AuthorizedHttpHandlerFactory   : Using user agent: Steinberg Download Assistant/1.40.1 ({"ClientBits":"32", "OSName":"Windows 10 Pro", "OSVersion":"10.0  x86", "OSBits":"64", "OSLanguage":"cs_CZ", "AriaVersion":"1.37.0"}; +https://www.steinberg.net/en/extras/about.html)
+2026-10-31 01:30:33.716  INFO 912 --- [JavaFX-Launcher] n.s.e.d.h.AuthorizedHttpHandlerFactory   : Created final HttpHandler after UserAgentService is initialized.
+2026-10-31 01:30:34.323  INFO 912 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : Received http response for https://pathfinder.mb.steinberg.net/rest/oidc-issuer: 
+ Status = 200 
+ Body = {
+  "href" : "https://iam.steinberg.net:443/am/oauth2"
+} 
+2026-10-31 01:30:34.334  INFO 912 --- [JavaFX-Launcher] .ClientRegistrationFactoryUsingDiscovery : Resolved OIDC issuer to: https://iam.steinberg.net:443/am/oauth2
+2026-10-31 01:30:34.335  INFO 912 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : GET for net.steinberg.elicenser.download.common.LinkLookupPathFinder$Link with url https://pathfinder.mb.steinberg.net/rest/sda-redirect-uri-steinbergid
+2026-10-31 01:30:34.335  INFO 912 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : Sending http request: GET https://pathfinder.mb.steinberg.net/rest/sda-redirect-uri-steinbergid HTTP/1.1
+Content-Type: application/json
+
+
+2026-10-31 01:30:34.361  INFO 912 --- [JavaFX-Launcher] n.s.e.d.http.AuthorizedHttpClientImpl    : Received http response for https://pathfinder.mb.steinberg.net/rest/sda-redirect-uri-steinbergid: 
+ Status = 200 
+ Body = {
+  "href" : "https://flow.steinberg.net/login/application/sda/steinbergid"
+} 
+2026-10-31 01:30:34.361  INFO 912 --- [JavaFX-Launcher] .ClientRegistrationFactoryUsingDiscovery : Resolved OIDC redirect uri to: https://flow.steinberg.net/login/application/sda/steinbergid
+2026-10-31 01:30:34.661  INFO 912 --- [JavaFX-Launcher] .ClientRegistrationFactoryUsingDiscovery : Successfully retrieved oidc issuer data
+2026-10-31 01:30:34.781  INFO 912 --- [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 10.775 seconds (JVM running for 14.031)
+2026-10-31 01:30:34.789  INFO 912 --- [JavaFX-Launcher] n.s.elicenser.download.Application       : Java Version: 1.8.0_492
+2026-10-31 01:30:34.789  INFO 912 --- [JavaFX-Launcher] n.s.elicenser.download.Application       : Java Home: C:\Program Files (x86)\Steinberg\Download Assistant\runtime
+2026-10-31 01:30:34.791  INFO 912 --- [lication Thread] n.s.elicenser.download.Application       : start() - Start JFX scene
+2026-10-31 01:30:34.850  INFO 912 --- [lication Thread] n.s.e.d.selfupdate.SelfUpdateService     : starting SelfUpdate...
+2026-10-31 01:30:34.851  INFO 912 --- [lication Thread] n.s.e.d.selfupdate.SelfUpdateService     : Beta keys considered for self update: 
+2026-10-31 01:30:34.851  INFO 912 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : GET for net.steinberg.elicenser.download.common.LinkLookupPathFinder$Link with url https://pathfinder.mb.steinberg.net/rest/sda-selfupdate-v2
+2026-10-31 01:30:34.851  INFO 912 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : Sending http request: GET https://pathfinder.mb.steinberg.net/rest/sda-selfupdate-v2 HTTP/1.1
+Content-Type: application/json
+
+
+2026-10-31 01:30:34.882  INFO 912 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : Received http response for https://pathfinder.mb.steinberg.net/rest/sda-selfupdate-v2: 
+ Status = 200 
+ Body = {
+  "href" : "https://client-access-gateway.mb.steinberg.net/desktopClients/update/sda"
+} 
+2026-10-31 01:30:34.889  INFO 912 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : GET for net.steinberg.elicenser.download.selfupdate.ClientUpdateInformation with url https://client-access-gateway.mb.steinberg.net/desktopClients/update/sda
+2026-10-31 01:30:34.890  INFO 912 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : Sending http request: GET https://client-access-gateway.mb.steinberg.net/desktopClients/update/sda HTTP/1.1
+Content-Type: application/json
+
+
+2026-10-31 01:30:35.054  INFO 912 --- [lication Thread] n.s.e.d.http.AuthorizedHttpClientImpl    : Received http response for https://client-access-gateway.mb.steinberg.net/desktopClients/update/sda: 
+ Status = 200 
+ Body = {"updateRequired":false} 
+2026-10-31 01:30:35.073  INFO 912 --- [lication Thread] n.s.e.d.selfupdate.SelfUpdateService     : SelfUpdate completed ... there is no newer version available...
+2026-10-31 01:30:35.115  INFO 912 --- [lication Thread] n.s.e.download.oidc.NimbusOIDCService    : Restoring persisted authorization
+2026-10-31 01:30:35.120  WARN 912 --- [lication Thread] n.s.e.d.w.WindowsCredentialManagerAccess : Read received an error: com.sun.jna.LastErrorException: [1168] Prvek nenalezen.
+2026-10-31 01:30:35.179  INFO 912 --- [lication Thread] n.s.e.download.gui.common.Styles         : Font loaded '/fonts/AkzidGroCFFBol.otf'
+2026-10-31 01:30:35.179  INFO 912 --- [lication Thread] n.s.e.download.gui.common.Styles         : Family: 'Akzidenz Grotesk BE Bold'
+2026-10-31 01:30:35.179  INFO 912 --- [lication Thread] n.s.e.download.gui.common.Styles         : Name: 'AkzidenzGroteskBE-Bold'
+2026-10-31 01:30:35.186  INFO 912 --- [lication Thread] n.s.e.download.gui.common.Styles         : Font loaded '/fonts/AkzidGroCFFBol.otf'
+2026-10-31 01:30:35.186  INFO 912 --- [lication Thread] n.s.e.download.gui.common.Styles         : Family: 'Akzidenz Grotesk BE Bold'
+2026-10-31 01:30:35.186  INFO 912 --- [lication Thread] n.s.e.download.gui.common.Styles         : Name: 'AkzidenzGroteskBE-Bold'
+2026-10-31 01:30:37.992  INFO 912 --- [lication Thread] n.s.e.download.oidc.NimbusOIDCService    : Starting login flow
+2026-10-31 01:30:37.993  INFO 912 --- [lication Thread] n.s.e.d.o.a.AuthorizationCodeHandlerImpl : Starting authorization code handler
+2026-10-31 01:30:38.019  INFO 912 --- [lication Thread] n.s.e.d.common.SystemBrowserLauncher     : Opening Web Page: https://iam.steinberg.net:443/am/oauth2/authorize?scope=openid+profile+email+client-access-gateway&response_type=code&redirect_uri=https%3A%2F%2Fflow.steinberg.net%2Flogin%2Fapplication%2Fsda%2Fsteinbergid&state=C9xi45pXVr9EyJBWTIuMop5-AA8C23Fk6pRiS0tSJCc&code_challenge_method=S256&nonce=VbGRk3kaM40ymhASVbqp3dyUgQ9ARyNWw-He_pjCznE&client_id=sda&code_challenge=VJsx_LNmnXvJ1Mindoa1jGUubm2u50YXGOmUsvstUHw
+restorecon: SELinux: Could not get canonical path for /home/jakubmynar/.mozilla/firefox/*/gmp-widevinecdm/* restorecon: No such file or directory.
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+2026-10-31 01:30:42.611  INFO 912 --- [lication Thread] n.s.e.download.oidc.NimbusOIDCService    : Starting login flow
+2026-10-31 01:30:42.612  INFO 912 --- [lication Thread] n.s.e.d.o.a.AuthorizationCodeHandlerImpl : Starting authorization code handler
+2026-10-31 01:30:42.613  INFO 912 --- [lication Thread] n.s.e.d.common.SystemBrowserLauncher     : Opening Web Page: https://iam.steinberg.net:443/am/oauth2/authorize?scope=openid+profile+email+client-access-gateway&response_type=code&redirect_uri=https%3A%2F%2Fflow.steinberg.net%2Flogin%2Fapplication%2Fsda%2Fsteinbergid&state=-lgFjF60fxS5ljQOxz6vFXKmu7YQwDGAej04GJTNtrI&code_challenge_method=S256&nonce=0B2GYacid2__s0FEG9tTn33Djr3oo1oLqEd70GtwQ9g&client_id=sda&code_challenge=HIBXjUZYDFPVSd0znmzrRDxZmOoG9sPOaGXNHD6UCz4
+restorecon: SELinux: Could not get canonical path for /home/jakubmynar/.mozilla/firefox/*/gmp-widevinecdm/* restorecon: No such file or directory.
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+2026-10-31 01:30:54.678  INFO 912 --- [lication Thread] n.s.e.download.oidc.NimbusOIDCService    : Starting login flow
+2026-10-31 01:30:54.678  INFO 912 --- [lication Thread] n.s.e.d.o.a.AuthorizationCodeHandlerImpl : Starting authorization code handler
+2026-10-31 01:30:54.682  INFO 912 --- [lication Thread] n.s.e.d.common.SystemBrowserLauncher     : Opening Web Page: https://iam.steinberg.net:443/am/oauth2/authorize?scope=openid+profile+email+client-access-gateway&response_type=code&redirect_uri=https%3A%2F%2Fflow.steinberg.net%2Flogin%2Fapplication%2Fsda%2Fsteinbergid&state=SvyJ9kiVYJXmCsxhVdqzEYyyeZI2Ic77PMNWFpeVYCI&code_challenge_method=S256&nonce=NaghQvINXB0lG1UI0vMy1tOrVsIBPPXb6L-4hCGiLWc&client_id=sda&code_challenge=EC6f37ExT_FTVdMQDANQgH0kkxQBdADjhde7vrJ35sg
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+2026-10-31 01:31:29.077  INFO 912 --- [lication Thread] n.s.e.download.oidc.NimbusOIDCService    : Starting login flow
+2026-10-31 01:31:29.078  INFO 912 --- [lication Thread] n.s.e.d.o.a.AuthorizationCodeHandlerImpl : Starting authorization code handler
+2026-10-31 01:31:29.079  INFO 912 --- [lication Thread] n.s.e.d.common.SystemBrowserLauncher     : Opening Web Page: https://iam.steinberg.net:443/am/oauth2/authorize?scope=openid+profile+email+client-access-gateway&response_type=code&redirect_uri=https%3A%2F%2Fflow.steinberg.net%2Flogin%2Fapplication%2Fsda%2Fsteinbergid&state=jkoitnW19ML7uGniY-PP3FDdEOXwwhrp-Gmv5HmIqNs&code_challenge_method=S256&nonce=XYWAGDHoBDHjMOaMVlEF_Fo2Dgm5rqo_b_NsQQnVDmw&client_id=sda&code_challenge=3V-cViInOKYfnPmtIggHV8bffjN888P9fInALT4t7q0
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+2026-10-31 01:32:12.380  INFO 912 --- [lication Thread] n.s.e.download.oidc.NimbusOIDCService    : Starting login flow
+2026-10-31 01:32:12.381  INFO 912 --- [lication Thread] n.s.e.d.o.a.AuthorizationCodeHandlerImpl : Starting authorization code handler
+2026-10-31 01:32:12.382  INFO 912 --- [lication Thread] n.s.e.d.common.SystemBrowserLauncher     : Opening Web Page: https://iam.steinberg.net:443/am/oauth2/authorize?scope=openid+profile+email+client-access-gateway&response_type=code&redirect_uri=https%3A%2F%2Fflow.steinberg.net%2Flogin%2Fapplication%2Fsda%2Fsteinbergid&state=RJv9eYudClgP7rQszZwvItcu9B193cOB7zgVWww8t68&code_challenge_method=S256&nonce=vwb_hHQCcYzVSxKW8nA2GzD4SyQ48BUlgUuEa4kgZE8&client_id=sda&code_challenge=cGC0xoX6R0TgQcnZ0BQCbEMvOb0tbMKibbJ-kKQNU2s
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+2026-10-31 01:32:20.634  INFO 912 --- [ionEventHandler] n.s.e.d.c.ExitApplicationEventHandler    : Exit application now.
+2026-10-31 01:32:20.652  INFO 912 --- [onPool-worker-2] .e.d.d.r.PersistedDownloadRepositoryImpl : Saved 0 downloads
+2026-10-31 01:32:20.652  INFO 912 --- [onPool-worker-2] n.s.e.d.d.aria2.DownloadObserverPolling  : Stopping observer scheduler
+2026-10-31 01:32:20.652  INFO 912 --- [onPool-worker-2] n.s.e.d.d.aria2.DownloadObserverPolling  : Stopped observer scheduler
+2026-10-31 01:32:20.653  INFO 912 --- [onPool-worker-2] n.s.e.d.d.aria2.DownloadServiceAria2     : shutdown() - Starting to shut down ARIA...
+2026-10-31 01:32:20.658  INFO 912 --- [onPool-worker-2] n.s.e.d.d.aria2.DownloadServiceAria2     : shutdown() - ... did shut down ARIA.
+2026-10-31 01:32:20.658  INFO 912 --- [ionEventHandler] n.s.e.d.s.SingleInstanceLock             : Terminating ipc server
+2026-10-31 01:32:20.658  INFO 912 --- [ionEventHandler] n.s.e.d.s.SingleInstanceLock             : Terminated ipc server
+2026-10-31 01:32:20.671  WARN 912 --- [lication Thread] o.s.b.f.support.DisposableBeanAdapter    : Custom destroy method 'shutdown' on bean with name 'aria2JService' threw an exception: java.lang.reflect.UndeclaredThrowableException
+2026-10-31 01:32:20.686  INFO 912 --- [       Thread-0] n.s.e.d.s.SingleInstanceLock             : Cleaning up lock
+2026-10-31 01:32:20.687  INFO 912 --- [       Thread-0] n.s.e.d.s.SingleInstanceLock             : Lock file is: C:\users\jakubmynar\AppData\Local\Temp\net-steinberg-sda.4EA4CA71-30AB-4E8A-A087-757CA9B5E747.lock
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+exit: exit status: 0
+exit: exit status: 0
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "regedit" "/S" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\studiowine-import.reg"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudioBELlba/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudioBELlba/wine/bin:/home/jakubmynar/.local/bin:/home/jakubmynar/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudioBELlba/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudioBELlba/wine/bin/wineserver" "/tmp/.mount_StudioBELlba/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+Wine environment: /home/jakubmynar/Cubase
+$ LD_LIBRARY_PATH="/tmp/.mount_StudiophKdAm/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudiophKdAm/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudiophKdAm/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudiophKdAm/wine/bin/wineserver" "/tmp/.mount_StudiophKdAm/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+WineASIO: PipeWire JACK found
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudiophKdAm/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudiophKdAm/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudiophKdAm/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudiophKdAm/wine/bin/wineserver" "/tmp/.mount_StudiophKdAm/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_StudiophKdAm/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudiophKdAm/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudiophKdAm/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudiophKdAm/wine/bin/wineserver" "/tmp/.mount_StudiophKdAm/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+$ LD_LIBRARY_PATH="/tmp/.mount_StudiophKdAm/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_StudiophKdAm/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/Cubase/StudioWine-0.2.0-x86_64.AppImage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_StudiophKdAm/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_StudiophKdAm/wine/bin/wineserver" "/tmp/.mount_StudiophKdAm/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+exit: exit status: 0
+exit: exit status: 0
+restorecon: SELinux: Could not get canonical path for /home/jakubmynar/.mozilla/firefox/*/gmp-widevinecdm/* restorecon: No such file or directory.
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+Wine environment: /home/jakubmynar/Cubase
+7 handler files rewritten
+$ LD_LIBRARY_PATH="/tmp/.mount_studioNBIIHM/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studioNBIIHM/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studioNBIIHM/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studioNBIIHM/wine/bin/wineserver" "/tmp/.mount_studioNBIIHM/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+WineASIO: PipeWire JACK found
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_studioNBIIHM/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studioNBIIHM/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studioNBIIHM/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studioNBIIHM/wine/bin/wineserver" "/tmp/.mount_studioNBIIHM/wine/bin/wine" "winemenubuilder" "-a"
+$ LD_LIBRARY_PATH="/tmp/.mount_studioNBIIHM/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studioNBIIHM/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studioNBIIHM/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studioNBIIHM/wine/bin/wineserver" "/tmp/.mount_studioNBIIHM/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_studioNBIIHM/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studioNBIIHM/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studioNBIIHM/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studioNBIIHM/wine/bin/wineserver" "/tmp/.mount_studioNBIIHM/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+exit: exit status: 0
+exit: exit status: 0
+restorecon: SELinux: Could not get canonical path for /home/jakubmynar/.mozilla/firefox/*/gmp-widevinecdm/* restorecon: No such file or directory.
+XPCOMGlueLoad error for file /usr/lib64/firefox/libmozgtk.so:
+/lib64/libpangoft2-1.0.so.0: undefined symbol: FcConfigSetDefaultSubstitute
+Couldn't load XPCOM.
+$ LD_LIBRARY_PATH="/tmp/.mount_studioNBIIHM/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studioNBIIHM/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studioNBIIHM/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studioNBIIHM/wine/bin/wineserver" "/tmp/.mount_studioNBIIHM/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+exit: exit status: 0
+Wine environment: /home/jakubmynar/Cubase
+$ LD_LIBRARY_PATH="/tmp/.mount_studioonIlJP/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studioonIlJP/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studioonIlJP/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studioonIlJP/wine/bin/wineserver" "/tmp/.mount_studioonIlJP/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+WineASIO: PipeWire JACK found
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_studioonIlJP/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studioonIlJP/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studioonIlJP/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studioonIlJP/wine/bin/wineserver" "/tmp/.mount_studioonIlJP/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_studioonIlJP/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studioonIlJP/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studioonIlJP/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studioonIlJP/wine/bin/wineserver" "/tmp/.mount_studioonIlJP/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+exit: exit status: 0
+Wine environment: /home/jakubmynar/Cubase
+$ LD_LIBRARY_PATH="/tmp/.mount_studionNOIGc/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studionNOIGc/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studionNOIGc/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studionNOIGc/wine/bin/wineserver" "/tmp/.mount_studionNOIGc/wine/bin/wine" "reg" "export" "HKEY_CURRENT_USER\\Software\\Wine\\FileOpenAssociations" "Z:\\home\\jakubmynar\\.local\\share\\studiowine\\cache\\associations.reg" "/y"
+WineASIO: PipeWire JACK found
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_studionNOIGc/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studionNOIGc/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studionNOIGc/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studionNOIGc/wine/bin/wineserver" "/tmp/.mount_studionNOIGc/wine/bin/wine" "winemenubuilder" "-a"
+exit: exit status: 0
+$ LD_LIBRARY_PATH="/tmp/.mount_studionNOIGc/usr/lib:/usr/lib64/pipewire-0.3/jack" PATH="/tmp/.mount_studionNOIGc/wine/bin:/usr/local/bin:/usr/bin" STUDIOWINE_MENU_EXEC="\"/home/jakubmynar/AppImages/studiowine.appimage\" --wine" WINEARCH="win64" WINEDEBUG="-all" WINELOADER="/tmp/.mount_studionNOIGc/wine/bin/wine" WINEPREFIX="/home/jakubmynar/Cubase" WINESERVER="/tmp/.mount_studionNOIGc/wine/bin/wineserver" "/tmp/.mount_studionNOIGc/wine/bin/wine" "start" "/unix" "/home/jakubmynar/Cubase/drive_c/users/Public/Desktop/Steinberg Download Assistant.lnk"
+exit: exit status: 0
