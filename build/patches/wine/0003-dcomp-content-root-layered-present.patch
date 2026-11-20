@@ -1,0 +1,58 @@
+diff --git a/dlls/dcomp/device.c b/dlls/dcomp/device.c
+index ae4dda2..4d38d66 100644
+--- a/dlls/dcomp/device.c
++++ b/dlls/dcomp/device.c
+@@ -7018,9 +7018,39 @@ static void dcomp_target_present_region(struct dcomp_target *target,
+      * the ancestor's, the way the DWM composes the two (issue 335). */
+     over_ancestor = dcomp_target_blend_over_ancestor(target, left, top, right, bottom);
+ 
+-    /* BitBlt only the present region to the target window (the rest already shows the
+-     * prior frame — WM_ERASEBKGND is suppressed). */
+-    hdc = GetDC(target->hwnd);
++    /* A layered top-level without attributes (see dcomp_target_wants_layered_present,
++     * issue 433) has no GDI display path: winex11 keeps it unmapped until it gets
++     * layered attributes, so a BitBlt never reaches the screen.  The content-root
++     * route needs the same UpdateLayeredWindow delivery as the rootless tree.
++     * Cubase 15 draws the parts and events being dragged into such a window
++     * (SteinbergOverlayWindowClass, WS_EX_LAYERED | WS_EX_NOREDIRECTIONBITMAP |
++     * WS_EX_TRANSPARENT | WS_EX_TOOLWINDOW | WS_EX_NOACTIVATE, a 1920x1046
++     * premultiplied content root): every frame was blitted into the unmapped
++     * window and the dragged object vanished for the whole drag.  comp_bits keeps
++     * the previous frame outside the dirty rows, so the dirty rectangle is all
++     * UpdateLayeredWindow has to take over. */
++    hdc = NULL;
++    if (target->present_layered)
++    {
++        BLENDFUNCTION blend = {AC_SRC_OVER, 0, 255, AC_SRC_ALPHA};
++        POINT src = {0, 0};
++        SIZE size = {(LONG)target->comp_width, (LONG)target->comp_height};
++        RECT dirty = {left, top, right, bottom};
++        UPDATELAYEREDWINDOWINFO info = {sizeof(info), NULL, NULL, &size,
++                target->comp_dc, &src, 0, &blend, ULW_ALPHA, &dirty};
++
++        if (!UpdateLayeredWindowIndirect(target->hwnd, &info))
++        {
++            WARN("UpdateLayeredWindow failed on hwnd %p, error %lu, presenting through GDI.\n",
++                    target->hwnd, GetLastError());
++            target->present_layered = FALSE;
++            hdc = GetDC(target->hwnd);
++        }
++    }
++    else
++        /* BitBlt only the present region to the target window (the rest already
++         * shows the prior frame — WM_ERASEBKGND is suppressed). */
++        hdc = GetDC(target->hwnd);
+     if (hdc)
+     {
+         BitBlt(hdc, left, top, right - left, bottom - top,
+@@ -7333,7 +7363,9 @@ static LRESULT CALLBACK dcomp_target_wndproc(HWND hwnd, UINT msg, WPARAM wparam,
+                  * present (issue 56) reaches the window through that present;
+                  * only a window with nothing on the way needs the old frame
+                  * back. */
+-                if (target->comp_dc && target->comp_bits
++                /* A target presented with UpdateLayeredWindow keeps its frame
++                 * in the layered surface; GDI cannot write there. */
++                if (target->comp_dc && target->comp_bits && !target->present_layered
+                         && target->root_visual && target->root_visual->surface_content
+                         && !target->root_visual->surface_content->has_pending)
+                 {
