@@ -67,7 +67,10 @@ pub fn lnk_target(lnk: &Path) -> Option<String> {
 pub fn launch(wine: &Wine, s: &Shortcut, log: &LogSink) -> std::thread::JoinHandle<anyhow::Result<std::process::ExitStatus>> {
     let cmd = wine.command(["start".as_ref(), "/unix".as_ref(), s.lnk.as_os_str()]);
     let log = log.clone();
-    std::thread::spawn(move || crate::wine::run_logged(cmd, &log))
+    std::thread::spawn(move || {
+        crate::hyprland::apply_window_rules(&log);
+        crate::wine::run_logged(cmd, &log)
+    })
 }
 
 /// Changes whenever a shortcut appears, disappears or is rewritten; the UI polls it.

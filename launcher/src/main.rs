@@ -2,6 +2,7 @@ mod audio;
 mod download;
 mod fonts;
 mod handlers;
+mod hyprland;
 mod icons;
 mod log;
 mod paths;
@@ -30,6 +31,9 @@ fn run() -> anyhow::Result<i32> {
         // which may be an earlier location than the one chosen now.
         if let Some(p) = std::env::var_os("WINEPREFIX").filter(|p| !p.is_empty()) {
             paths.prefix = p.into();
+        }
+        if let Ok(log) = log::LogSink::open(&paths.logs, "studiowine.log") {
+            hyprland::apply_window_rules(&log);
         }
         let status = wine::Wine::new(paths).command(&args[1..]).status()?;
         return Ok(status.code().unwrap_or(1));

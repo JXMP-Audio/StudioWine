@@ -33,8 +33,8 @@ Assistant are downloaded from Microsoft and Steinberg during setup.
 ## Using it
 
 ```sh
-chmod +x StudioWine-0.2.1-x86_64.AppImage
-./StudioWine-0.2.1-x86_64.AppImage
+chmod +x StudioWine-0.2.2-x86_64.AppImage
+./StudioWine-0.2.2-x86_64.AppImage
 ```
 
 **First start** — choose where the Wine environment goes (default
@@ -74,6 +74,12 @@ switches location or finishes a task, it makes those of the current location the
 ones and adds any an installer registered without telling Wine (Wine otherwise leaves a
 handler pointing at whichever environment wrote it last).
 
+**Hyprland:** before it starts a Windows program StudioWine adds a window rule through
+`hyprctl` (your config is not changed; a config reload drops it, and the next program start
+adds it again) that turns off animation, blur, shadow and dimming for untitled Windows
+windows — the overlay Cubase drags events in, menus and tooltips. Without it every drag
+animated a window over the whole project and blurred the arrangement behind it.
+
 **Audio:** select **WineASIO** in Cubase (Studio → Studio Setup → Audio System) for the
 lowest latency. It connects to PipeWire through its JACK interface (StudioWine finds
 Debian/Ubuntu's `pipewire-0.3/jack` library by itself, like `pw-jack`) or to a running JACK
@@ -85,7 +91,7 @@ ASIO Driver*.
 ### Troubleshooting
 
 ```sh
-STUDIOWINE_DEBUG=+d2d1,+dcomp,+dwrite ./StudioWine-0.2.1-x86_64.AppImage
+STUDIOWINE_DEBUG=+d2d1,+dcomp,+dwrite ./StudioWine-0.2.2-x86_64.AppImage
 ```
 
 turns on Wine debug channels; output goes to `~/.local/share/studiowine/logs/studiowine.log`.
@@ -117,6 +123,10 @@ memory only when that limit is unlimited.
 folder they archive when the host saves their state, the folder itself included, and pass the
 failed open straight to `fread`; without the patch Cubase crashes as soon as it saves the
 plug-in's state, for instance right after loading it.
+`0003-dcomp-content-root-layered-present.patch` shows what Cubase 15 draws while events are
+dragged: it draws them into a layered overlay window whose DirectComposition content was
+blitted into a window X never maps, so the dragged events vanished until they were dropped;
+the patch delivers those frames with `UpdateLayeredWindow` like Wine's other layered paths.
 
 ## Verified (2026-10-19, 2026-10-20)
 
@@ -139,6 +149,8 @@ plug-in's state, for instance right after loading it.
 | Cardinal 26.02 (VST2 build, same Rack code as the VST3) asked for its state through a minimal host: crashed in `fread` before the patch, returns its 2227-byte state after | yes |
 | WineASIO streaming on the host's PipeWire 1.6.9 (`pipewire-jack`, 8 MB memlock): createBuffers → start → ~375 callbacks/2 s at 256 frames on Wine threads, PipeWire quantum restored; unpatched driver hangs in init | yes |
 | Wine's Desktop folder is private (installer shortcuts stay out of `~/Desktop`); Documents stays linked to `~/Documents` | yes |
+| Cubase 15 (2026-11-20, Hyprland 0.55.2, two monitors): dragged events stay visible while moving | yes |
+| Same: drag overlay no longer animated or blurring the arrangement with the `hyprctl eval` rule in place | yes |
 
 ## Hand-off checklist (needs a Steinberg account)
 

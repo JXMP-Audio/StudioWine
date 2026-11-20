@@ -207,6 +207,7 @@ impl StudioWineApp {
         self.spawn_job("Running program", move |report| {
             let name = file.file_name().unwrap_or_default().to_string_lossy().into_owned();
             report(name.clone());
+            crate::hyprland::apply_window_rules(&ctx.log);
             let is_msi = file.extension().is_some_and(|e| e.eq_ignore_ascii_case("msi"));
             let st = if is_msi {
                 ctx.wine.run_wait(["msiexec".as_ref(), "/i".as_ref(), file.as_os_str()], &ctx.log)?
